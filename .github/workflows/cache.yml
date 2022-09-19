@@ -110,9 +110,6 @@ jobs:
 
       - name: Moving cache
         run: |
-          rm -rf /tmp/cvat_cache_server
-          mv /tmp/cvat_cache_server-new /tmp/cvat_cache_server
-
           rm -rf /tmp/cvat_cache_ui
           mv /tmp/cvat_cache_ui-new /tmp/cvat_cache_ui
 
@@ -121,3 +118,6 @@ jobs:
 
           rm -rf /tmp/cvat_cache_logstash
           mv /tmp/cvat_cache_logstash-new /tmp/cvat_cache_logstash
+
+        #  rm -rf /tmp/cvat_cache_server
+        #  mv /tmp/cvat_cache_server-new /tmp/cvat_cache_server
