@@ -55,7 +55,7 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
             <Content>
                 <Row justify='center' align='middle' style={{ height: '100%' }}>
                     <Col {...sizes}>
-                        <Title level={2}> Reset password </Title>
+                        <Title level={2}> 重置密码 </Title>
                         <ResetPasswordForm
                             fetching={fetching}
                             onSubmit={(resetPasswordData: ResetPasswordData): void => {
@@ -65,8 +65,16 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
                         <Row justify='start' align='top'>
                             <Col>
                                 <Text strong>
-                                    Go to
-                                    <Link to='/auth/login'> login page </Link>
+                                    无法重置密码？联系
+                                    <Link href='dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=1gj-c35iwn4hxp'> 管理员 </Link>
+                                </Text>
+                            </Col>
+                        </Row>
+                        <Row justify='start' align='top'>
+                            <Col>
+                                <Text strong>
+                                    进入
+                                    <Link to='/auth/login'> 登录页面 </Link>
                                 </Text>
                             </Col>
                         </Row>

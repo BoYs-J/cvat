@@ -26,18 +26,18 @@ function ResetPasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element 
                 rules={[
                     {
                         type: 'email',
-                        message: 'The input is not valid E-mail!',
+                        message: '这不是有效的电子邮件地址！',
                     },
                     {
                         required: true,
-                        message: 'Please specify an email address',
+                        message: '请输入电子邮件地址',
                     },
                 ]}
             >
                 <Input
                     autoComplete='email'
                     prefix={<MailOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='Email address'
+                    placeholder='电子邮件地址'
                 />
             </Form.Item>
 
@@ -49,7 +49,7 @@ function ResetPasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element 
                     htmlType='submit'
                     className='cvat-reset-password-form-button'
                 >
-                    Reset password
+                    重置密码
                 </Button>
             </Form.Item>
         </Form>

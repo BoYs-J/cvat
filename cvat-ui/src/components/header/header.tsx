@@ -14,8 +14,8 @@ import Icon, {
     EditOutlined,
     LoadingOutlined,
     LogoutOutlined,
-    GithubOutlined,
-    QuestionCircleOutlined,
+    HomeFilled,
+    BulbFilled,
     CaretDownOutlined,
     ControlOutlined,
     UserOutlined,
@@ -164,7 +164,7 @@ function HeaderContainer(props: Props): JSX.Element {
     } = props;
 
     const {
-        CHANGELOG_URL, LICENSE_URL, GITTER_URL, GITHUB_URL, GUIDE_URL, DISCORD_URL,
+        CHANGELOG_URL, ZERO_URL, GITTER_URL, GUIDE_URL, DISCORD_URL,
     } = consts;
 
     const history = useHistory();
@@ -177,40 +177,40 @@ function HeaderContainer(props: Props): JSX.Element {
                 <div>
                     <p>{`${tool.description}`}</p>
                     <p>
-                        <Text strong>Server version:</Text>
+                        <Text strong>服务器版本：</Text>
                         <Text type='secondary'>{` ${tool.server.version}`}</Text>
                     </p>
                     <p>
-                        <Text strong>Core version:</Text>
+                        <Text strong>核心版本：</Text>
                         <Text type='secondary'>{` ${tool.core.version}`}</Text>
                     </p>
                     <p>
-                        <Text strong>Canvas version:</Text>
+                        <Text strong>画布版本：</Text>
                         <Text type='secondary'>{` ${tool.canvas.version}`}</Text>
                     </p>
                     <p>
-                        <Text strong>UI version:</Text>
+                        <Text strong>UI版本：</Text>
                         <Text type='secondary'>{` ${tool.ui.version}`}</Text>
                     </p>
                     <Row justify='space-around'>
                         <Col>
-                            <a href={CHANGELOG_URL} target='_blank' rel='noopener noreferrer'>
-                                What&apos;s new?
+                            <a href={ZERO_URL} target='_blank' rel='noopener noreferrer'>
+                                零零网络
                             </a>
                         </Col>
                         <Col>
-                            <a href={LICENSE_URL} target='_blank' rel='noopener noreferrer'>
-                                MIT License
+                            <a href={CHANGELOG_URL} target='_blank' rel='noopener noreferrer'>
+                                最新消息
                             </a>
                         </Col>
                         <Col>
                             <a href={GITTER_URL} target='_blank' rel='noopener noreferrer'>
-                                Need help?
+                                需要帮助？
                             </a>
                         </Col>
                         <Col>
                             <a href={DISCORD_URL} target='_blank' rel='noopener noreferrer'>
-                                Find us on Discord
+                                关于开发者
                             </a>
                         </Col>
                     </Row>
@@ -258,21 +258,21 @@ function HeaderContainer(props: Props): JSX.Element {
                         window.open(`${tool.server.host}/admin`, '_blank');
                     }}
                 >
-                    Admin page
+                    管理页面
                 </Menu.Item>
             )}
             <Menu.SubMenu
                 disabled={organizationsFetching}
                 key='organization'
-                title='Organization'
+                title='团队'
                 icon={organizationsFetching ? <LoadingOutlined /> : <TeamOutlined />}
             >
                 {currentOrganization ? (
                     <Menu.Item icon={<SettingOutlined />} key='open_organization' onClick={() => history.push('/organization')} className='cvat-header-menu-open-organization'>
-                        Settings
+                        设置
                     </Menu.Item>
                 ) : null}
-                <Menu.Item icon={<PlusOutlined />} key='create_organization' onClick={() => history.push('/organizations/create')} className='cvat-header-menu-create-organization'>Create</Menu.Item>
+                <Menu.Item icon={<PlusOutlined />} key='create_organization' onClick={() => history.push('/organizations/create')} className='cvat-header-menu-create-organization'>创建</Menu.Item>
                 { organizationsList.length > 5 ? (
                     <Menu.Item
                         key='switch_organization'
@@ -322,7 +322,7 @@ function HeaderContainer(props: Props): JSX.Element {
                                 key='$personal'
                                 onClick={resetOrganization}
                             >
-                                Personal workspace
+                                个人空间
                             </Menu.Item>
                             {organizationsList.map((organization: any): JSX.Element => (
                                 <Menu.Item
@@ -341,13 +341,13 @@ function HeaderContainer(props: Props): JSX.Element {
             <Menu.Item
                 icon={<SettingOutlined />}
                 key='settings'
-                title={`Press ${switchSettingsShortcut} to switch`}
+                title={`按 ${switchSettingsShortcut} 进入`}
                 onClick={() => switchSettingsDialog(true)}
             >
-                Settings
+                设置
             </Menu.Item>
             <Menu.Item icon={<InfoCircleOutlined />} key='about' onClick={() => showAboutModal()}>
-                About
+                关于
             </Menu.Item>
             {renderChangePasswordItem && (
                 <Menu.Item
@@ -357,7 +357,7 @@ function HeaderContainer(props: Props): JSX.Element {
                     onClick={(): void => switchChangePasswordDialog(true)}
                     disabled={changePasswordFetching}
                 >
-                    Change password
+                    修改密码
                 </Menu.Item>
             )}
 
@@ -367,7 +367,7 @@ function HeaderContainer(props: Props): JSX.Element {
                 onClick={onLogout}
                 disabled={logoutFetching}
             >
-                Logout
+                登出账号
             </Menu.Item>
         </Menu>
     );
@@ -392,7 +392,7 @@ function HeaderContainer(props: Props): JSX.Element {
                         history.push('/projects');
                     }}
                 >
-                    Projects
+                    项目
                 </Button>
                 <Button
                     className={getButtonClassName('tasks')}
@@ -404,7 +404,7 @@ function HeaderContainer(props: Props): JSX.Element {
                         history.push('/tasks');
                     }}
                 >
-                    Tasks
+                    任务
                 </Button>
                 <Button
                     className={getButtonClassName('jobs')}
@@ -416,7 +416,7 @@ function HeaderContainer(props: Props): JSX.Element {
                         history.push('/jobs');
                     }}
                 >
-                    Jobs
+                    工作
                 </Button>
                 <Button
                     className={getButtonClassName('cloudstorages')}
@@ -428,7 +428,7 @@ function HeaderContainer(props: Props): JSX.Element {
                         history.push('/cloudstorages');
                     }}
                 >
-                    Cloud Storages
+                    云存储
                 </Button>
                 {isModelsPluginActive ? (
                     <Button
@@ -441,7 +441,7 @@ function HeaderContainer(props: Props): JSX.Element {
                             history.push('/models');
                         }}
                     >
-                        Models
+                        AI模型
                     </Button>
                 ) : null}
                 {isAnalyticsPluginActive ? (
@@ -456,29 +456,29 @@ function HeaderContainer(props: Props): JSX.Element {
                             window.open(`${tool.server.host}/analytics/app/kibana`, '_blank');
                         }}
                     >
-                        Analytics
+                        跟踪器
                     </Button>
                 ) : null}
             </div>
             <div className='cvat-right-header'>
-                <CVATTooltip overlay='Click to open repository'>
+                <CVATTooltip overlay='零零网络'>
                     <Button
-                        icon={<GithubOutlined />}
+                        icon={<HomeFilled />}
                         size='large'
                         className='cvat-header-button'
                         type='link'
-                        href={GITHUB_URL}
+                        href={ZERO_URL}
                         onClick={(event: React.MouseEvent): void => {
                             event.preventDefault();
                             // false alarm
                             // eslint-disable-next-line security/detect-non-literal-fs-filename
-                            window.open(GITHUB_URL, '_blank');
+                            window.open(ZERO_URL, '_blank');
                         }}
                     />
                 </CVATTooltip>
-                <CVATTooltip overlay='Click to open guide'>
+                <CVATTooltip overlay='CVAT使用指南'>
                     <Button
-                        icon={<QuestionCircleOutlined />}
+                        icon={<BulbFilled />}
                         size='large'
                         className='cvat-header-button'
                         type='link'

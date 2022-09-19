@@ -10,6 +10,7 @@ const LICENSE_URL = 'https://github.com/opencv/cvat/blob/develop/LICENSE';
 const GITTER_URL = 'https://gitter.im/opencv-cvat';
 const DISCORD_URL = 'https://discord.gg/fNR3eXfk6C';
 const GITHUB_URL = 'https://github.com/opencv/cvat';
+const ZERO_URL = 'https://www.cdzero.cn';
 const GITHUB_IMAGE_URL = 'https://github.com/opencv/cvat/raw/develop/site/content/en/images/cvat.jpg';
 const GUIDE_URL = 'https://opencv.github.io/cvat/docs';
 const SHARE_MOUNT_GUIDE_URL =
@@ -93,6 +94,7 @@ export default {
     GITHUB_URL,
     GITHUB_IMAGE_URL,
     GUIDE_URL,
+    ZERO_URL,
     SHARE_MOUNT_GUIDE_URL,
     CANVAS_BACKGROUND_COLORS,
     NEW_LABEL_COLOR,

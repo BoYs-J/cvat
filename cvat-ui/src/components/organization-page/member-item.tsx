@@ -17,6 +17,7 @@ export interface Props {
 }
 
 function MemberItem(props: Props): JSX.Element {
+    moment.locale('zh-cn');
     const {
         membershipInstance, onRemoveMembership, onUpdateMembershipRole,
     } = props;
@@ -31,15 +32,15 @@ function MemberItem(props: Props): JSX.Element {
                 <Text strong>{username}</Text>
             </Col>
             <Col span={6} className='cvat-organization-member-item-name'>
-                <Text strong>{`${firstName || ''} ${lastName || ''}`}</Text>
+                <Text strong>{`${lastName || ''}${firstName || ''}`}</Text>
             </Col>
             <Col span={8} className='cvat-organization-member-item-dates'>
                 {invitation ? (
                     <Text type='secondary'>
-                        {`Invited ${moment(invitation.created_date).fromNow()} ${invitation.owner ? `by ${invitation.owner.username}` : ''}`}
+                        {`${moment(invitation.created_date).fromNow()}${invitation.owner?`受到 ${invitation.owner.username}` : ''} 邀请`}
                     </Text>
                 ) : null}
-                {joinedDate ? <Text type='secondary'>{`Joined ${moment(joinedDate).fromNow()}`}</Text> : null}
+                {joinedDate ? <Text type='secondary'>{`加入时间：${moment(joinedDate).fromNow()}`}</Text> : null}
             </Col>
             <Col span={3} className='cvat-organization-member-item-role'>
                 <Select
@@ -50,12 +51,12 @@ function MemberItem(props: Props): JSX.Element {
                     disabled={role === 'owner'}
                 >
                     {role === 'owner' ? (
-                        <Select.Option value='owner'>Owner</Select.Option>
+                        <Select.Option value='owner'>所有者</Select.Option>
                     ) : (
                         <>
-                            <Select.Option value='worker'>Worker</Select.Option>
-                            <Select.Option value='supervisor'>Supervisor</Select.Option>
-                            <Select.Option value='maintainer'>Maintainer</Select.Option>
+                            <Select.Option value='worker'>员工</Select.Option>
+                            <Select.Option value='supervisor'>监察</Select.Option>
+                            <Select.Option value='maintainer'>维护者</Select.Option>
                         </>
                     )}
                 </Select>
@@ -66,9 +67,9 @@ function MemberItem(props: Props): JSX.Element {
                         onClick={() => {
                             Modal.confirm({
                                 className: 'cvat-modal-organization-member-remove',
-                                title: `You are removing "${username}" from this organization`,
-                                content: 'The person will not have access to the organization data anymore. Continue?',
-                                okText: 'Yes, remove',
+                                title: `将 "${username}" 从团队移出`,
+                                content: '此人将不再有访问团队/组织数据的权限，继续吗？',
+                                okText: '确认删除',
                                 okButtonProps: {
                                     danger: true,
                                 },

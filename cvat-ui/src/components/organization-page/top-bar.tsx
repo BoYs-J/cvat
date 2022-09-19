@@ -68,7 +68,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                 <Col span={24}>
                     <div className='cvat-organization-top-bar-descriptions'>
                         <Text>
-                            <Text className='cvat-title'>{`Organization: ${slug} `}</Text>
+                            <Text className='cvat-title'>{`团队名称：${slug} `}</Text>
                         </Text>
                         <Text
                             editable={{
@@ -86,7 +86,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                         </Text>
                         {!editingDescription ? (
                             <span style={{ display: 'grid' }}>
-                                {(description || 'Add description').split('\n').map((val: string, idx: number) => (
+                                {(description || '添加描述').split('\n').map((val: string, idx: number) => (
                                     <Text key={idx} type='secondary'>
                                         {val}
                                         {idx === 0 ? <EditTwoTone onClick={() => setEditingDescription(true)} /> : null}
@@ -112,7 +112,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                         setEditingDescription(false);
                                     }}
                                 >
-                                    Submit
+                                    提交
                                 </Button>
                             </div>
                         )}
@@ -122,7 +122,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                     <div className='cvat-organization-top-bar-contacts'>
                         <div>
                             <PhoneOutlined />
-                            { !contact.phoneNumber ? <Text type='secondary'>Add phone number</Text> : null }
+                            { !contact.phoneNumber ? <Text type='secondary'>添加电话</Text> : null }
                             <Text
                                 type='secondary'
                                 editable={{
@@ -142,7 +142,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                         </div>
                         <div>
                             <MailOutlined />
-                            { !contact.email ? <Text type='secondary'>Add email</Text> : null }
+                            { !contact.email ? <Text type='secondary'>添加邮箱</Text> : null }
                             <Text
                                 type='secondary'
                                 editable={{
@@ -162,7 +162,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                         </div>
                         <div>
                             <EnvironmentOutlined />
-                            { !contact.location ? <Text type='secondary'>Add location</Text> : null }
+                            { !contact.location ? <Text type='secondary'>添加位置</Text> : null }
                             <Text
                                 type='secondary'
                                 editable={{
@@ -180,8 +180,8 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                 {contact.location}
                             </Text>
                         </div>
-                        <Text type='secondary'>{`Created ${moment(createdDate).format('MMMM Do YYYY')}`}</Text>
-                        <Text type='secondary'>{`Updated ${moment(updatedDate).fromNow()}`}</Text>
+                        <Text type='secondary'>{`创建时间：${moment(createdDate).format('YYYY-MM-DD')}`}</Text>
+                        <Text type='secondary'>{`更新时间：${moment(updatedDate).fromNow()}`}</Text>
                     </div>
                 </Col>
                 <Col span={12} className='cvat-organization-top-bar-buttons-block'>
@@ -198,19 +198,19 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                         className: 'cvat-modal-organization-leave-confirm',
                                         content: (
                                             <>
-                                                <Text>Please, confirm leaving the organization</Text>
+                                                <Text>请确认离开团队</Text>
                                                 <Text strong>{` ${organizationInstance.slug}`}</Text>
-                                                <Text>. You will not have access to the organization data anymore</Text>
+                                                <Text>，你将无法访问团队数据！</Text>
                                             </>
                                         ),
-                                        okText: 'Leave',
+                                        okText: '离开',
                                         okButtonProps: {
                                             danger: true,
                                         },
                                     });
                                 }}
                             >
-                                Leave organization
+                                离开团队
                             </Button>
                         ) : null}
                         {owner && userID === owner.id ? (
@@ -225,7 +225,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                         content: (
                                             <div className='cvat-remove-organization-submit'>
                                                 <Text type='warning'>
-                                                    To remove the organization, enter its short name below
+                                                    要删除并解散团队，请输入团队名称！
                                                 </Text>
                                                 <Input
                                                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -244,11 +244,11 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                             disabled: true,
                                             danger: true,
                                         },
-                                        okText: 'Remove',
+                                        okText: '删除',
                                     });
                                 }}
                             >
-                                Remove organization
+                                删除团队
                             </Button>
                         ) : null}
                         <Button
@@ -256,7 +256,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                             onClick={() => setVisibleInviteModal(true)}
                             icon={<PlusCircleOutlined />}
                         >
-                            Invite members
+                            邀请成员
                         </Button>
                     </Space>
                 </Col>
@@ -289,7 +289,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                     layout='vertical'
                     form={form}
                 >
-                    <Text>Invitation list: </Text>
+                    <Text>邀请成员：</Text>
                     <Form.List name='users'>
                         {(fields, { add, remove }) => (
                             <>
@@ -302,11 +302,11 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                                 name={[field.name, 'email']}
                                                 fieldKey={[field.fieldKey, 'email']}
                                                 rules={[
-                                                    { required: true, message: 'This field is required' },
-                                                    { type: 'email', message: 'The input is not a valid email' },
+                                                    { required: true, message: '必须填写该字段' },
+                                                    { type: 'email', message: '这不是有效的电子邮件地址！' },
                                                 ]}
                                             >
-                                                <Input placeholder='Enter an email address' />
+                                                <Input placeholder='输入电子邮件地址' />
                                             </Form.Item>
                                         </Col>
                                         <Col span={10} offset={1}>
@@ -318,9 +318,9 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                                 rules={[{ required: true, message: 'This field is required' }]}
                                             >
                                                 <Select>
-                                                    <Select.Option value='worker'>Worker</Select.Option>
-                                                    <Select.Option value='supervisor'>Supervisor</Select.Option>
-                                                    <Select.Option value='maintainer'>Maintainer</Select.Option>
+                                                    <Select.Option value='worker'>员工</Select.Option>
+                                                    <Select.Option value='supervisor'>监察</Select.Option>
+                                                    <Select.Option value='maintainer'>维护者</Select.Option>
                                                 </Select>
                                             </Form.Item>
                                         </Col>
@@ -333,7 +333,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                 ))}
                                 <Form.Item>
                                     <Button icon={<PlusCircleOutlined />} onClick={() => add()}>
-                                        Invite more
+                                        邀请更多
                                     </Button>
                                 </Form.Item>
                             </>

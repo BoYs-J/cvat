@@ -74,7 +74,7 @@ export const validateConfirmation: ((firstFieldName: string) => RuleRender) = (
 ): RuleRender => ({ getFieldValue }): RuleObject => ({
     validator(_: RuleObject, value: string): Promise<void> {
         if (value && value !== getFieldValue(firstFieldName)) {
-            return Promise.reject(new Error('Two passwords that you enter is inconsistent!'));
+            return Promise.reject(new Error('输入的两次密码不一致！'));
         }
 
         return Promise.resolve();
@@ -123,14 +123,14 @@ function RegisterFormComponent(props: Props): JSX.Element {
                         rules={[
                             {
                                 required: true,
-                                message: 'Please specify a first name',
+                                message: '请输入“姓”（非数字）',
                                 pattern: patterns.validateName.pattern,
                             },
                         ]}
                     >
                         <Input
                             prefix={<UserAddOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                            placeholder='First name'
+                            placeholder='填写“姓”'
                         />
                     </Form.Item>
                 </Col>
@@ -141,14 +141,14 @@ function RegisterFormComponent(props: Props): JSX.Element {
                         rules={[
                             {
                                 required: true,
-                                message: 'Please specify a last name',
+                                message: '请输入“名”（非数字）',
                                 pattern: patterns.validateName.pattern,
                             },
                         ]}
                     >
                         <Input
                             prefix={<UserAddOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                            placeholder='Last name'
+                            placeholder='填写“名”'
                         />
                     </Form.Item>
                 </Col>
@@ -159,7 +159,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
                 rules={[
                     {
                         required: true,
-                        message: 'Please specify a username',
+                        message: '请输入用户名',
                     },
                     {
                         validator: validateUsername,
@@ -168,7 +168,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
             >
                 <Input
                     prefix={<UserAddOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='Username'
+                    placeholder='用户名'
                 />
             </Form.Item>
 
@@ -178,18 +178,18 @@ function RegisterFormComponent(props: Props): JSX.Element {
                 rules={[
                     {
                         type: 'email',
-                        message: 'The input is not valid E-mail!',
+                        message: '这不是有效的电子邮件地址！',
                     },
                     {
                         required: true,
-                        message: 'Please specify an email address',
+                        message: '请输入电子邮件地址！',
                     },
                 ]}
             >
                 <Input
                     autoComplete='email'
                     prefix={<MailOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='Email address'
+                    placeholder='电子邮件地址'
                 />
             </Form.Item>
 
@@ -199,14 +199,14 @@ function RegisterFormComponent(props: Props): JSX.Element {
                 rules={[
                     {
                         required: true,
-                        message: 'Please input your password!',
+                        message: '请输入密码！',
                     }, validatePassword,
                 ]}
             >
                 <Input.Password
                     autoComplete='new-password'
                     prefix={<LockOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='Password'
+                    placeholder='密码'
                 />
             </Form.Item>
 
@@ -217,14 +217,14 @@ function RegisterFormComponent(props: Props): JSX.Element {
                 rules={[
                     {
                         required: true,
-                        message: 'Please confirm your password!',
+                        message: '请再次输入你的密码！',
                     }, validateConfirmation('password1'),
                 ]}
             >
                 <Input.Password
                     autoComplete='new-password'
                     prefix={<LockOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='Confirm password'
+                    placeholder='确认密码'
                 />
             </Form.Item>
 
@@ -258,7 +258,7 @@ function RegisterFormComponent(props: Props): JSX.Element {
                     loading={fetching}
                     disabled={fetching}
                 >
-                    Submit
+                    创建
                 </Button>
             </Form.Item>
         </Form>

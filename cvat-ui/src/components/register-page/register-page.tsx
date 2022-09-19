@@ -44,7 +44,7 @@ function RegisterPageComponent(props: RegisterPageComponentProps & RouteComponen
             <Content>
                 <Row justify='center' align='middle' style={{ height: '100%' }}>
                     <Col {...sizes}>
-                        <Title level={2}> Create an account </Title>
+                        <Title level={2}> 创建账户 </Title>
                         <RegisterForm
                             fetching={fetching}
                             userAgreements={userAgreements}
@@ -63,8 +63,8 @@ function RegisterPageComponent(props: RegisterPageComponentProps & RouteComponen
                         <Row justify='start' align='top'>
                             <Col>
                                 <Text strong>
-                                    Already have an account?
-                                    <Link to='/auth/login'> Login </Link>
+                                    已经有账户了？
+                                    <Link to='/auth/login'> 登录 </Link>
                                 </Text>
                             </Col>
                         </Row>

@@ -54,7 +54,7 @@ function OrganizationPage(): JSX.Element | null {
     return (
         <div className='cvat-organization-page'>
             {!organization ? (
-                <Empty description='You are not in an organization' />
+                <Empty description='你不在任何一个团队' />
             ) : (
                 <>
                     <TopBarComponent

@@ -39,7 +39,7 @@ function CreateOrganizationForm(): JSX.Element {
         dispatch(
             createOrganizationAsync(rest, (createdSlug: string): void => {
                 form.resetFields();
-                notification.info({ message: `Organization ${createdSlug} has been successfully created` });
+                notification.info({ message: `已成功创建团队：${createdSlug} ` });
             }),
         );
     };
@@ -55,10 +55,10 @@ function CreateOrganizationForm(): JSX.Element {
             <Form.Item
                 hasFeedback
                 name='slug'
-                label='Short name'
+                label='团队名称（简称）'
                 rules={[
-                    { required: true, message: 'Short name is a required field' },
-                    { max: MAX_SLUG_LEN, message: `Short name must not exceed ${MAX_SLUG_LEN} characters` },
+                    { required: true, message: '必需输入简称' },
+                    { max: MAX_SLUG_LEN, message: `简称不能超过${MAX_SLUG_LEN}个字符` },
                     { ...validationPatterns.validateOrganizationSlug },
                 ]}
             >
@@ -67,28 +67,28 @@ function CreateOrganizationForm(): JSX.Element {
             <Form.Item
                 hasFeedback
                 name='name'
-                label='Full name'
-                rules={[{ max: MAX_NAME_LEN, message: `Full name must not exceed ${MAX_NAME_LEN} characters` }]}
+                label='全称'
+                rules={[{ max: MAX_NAME_LEN, message: `全称不能超过${MAX_NAME_LEN}个字符` }]}
             >
                 <Input />
             </Form.Item>
-            <Form.Item hasFeedback name='description' label='Description'>
+            <Form.Item hasFeedback name='description' label='团队描述/介绍'>
                 <Input.TextArea rows={3} />
             </Form.Item>
-            <Form.Item hasFeedback name='email' label='Email' rules={[{ type: 'email', message: 'The input is not a valid E-mail' }]}>
-                <Input autoComplete='email' placeholder='support@organization.com' />
+            <Form.Item hasFeedback name='email' label='邮箱：' rules={[{ type: 'email', message: '这不是有效的电子邮件地址！' }]}>
+                <Input autoComplete='email' placeholder='info@cdzero.cn' />
             </Form.Item>
-            <Form.Item hasFeedback name='phoneNumber' label='Phone number' rules={[{ ...validationPatterns.validatePhoneNumber }]}>
-                <Input autoComplete='phoneNumber' placeholder='+44 5555 555555' />
+            <Form.Item hasFeedback name='phoneNumber' label='电话号码：' rules={[{ ...validationPatterns.validatePhoneNumber }]}>
+                <Input autoComplete='phoneNumber' placeholder='+86 5555 5555555' />
             </Form.Item>
-            <Form.Item hasFeedback name='location' label='Location'>
-                <Input autoComplete='location' placeholder='Country, State/Province, Address, Postal code' />
+            <Form.Item hasFeedback name='location' label='地址：'>
+                <Input autoComplete='location' placeholder='成都市 青羊区 天府广场' />
             </Form.Item>
             <Form.Item>
                 <Space className='cvat-create-organization-form-buttons-block' align='end'>
-                    <Button onClick={() => history.goBack()}>Cancel</Button>
+                    <Button onClick={() => history.goBack()}>取消</Button>
                     <Button loading={creating} disabled={creating} htmlType='submit' type='primary'>
-                        Submit
+                        提交
                     </Button>
                 </Space>
             </Form.Item>

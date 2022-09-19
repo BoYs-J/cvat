@@ -44,6 +44,14 @@ const SortableItem = SortableElement(
             }
         };
 
+        const FilterData:any = ['ID', 'Assignee', 'Owner', 'Status', 'Name', 'Updated date']
+        const FilterData_ch:any = ['ID', '受让人', '所有者', '状态', '名称', '更新时间']
+            for (let i = 0; i < FilterData.length; i++) {
+                if (value === FilterData[i]){
+                    var valuedate = FilterData_ch[i]
+                }
+            }
+
         if (value === ANCHOR_KEYWORD) {
             return (
                 <hr className='cvat-sorting-anchor' />
@@ -52,7 +60,7 @@ const SortableItem = SortableElement(
 
         return (
             <div className='cvat-sorting-field'>
-                <Radio.Button disabled={valueIndex > anchorIndex}>{value}</Radio.Button>
+                <Radio.Button disabled={valueIndex > anchorIndex}>{valuedate}</Radio.Button>
                 <div>
                     <CVATTooltip overlay={appliedSorting[value]?.startsWith('-') ? 'Descending sort' : 'Ascending sort'}>
                         <Button type='text' disabled={!isActiveField} onClick={onClick}>
