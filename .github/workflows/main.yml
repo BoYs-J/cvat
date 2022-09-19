@@ -87,7 +87,7 @@ jobs:
           cache-from: type=local,src=/tmp/cvat_cache_ui
           context: .
           file: Dockerfile.ui
-          tags: cvat/ui
+          tags: cvat/ui:latest
           outputs: type=docker,dest=/tmp/cvat_ui/image.tar
 
       # - name: Upload CVAT server artifact
