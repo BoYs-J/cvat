@@ -87,7 +87,7 @@ jobs:
           cache-from: type=local,src=/tmp/cvat_cache_ui
           context: .
           file: Dockerfile.ui
-          tags: cvat/ui:latest
+          tags: cvat/ui
           outputs: type=docker,dest=/tmp/cvat_ui/image.tar
 
       # - name: Upload CVAT server artifact
@@ -111,7 +111,7 @@ jobs:
       - name: Push to Docker Hub
         env:
           UI_IMAGE_REPO: ${{ secrets.DOCKERHUB_WORKSPACE }}/ui
-          # SERVER_IMAGE_REPO: ${{ secrets.DOCKERHUB_WORKSPACE }}/server
+          SERVER_IMAGE_REPO: ${{ secrets.DOCKERHUB_WORKSPACE }}/server
         run: |
           docker tag cvat/ui:latest "${UI_IMAGE_REPO}:v2.2.0"
           docker push "${UI_IMAGE_REPO}:v2.2.0"
