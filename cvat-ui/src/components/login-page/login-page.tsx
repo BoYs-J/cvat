@@ -10,6 +10,9 @@ import Title from 'antd/lib/typography/Title';
 import Text from 'antd/lib/typography/Text';
 import { Row, Col } from 'antd/lib/grid';
 import Layout from 'antd/lib/layout';
+import Button from 'antd/lib/button';
+import Divider from 'antd/lib/divider';
+import FooterDrawer from 'components/login-page/intel-footer-drawer';
 
 import LoginForm, { LoginData } from './login-form';
 import { OpenVINOIcon } from 'icons';
