@@ -12,7 +12,7 @@ function FooterDrawer(): JSX.Element | null {
     const { Footer } = Layout;
     const { INTEL_TERMS_OF_USE_URL, INTEL_COOKIES_URL, INTEL_PRIVACY_URL } = consts;
 
-    return isPublic() ? (
+    return isPublic() (
         <Footer style={{ textAlign: 'center', borderTop: '1px solid #e8e8e8' }}>
             © Intel Corporation |
             <a target='_blank' rel='noopener noreferrer' href={INTEL_TERMS_OF_USE_URL}> Terms of Use </a>
