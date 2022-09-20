@@ -70,11 +70,12 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
                 <Row className='cvat-login-openvino-block' justify='center'>
                     <Col {...sizes}>
                         <Divider />
-                        <Text type='secondary'>
-                            Learn more about products of
+                        <Text type='secondary' align='middle'>
+                            关于
                             {/* It is important to keep the referer header here */}
                             {/* eslint-disable-next-line react/jsx-no-target-blank */}
-                            <a target='_blank' rel='noopener' href={consts.OPENVINO_URL}> OpenVINO™ Toolkit </a>
+                            <a target='_blank' rel='noopener' href={consts.ZERO_URL}> 零零网络 </a>
+                            更多的信息
                         </Text>
                         <Button
                             href={consts.OPENVINO_URL}
