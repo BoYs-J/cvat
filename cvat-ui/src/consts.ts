@@ -11,6 +11,8 @@ const GITTER_URL = 'https://gitter.im/opencv-cvat';
 const DISCORD_URL = 'https://discord.gg/fNR3eXfk6C';
 const GITHUB_URL = 'https://github.com/opencv/cvat';
 const ZERO_URL = 'https://www.cdzero.cn';
+const ZERO_EMAIL_URL = 'mailto:cvat@cdzero.cn';
+const BEIAN_GOV_URL = 'https://beian.miit.gov.cn';
 const GITHUB_IMAGE_URL = 'https://github.com/opencv/cvat/raw/develop/site/content/en/images/cvat.jpg';
 const GUIDE_URL = 'https://opencv.github.io/cvat/docs';
 const SHARE_MOUNT_GUIDE_URL =
@@ -26,8 +28,8 @@ const QUICK_ISSUE_INCORRECT_ATTRIBUTE_TEXT = 'Wrong attribute';
 const DEFAULT_PROJECT_SUBSETS = ['Train', 'Test', 'Validation'];
 const OUTSIDE_PIC_URL = 'https://opencv.github.io/cvat/images/image019.jpg';
 const INTEL_TERMS_OF_USE_URL = 'https://www.intel.com/content/www/us/en/legal/terms-of-use.html';
-const INTEL_COOKIES_URL = 'https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html';
-const INTEL_PRIVACY_URL = 'https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html';
+const INTEL_COOKIES_URL = 'https://www.intel.com/content/www/cn/zh/privacy/intel-cookie-notice.html';
+const INTEL_PRIVACY_URL = 'https://www.intel.com/content/www/cn/zh/privacy/intel-privacy-notice.html';
 const OPENVINO_URL = 'https://docs.openvino.ai/latest/index.html';
 const DEFAULT_AWS_S3_REGIONS: string[][] = [
     ['us-east-1', 'US East (N. Virginia)'],
@@ -99,6 +101,8 @@ export default {
     GITHUB_IMAGE_URL,
     GUIDE_URL,
     ZERO_URL,
+    ZERO_EMAIL_URL,
+    BEIAN_GOV_URL,
     SHARE_MOUNT_GUIDE_URL,
     CANVAS_BACKGROUND_COLORS,
     NEW_LABEL_COLOR,
