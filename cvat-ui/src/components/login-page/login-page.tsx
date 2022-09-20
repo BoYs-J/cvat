@@ -70,7 +70,7 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
                 <Row className='cvat-login-openvino-block' justify='center'>
                     <Col {...sizes}>
                         <Divider />
-                        <Text type='secondary' align='middle'>
+                        <Text type='secondary'>
                             关于
                             {/* It is important to keep the referer header here */}
                             {/* eslint-disable-next-line react/jsx-no-target-blank */}
