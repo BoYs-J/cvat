@@ -11,7 +11,7 @@ export function isDev(): boolean {
 }
 
 export function isPublic(): boolean {
-    return process.env.PUBLIC_INSTANCE === 'false';
+    return process.env.PUBLIC_INSTANCE === true;
 }
 
 export function customWaViewHit(pageName?: string, queryString?: string, hashInfo?: string): void {
