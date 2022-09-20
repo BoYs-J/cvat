@@ -14,11 +14,11 @@ function FooterDrawer(): JSX.Element | null {
 
     return isPublic() ? (
         <Footer style={{ textAlign: 'center', borderTop: '1px solid #e8e8e8' }}>
-            <a style={{color='rgba(0,0,0,.65)'}} target='_blank' rel='noopener noreferrer' href={ZERO_URL}> © 成都零零网络 </a>
+            <a style={{color: 'rgba(0,0,0,.65)'}} target='_blank' rel='noopener noreferrer' href={ZERO_URL}> © 成都零零网络 </a>
             |
-            <a style={{color='rgba(0,0,0,.65)'}} target='_blank' rel='noopener noreferrer' href={ZERO_EMAIL_URL}> 📧cvat@cdzero.cn </a>
+            <a style={{color: 'rgba(0,0,0,.65)'}} target='_blank' rel='noopener noreferrer' href={ZERO_EMAIL_URL}> 📧cvat@cdzero.cn </a>
             |
-            <a style={{color='rgba(0,0,0,.65)'}} target='_blank' rel='noopener noreferrer' href={BEIAN_GOV_URL}> 备案 </a>
+            <a style={{color: 'rgba(0,0,0,.65)'}} target='_blank' rel='noopener noreferrer' href={BEIAN_GOV_URL}> 备案 </a>
             |
             <a target='_blank' rel='noopener noreferrer' href={INTEL_TERMS_OF_USE_URL}> 使用条款 </a>
             |
