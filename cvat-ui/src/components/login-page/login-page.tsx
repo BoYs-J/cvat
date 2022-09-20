@@ -12,6 +12,7 @@ import { Row, Col } from 'antd/lib/grid';
 import Layout from 'antd/lib/layout';
 
 import LoginForm, { LoginData } from './login-form';
+import { OpenVINOIcon } from 'icons';
 
 interface LoginPageComponentProps {
     fetching: boolean;

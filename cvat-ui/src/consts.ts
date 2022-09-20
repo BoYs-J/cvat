@@ -25,6 +25,10 @@ const QUICK_ISSUE_INCORRECT_POSITION_TEXT = 'Wrong position';
 const QUICK_ISSUE_INCORRECT_ATTRIBUTE_TEXT = 'Wrong attribute';
 const DEFAULT_PROJECT_SUBSETS = ['Train', 'Test', 'Validation'];
 const OUTSIDE_PIC_URL = 'https://opencv.github.io/cvat/images/image019.jpg';
+const INTEL_TERMS_OF_USE_URL = 'https://www.intel.com/content/www/us/en/legal/terms-of-use.html';
+const INTEL_COOKIES_URL = 'https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html';
+const INTEL_PRIVACY_URL = 'https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html';
+const OPENVINO_URL = 'https://docs.openvino.ai/latest/index.html';
 const DEFAULT_AWS_S3_REGIONS: string[][] = [
     ['us-east-1', 'US East (N. Virginia)'],
     ['us-east-2', 'US East (Ohio)'],
@@ -107,4 +111,8 @@ export default {
     DEFAULT_GOOGLE_CLOUD_STORAGE_LOCATIONS,
     OUTSIDE_PIC_URL,
     DATASET_MANIFEST_GUIDE_URL,
+    INTEL_TERMS_OF_USE_URL,
+    INTEL_COOKIES_URL,
+    INTEL_PRIVACY_URL,
+    OPENVINO_URL,
 };

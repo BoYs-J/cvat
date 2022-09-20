@@ -17,22 +17,22 @@ export default function EmptyListComponent(props: Props): JSX.Element {
     return (
         <div className='cvat-empty-projects-list'>
             <Empty description={notFound ? (
-                <Text strong>No results matched your search...</Text>
+                <Text strong>没有匹配的搜索结果...</Text>
             ) : (
                 <>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Text strong>No projects created yet ...</Text>
+                            <Text strong>还没有创建项目...</Text>
                         </Col>
                     </Row>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Text type='secondary'>To get started with your annotation project</Text>
+                            <Text type='secondary'>要使用注释项目，请执行以下操作</Text>
                         </Col>
                     </Row>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Link to='/projects/create'>create a new one</Link>
+                            <Link to='/projects/create'>创建项目</Link>
                         </Col>
                     </Row>
                 </>

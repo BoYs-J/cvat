@@ -43,21 +43,21 @@ export default function ProjectActionsMenuComponent(props: Props): JSX.Element {
     return (
         <Menu selectable={false} className='cvat-project-actions-menu'>
             <Menu.Item key='export-dataset' onClick={() => dispatch(exportActions.openExportModal(projectInstance))}>
-                Export dataset
+                导出数据集
             </Menu.Item>
             <Menu.Item key='import-dataset' onClick={() => dispatch(importActions.openImportModal(projectInstance))}>
-                Import dataset
+                导入数据集
             </Menu.Item>
             <Menu.Item
                 disabled={exportIsActive}
                 onClick={() => dispatch(backupProjectAsync(projectInstance))}
                 icon={exportIsActive && <LoadingOutlined id='cvat-export-project-loading' />}
             >
-                Backup Project
+                备份项目
             </Menu.Item>
             <Menu.Divider />
             <Menu.Item key='delete' onClick={onDeleteProject}>
-                Delete
+                删除
             </Menu.Item>
         </Menu>
     );

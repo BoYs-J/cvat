@@ -30,6 +30,7 @@ const useCardHeight = useCardHeightHOC({
 });
 
 export default function ProjectItemComponent(props: Props): JSX.Element {
+    moment.locale('zh-cn');
     const {
         projectInstance: { instance, preview },
     } = props;
@@ -64,7 +65,7 @@ export default function ProjectItemComponent(props: Props): JSX.Element {
                     />
                 ) : (
                     <div className='cvat-projects-project-item-card-preview' onClick={onOpenProject} aria-hidden>
-                        <Empty description='No tasks' />
+                        <Empty description='没有任务' />
                     </div>
                 )
             }
@@ -83,11 +84,11 @@ export default function ProjectItemComponent(props: Props): JSX.Element {
                         <div>
                             {ownerName && (
                                 <>
-                                    <Text type='secondary'>{`Created ${ownerName ? `by ${ownerName}` : ''}`}</Text>
+                                    <Text type='secondary'>{`由 ${ownerName?`${ownerName}`:''} 创建`}</Text>
                                     <br />
                                 </>
                             )}
-                            <Text type='secondary'>{`Last updated ${updated}`}</Text>
+                            <Text type='secondary'>{`最近更新 ${updated}`}</Text>
                         </div>
                         <div>
                             <Dropdown overlay={<ProjectActionsMenuComponent projectInstance={instance} />}>
