@@ -14,6 +14,7 @@ import Button from 'antd/lib/button';
 import Divider from 'antd/lib/divider';
 import FooterDrawer from 'components/login-page/intel-footer-drawer';
 
+import consts from 'consts';
 import LoginForm, { LoginData } from './login-form';
 import { OpenVINOIcon } from 'icons';
 
@@ -85,6 +86,7 @@ function LoginPageComponent(props: LoginPageComponentProps & RouteComponentProps
                     </Col>
                 </Row>
             </Content>
+            <FooterDrawer />
         </Layout>
     );
 }
