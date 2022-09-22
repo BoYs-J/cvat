@@ -32,11 +32,11 @@ function NameConfigurationForm(
             <Form.Item
                 name='name'
                 hasFeedback
-                label='Name'
+                label='名字'
                 rules={[
                     {
                         required: true,
-                        message: 'Please, specify a name',
+                        message: '项目名称不能为空',
                     },
                 ]}
             >
@@ -104,14 +104,14 @@ function AdvancedConfigurationForm({ formRef }: { formRef: RefObject<FormInstanc
         <Form layout='vertical' ref={formRef}>
             <Form.Item
                 name='bug_tracker'
-                label='Issue tracker'
-                extra='Attach issue tracker where the project is described'
+                label='问题跟踪器'
+                extra='在项目描述的位置附加问题跟踪器'
                 hasFeedback
                 rules={[
                     {
                         validator: (_, value, callback): void => {
                             if (value && !patterns.validateURL.pattern.test(value)) {
-                                callback('Issue tracker must be URL');
+                                callback('问题跟踪器必须是URL（不是有效的URL）');
                             } else {
                                 callback();
                             }
@@ -185,7 +185,7 @@ export default function CreateProjectContent(): JSX.Element {
         if (res) {
             resetForm();
             notification.info({
-                message: 'The project has been created',
+                message: '已创建项目',
                 className: 'cvat-notification-create-project-success',
             });
             focusForm();
@@ -207,7 +207,7 @@ export default function CreateProjectContent(): JSX.Element {
                 </Col>
             )}
             <Col span={24}>
-                <Text className='cvat-text-color'>Labels:</Text>
+                <Text className='cvat-text-color'>标签：</Text>
                 <LabelsEditor
                     labels={projectLabels}
                     onSubmit={(newLabels): void => {
@@ -222,12 +222,12 @@ export default function CreateProjectContent(): JSX.Element {
                 <Row justify='end' gutter={5}>
                     <Col>
                         <Button type='primary' onClick={onSubmitAndOpen}>
-                            Submit & Open
+                            提交 & 打开
                         </Button>
                     </Col>
                     <Col>
                         <Button type='primary' onClick={onSubmitAndContinue}>
-                            Submit & Continue
+                            提交 & 继续
                         </Button>
                     </Col>
                 </Row>

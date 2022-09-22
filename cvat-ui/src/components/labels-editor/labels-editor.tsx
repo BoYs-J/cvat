@@ -162,8 +162,8 @@ export default class LabelsEditor extends React.PureComponent<LabelsEditorProps,
             ModalConfirm({
                 className: 'cvat-modal-delete-label',
                 icon: <ExclamationCircleOutlined />,
-                title: `Do you want to delete "${label.name}" label?`,
-                content: 'This action is irreversible. Annotation corresponding with this label will be deleted.',
+                title: `要删除 "${label.name}" 标签吗？`,
+                content: '此操作不可逆转，与此标签相对应的注释将被删除！',
                 type: 'warning',
                 okType: 'danger',
                 onOk() {
@@ -225,7 +225,7 @@ export default class LabelsEditor extends React.PureComponent<LabelsEditorProps,
                     tab={(
                         <span>
                             <EditOutlined />
-                            <Text>Raw</Text>
+                            <Text>原始函数</Text>
                         </span>
                     )}
                     key='1'
@@ -237,7 +237,7 @@ export default class LabelsEditor extends React.PureComponent<LabelsEditorProps,
                     tab={(
                         <span>
                             <BuildOutlined />
-                            <Text>Constructor</Text>
+                            <Text>构建标签/函数</Text>
                         </span>
                     )}
                     key='2'

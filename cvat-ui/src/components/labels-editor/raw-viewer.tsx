@@ -231,14 +231,14 @@ export default class RawViewer extends React.PureComponent<Props> {
                 </Form.Item>
                 <Row justify='start' align='middle'>
                     <Col>
-                        <CVATTooltip title='Save labels'>
+                        <CVATTooltip title='保存标签'>
                             <Button style={{ width: '150px' }} type='primary' htmlType='submit'>
-                                Done
+                                完成
                             </Button>
                         </CVATTooltip>
                     </Col>
                     <Col offset={1}>
-                        <CVATTooltip title='Reset all changes'>
+                        <CVATTooltip title='重置所有更改'>
                             <Button
                                 type='primary'
                                 danger
@@ -249,7 +249,7 @@ export default class RawViewer extends React.PureComponent<Props> {
                                     }
                                 }}
                             >
-                                Reset
+                                重置
                             </Button>
                         </CVATTooltip>
                     </Col>

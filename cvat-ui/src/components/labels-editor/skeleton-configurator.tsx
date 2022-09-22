@@ -685,7 +685,7 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                             beforeUpload={(file: RcFile) => {
                                 if (!file.type.startsWith('image/')) {
                                     notification.error({
-                                        message: `File must be an image. Got mime type: ${file.type}`,
+                                        message: `文件必须是图像,了解类型：${file.type}`,
                                     });
                                 }
                                 this.setState({ image: file }, () => {
@@ -695,7 +695,7 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                             }}
                         >
                             <p className='ant-upload-drag-icon'>
-                                <CVATTooltip title='Upload a background image'>
+                                <CVATTooltip title='上传背景图'>
                                     <Button icon={<PictureOutlined />} />
                                 </CVATTooltip>
                             </p>
@@ -713,25 +713,25 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                                     this.setState({ activeTool: e.target.value });
                                 }}
                             >
-                                <CVATTooltip title='Click the canvas to add a point'>
+                                <CVATTooltip title='点击画布添加点'>
                                     <Radio.Button defaultChecked value='point'>
                                         <Icon component={PointIcon} />
                                     </Radio.Button>
                                 </CVATTooltip>
 
-                                <CVATTooltip title='Click and drag points'>
+                                <CVATTooltip title='点击拖动点'>
                                     <Radio.Button defaultChecked value='drag'>
                                         <DragOutlined />
                                     </Radio.Button>
                                 </CVATTooltip>
 
-                                <CVATTooltip title='Click two points to setup an edge'>
+                                <CVATTooltip title='点击两点设置线段'>
                                     <Radio.Button value='join'>
                                         <LineOutlined />
                                     </Radio.Button>
                                 </CVATTooltip>
 
-                                <CVATTooltip title='Click an element to remove it'>
+                                <CVATTooltip title='点击元素将其删除'>
                                     <Radio.Button value='delete'>
                                         <DeleteOutlined />
                                     </Radio.Button>
@@ -740,7 +740,7 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                         </Col>
                     </Row>
                     <Row justify='space-between' className='cvat-skeleton-configurator-svg-buttons'>
-                        <CVATTooltip title='Download skeleton as SVG'>
+                        <CVATTooltip title='将骨架下载为SVG'>
                             <Button
                                 type='default'
                                 icon={<DownloadOutlined />}
@@ -811,14 +811,14 @@ export default class SkeletonConfigurator extends React.PureComponent<Props, Sta
                                         this.setupSkeleton(tmpSvg.innerHTML, labels as Record<string, LabelOptColor>);
                                     } else {
                                         notification.error({
-                                            message: 'Wrong skeleton structure',
+                                            message: '骨架结构错误',
                                         });
                                     }
                                 });
                                 return false;
                             }}
                         >
-                            <CVATTooltip title='Upload a skeleton from SVG'>
+                            <CVATTooltip title='从SVG上传骨架'>
                                 <Button style={disabledStyle} icon={<UploadOutlined />} type='default' />
                             </CVATTooltip>
                         </Upload>
