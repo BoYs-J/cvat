@@ -27,13 +27,13 @@ export default function ProjectTopBar(props: DetailsComponentProps): JSX.Element
             <Col>
                 <Button onClick={() => history.push('/projects')} type='link' size='large'>
                     <LeftOutlined />
-                    Back to projects
+                    返回项目
                 </Button>
             </Col>
             <Col className='cvat-project-top-bar-actions'>
                 <Dropdown overlay={<ActionsMenu projectInstance={projectInstance} />}>
                     <Button size='middle' className='cvat-project-page-actions-button'>
-                        <Text className='cvat-text-color'>Actions</Text>
+                        <Text className='cvat-text-color'>操作</Text>
                         <MoreOutlined className='cvat-menu-icon' />
                     </Button>
                 </Dropdown>

@@ -228,7 +228,7 @@ export default function ResourceFilterHOC(
                     )}
                 >
                     <Button type='default' onClick={() => onPredefinedVisibleChange(!predefinedVisible)}>
-                        Quick filters
+                        快速筛选器
                         { appliedFilter.predefined ?
                             <FilterFilled /> :
                             <FilterOutlined />}
@@ -284,7 +284,7 @@ export default function ResourceFilterHOC(
                                             () => onRecentVisibleChange(!recentVisible)
                                         }
                                     >
-                                        Recent
+                                        最近
                                         <DownOutlined />
                                     </Button>
                                 </Dropdown>
@@ -311,7 +311,7 @@ export default function ResourceFilterHOC(
                                         });
                                     }}
                                 >
-                                    Reset
+                                    重置
                                 </Button>
                                 <Button
                                     size='small'
@@ -329,14 +329,14 @@ export default function ResourceFilterHOC(
                                         });
                                     }}
                                 >
-                                    Apply
+                                    应用
                                 </Button>
                             </Space>
                         </div>
                     )}
                 >
                     <Button type='default' onClick={() => onBuilderVisibleChange(!builderVisible)}>
-                        Filter
+                        筛选器
                         { appliedFilter.built || appliedFilter.recent ?
                             <FilterFilled /> :
                             <FilterOutlined />}
@@ -348,7 +348,7 @@ export default function ResourceFilterHOC(
                     type='link'
                     onClick={() => { setAppliedFilter({ ...defaultAppliedFilter }); }}
                 >
-                    Clear filters
+                    清除筛选器
                 </Button>
             </div>
         );

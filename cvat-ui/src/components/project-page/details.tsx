@@ -49,9 +49,9 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
             <Row justify='space-between' className='cvat-project-description'>
                 <Col>
                     <Text type='secondary'>
-                        {`Project #${project.id} created`}
-                        {project.owner ? ` by ${project.owner.username}` : null}
-                        {` on ${moment(project.createdDate).format('MMMM Do YYYY')}`}
+                        {`项目#${project.id}`}
+                        {project.owner ? ` 由 ${project.owner.username}` : null}
+                        {` 于 ${moment(project.createdDate).format('YYYY-MM-DD')} 创建`}
                     </Text>
                     <BugTrackerEditor
                         instance={project}
@@ -62,7 +62,7 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
                     />
                 </Col>
                 <Col>
-                    <Text type='secondary'>Assigned to</Text>
+                    <Text type='secondary'>分配给</Text>
                     <UserSelector
                         value={project.assignee}
                         onSelect={(user) => {

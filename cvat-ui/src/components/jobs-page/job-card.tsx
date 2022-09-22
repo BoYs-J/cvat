@@ -72,13 +72,13 @@ function JobCardComponent(props: Props): JSX.Element {
             )}
         >
             <Descriptions column={1} size='small'>
-                <Descriptions.Item label='Stage'>{job.stage}</Descriptions.Item>
-                <Descriptions.Item label='State'>{job.state}</Descriptions.Item>
+                <Descriptions.Item label='阶段'>{job.stage}</Descriptions.Item>
+                <Descriptions.Item label='状态'>{job.state}</Descriptions.Item>
                 { expanded ? (
-                    <Descriptions.Item label='Size'>{job.stopFrame - job.startFrame + 1}</Descriptions.Item>
+                    <Descriptions.Item label='大小'>{job.stopFrame - job.startFrame + 1}</Descriptions.Item>
                 ) : null}
                 { expanded && job.assignee ? (
-                    <Descriptions.Item label='Assignee'>{job.assignee.username}</Descriptions.Item>
+                    <Descriptions.Item label='受让人'>{job.assignee.username}</Descriptions.Item>
                 ) : null}
             </Descriptions>
             <Dropdown overlay={(
@@ -94,9 +94,9 @@ function JobCardComponent(props: Props): JSX.Element {
                     }
                 }}
                 >
-                    <Menu.Item key='task' disabled={job.taskId === null}>Go to the task</Menu.Item>
-                    <Menu.Item key='project' disabled={job.projectId === null}>Go to the project</Menu.Item>
-                    <Menu.Item key='bug_tracker' disabled={!job.bugTracker}>Go to the bug tracker</Menu.Item>
+                    <Menu.Item key='task' disabled={job.taskId === null}>跳转到任务</Menu.Item>
+                    <Menu.Item key='project' disabled={job.projectId === null}>跳转到项目</Menu.Item>
+                    <Menu.Item key='bug_tracker' disabled={!job.bugTracker}>跳转到问题跟踪器</Menu.Item>
                 </Menu>
             )}
             >

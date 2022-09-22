@@ -57,7 +57,7 @@ function TopBarComponent(props: Props): JSX.Element {
                         }}
                         defaultValue={query.search || ''}
                         className='cvat-projects-page-search-bar'
-                        placeholder='Search ...'
+                        placeholder='搜索...'
                     />
                     <div>
                         <SortingComponent
@@ -99,7 +99,7 @@ function TopBarComponent(props: Props): JSX.Element {
                                     onClick={(): void => history.push('/projects/create')}
                                     icon={<PlusOutlined />}
                                 >
-                                    Create a new project
+                                    创建新项目
                                 </Button>
                                 <Upload
                                     accept='.zip'
@@ -117,7 +117,7 @@ function TopBarComponent(props: Props): JSX.Element {
                                         disabled={importing}
                                         icon={<UploadOutlined />}
                                     >
-                                        Create from backup
+                                        从备份导入
                                         {importing && <LoadingOutlined className='cvat-import-project-button-loading' />}
                                     </Button>
                                 </Upload>

@@ -44,8 +44,8 @@ const SortableItem = SortableElement(
             }
         };
 
-        const FilterData:any = ['ID', 'Assignee', 'Owner', 'Status', 'Name', 'Updated date']
-        const FilterData_ch:any = ['ID', '受让人', '所有者', '状态', '名称', '更新时间']
+        const FilterData:any = ['ID', 'Owner', 'Status', 'Assignee', 'Updated date', 'Subset', 'Mode', 'Dimension',	 'Description', 'Stage', 'State', 'Task ID', 'Task name', 'Project ID', 'Name', 'Project name', 'Provider type', 'Display name', 'Resource', 'Credentials type']
+        const FilterData_ch:any = ['ID', '所有者', '状态', '受让人', '更新时间', '子集', '模式', '维度', '类型', '阶段', '状态', '任务ID',	'任务名称',	'项目ID', '名称', '项目名称', '供应商类型', '显示名称', '资源', '凭据类型']
             for (let i = 0; i < FilterData.length; i++) {
                 if (value === FilterData[i]){
                     var valuedate = FilterData_ch[i]

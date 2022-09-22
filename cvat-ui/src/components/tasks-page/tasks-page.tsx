@@ -66,7 +66,7 @@ function TasksPageComponent(props: Props): JSX.Element {
             message.destroy();
             message.info(
                 <>
-                    <Text>Some tasks are temporary hidden because they are not fully created yet</Text>
+                    <Text>某些任务暂时隐藏，因为它们尚未完成创建</Text>
                     <Button
                         type='link'
                         onClick={(): void => {
@@ -74,7 +74,7 @@ function TasksPageComponent(props: Props): JSX.Element {
                             message.destroy();
                         }}
                     >
-                        Show all
+                        全部显示
                     </Button>
                 </>,
                 5,

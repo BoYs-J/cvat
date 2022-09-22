@@ -25,7 +25,7 @@ export default function AutomaticAnnotationProgress(props: Props): JSX.Element |
         <>
             <Row>
                 <Col>
-                    <Text strong>Automatic annotation</Text>
+                    <Text strong>自动标注</Text>
                 </Col>
             </Row>
             <Row justify='space-between'>
@@ -42,12 +42,12 @@ export default function AutomaticAnnotationProgress(props: Props): JSX.Element |
                     />
                 </Col>
                 <Col span={1} className='close-auto-annotation-icon'>
-                    <CVATTooltip title='Cancel automatic annotation'>
+                    <CVATTooltip title='取消自动标注'>
                         <CloseOutlined
                             onClick={() => {
                                 Modal.confirm({
-                                    title: 'You are going to cancel automatic annotation?',
-                                    content: 'Reached progress will be lost. Continue?',
+                                    title: '你将取消自动标注',
+                                    content: '已完成的进度将会失去，继续吗？',
                                     okButtonProps: {
                                         type: 'primary',
                                         danger: true,

@@ -72,7 +72,7 @@ function JobsPageComponent(): JSX.Element {
                 </Col>
             </Row>
         </>
-    ) : <Empty description={<Text>No results matched your search...</Text>} />;
+    ) : <Empty description={<Text>没有匹配的结果...</Text>} />;
 
     return (
         <div className='cvat-jobs-page'>

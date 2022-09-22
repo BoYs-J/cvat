@@ -23,23 +23,23 @@ function EmptyListComponent(props: Props): JSX.Element {
                 <>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Text strong>No tasks created yet ...</Text>
+                            <Text strong>还没有创建任务...</Text>
                         </Col>
                     </Row>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Text type='secondary'>To get started with your annotation project</Text>
+                            <Text type='secondary'>开始你的注释项目</Text>
                         </Col>
                     </Row>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Link to='/tasks/create'>create a new task</Link>
-                            <Text type='secondary'> or try to </Text>
-                            <Link to='/projects/create'>create a new project</Link>
+                            <Link to='/tasks/create'>创建一个新任务</Link>
+                            <Text type='secondary'> 或者 </Text>
+                            <Link to='/projects/create'>创建一个新项目</Link>
                         </Col>
                     </Row>
                 </>
-            ) : (<Text>No results matched your search</Text>)}
+            ) : (<Text>没有匹配的结果...</Text>)}
             />
         </div>
     );

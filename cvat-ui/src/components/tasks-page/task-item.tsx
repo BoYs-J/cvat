@@ -44,7 +44,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
         const { id } = taskInstance;
         const owner = taskInstance.owner ? taskInstance.owner.username : null;
         const updated = moment(taskInstance.updatedDate).fromNow();
-        const created = moment(taskInstance.createdDate).format('MMMM Do YYYY');
+        const created = moment(taskInstance.createdDate).format('YYYY-MM-DD');
 
         // Get and truncate a task name
         const name = `${taskInstance.name.substring(0, 70)}${taskInstance.name.length > 70 ? '...' : ''}`;
@@ -58,11 +58,11 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                 <br />
                 {owner && (
                     <>
-                        <Text type='secondary'>{`Created ${owner ? `by ${owner}` : ''} on ${created}`}</Text>
+                        <Text type='secondary'>{`由 ${owner ? `${owner}` : ''} 于 ${created} 创建`}</Text>
                         <br />
                     </>
                 )}
-                <Text type='secondary'>{`Last updated ${updated}`}</Text>
+                <Text type='secondary'>{`最近更新 ${updated}`}</Text>
             </Col>
         );
     }
@@ -80,21 +80,21 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
             progressColor = 'cvat-task-completed-progress';
             progressText = (
                 <Text strong className={progressColor}>
-                    Completed
+                    完成
                 </Text>
             );
         } else if (numOfCompleted) {
             progressColor = 'cvat-task-progress-progress';
             progressText = (
                 <Text strong className={progressColor}>
-                    In Progress
+                    正在进行
                 </Text>
             );
         } else {
             progressColor = 'cvat-task-pending-progress';
             progressText = (
                 <Text strong className={progressColor}>
-                    Pending
+                    待处理
                 </Text>
             );
         }
@@ -111,7 +111,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                         {progressText}
                     </Col>
                     <Col>
-                        <Text type='secondary'>{`${numOfCompleted} of ${numOfJobs} jobs`}</Text>
+                        <Text type='secondary'>{`${numOfCompleted}/${numOfJobs} 工作`}</Text>
                     </Col>
                 </Row>
                 <Row>
@@ -153,14 +153,14 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                                 history.push(`/tasks/${id}`);
                             }}
                         >
-                            Open
+                            打开
                         </Button>
                     </Col>
                 </Row>
                 <Row justify='end'>
                     <Dropdown overlay={<ActionsMenuContainer taskInstance={taskInstance} />}>
                         <Col className='cvat-item-open-task-actions'>
-                            <Text className='cvat-text-color'>Actions</Text>
+                            <Text className='cvat-text-color'>操作</Text>
                             <MoreOutlined className='cvat-menu-icon' />
                         </Col>
                     </Dropdown>

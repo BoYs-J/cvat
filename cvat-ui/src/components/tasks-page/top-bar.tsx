@@ -56,7 +56,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                         }}
                         defaultValue={query.search || ''}
                         className='cvat-tasks-page-search-bar'
-                        placeholder='Search ...'
+                        placeholder='搜索...'
                     />
                     <div>
                         <SortingComponent
@@ -97,7 +97,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     onClick={(): void => history.push('/tasks/create')}
                                     icon={<PlusOutlined />}
                                 >
-                                    Create a new task
+                                    创建新任务
                                 </Button>
                                 <Upload
                                     accept='.zip'
@@ -115,7 +115,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                         disabled={importing}
                                         icon={<UploadOutlined />}
                                     >
-                                        Create from backup
+                                        从备份导入
                                         {importing && <LoadingOutlined />}
                                     </Button>
                                 </Upload>

@@ -20,24 +20,24 @@ export default function EmptyStoragesListComponent(props: Props): JSX.Element {
     const description = notFound ? (
         <Row justify='center' align='middle'>
             <Col>
-                <Text strong>No results matched your search found...</Text>
+                <Text strong>没有匹配的结果...</Text>
             </Col>
         </Row>
     ) : (
         <>
             <Row justify='center' align='middle'>
                 <Col>
-                    <Text strong>No cloud storages attached yet ...</Text>
+                    <Text strong>未连接云存储...</Text>
                 </Col>
             </Row>
             <Row justify='center' align='middle'>
                 <Col>
-                    <Text type='secondary'>To get started with your cloud storage</Text>
+                    <Text type='secondary'>开始使用云端存储功能</Text>
                 </Col>
             </Row>
             <Row justify='center' align='middle'>
                 <Col>
-                    <Link to='/cloudstorages/create'>attach a new one</Link>
+                    <Link to='/cloudstorages/create'>添加云存储</Link>
                 </Col>
             </Row>
         </>

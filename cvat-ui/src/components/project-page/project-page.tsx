@@ -178,7 +178,7 @@ export default function ProjectPageComponent(): JSX.Element {
                                 }}
                                 defaultValue={tasksQuery.search || ''}
                                 className='cvat-project-page-tasks-search-bar'
-                                placeholder='Search ...'
+                                placeholder='搜索...'
                             />
                             <div>
                                 <SortingComponent
