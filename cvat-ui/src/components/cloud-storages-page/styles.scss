@@ -95,7 +95,6 @@
     .cvat-cloud-storage-description-icon {
         position: absolute;
         top: $grid-unit-size;
-        width: $grid-unit-size * 2;
-        right: $grid-unit-size;
+        width: auto;
     }
 }
