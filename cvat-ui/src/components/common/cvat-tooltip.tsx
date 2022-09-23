@@ -4,18 +4,14 @@
 
 import React from 'react';
 import Tooltip, { TooltipProps } from 'antd/lib/tooltip';
-import { ConfigProvider } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN';
 
 function CVATTooltip(props: TooltipProps): JSX.Element {
     const { children, ...rest } = props;
 
     return (
-        <ConfigProvider locale={zhCN}>
-            <Tooltip destroyTooltipOnHide={{ keepParent: false }} mouseLeaveDelay={0} {...rest}>
-                {children}
-            </Tooltip>
-        </ConfigProvider>
+        <Tooltip destroyTooltipOnHide={{ keepParent: false }} mouseLeaveDelay={0} {...rest}>
+            {children}
+        </Tooltip>
     );
 }
 
