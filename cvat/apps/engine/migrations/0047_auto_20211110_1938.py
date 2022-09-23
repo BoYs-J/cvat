@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='job',
             name='state',
-            field=models.CharField(choices=[('new', 'NEW'), ('in progress', 'IN_PROGRESS'), ('completed', 'COMPLETED'), ('rejected', 'REJECTED')], default=cvat.apps.engine.models.StateChoice['NEW'], max_length=32),
+            field=models.CharField(choices=[('新', 'NEW'), ('进行中', 'IN_PROGRESS'), ('completed', 'COMPLETED'), ('rejected', 'REJECTED')], default=cvat.apps.engine.models.StateChoice['NEW'], max_length=32),
         ),
         migrations.AddField(
             model_name='project',
