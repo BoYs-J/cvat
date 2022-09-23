@@ -167,8 +167,8 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                 const { stage } = jobInstance;
 
                 return (
-                    <ConfigProvider locale={zhCN}>
                     <div>
+                        <ConfigProvider locale={zhCN}>
                         <Select
                             value={stage}
                             onChange={(newValue: string) => {
@@ -183,8 +183,8 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                         <CVATTooltip title={<ReviewSummaryComponent jobInstance={jobInstance} />}>
                             <QuestionCircleOutlined />
                         </CVATTooltip>
+                        </ConfigProvider>
                     </div>
-                    </ConfigProvider>
                 );
             },
             sorter: sorter('stage.stage'),
