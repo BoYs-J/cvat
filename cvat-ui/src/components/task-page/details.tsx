@@ -378,7 +378,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
         return (
             <Row>
                 <Col span={24}>
-                    <Text className='cvat-text-color'>Subset:</Text>
+                    <Text className='cvat-text-color'>项目子集：</Text>
                 </Col>
                 <Col span={24}>
                     <ProjectSubsetField

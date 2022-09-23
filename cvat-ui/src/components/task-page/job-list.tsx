@@ -47,15 +47,15 @@ function ReviewSummaryComponent({ jobInstance }: { jobInstance: any }): JSX.Elem
     if (!summary) {
         if (error) {
             if (error.toString().includes('403')) {
-                return <p>You do not have permissions</p>;
+                return <p>你没有权限</p>;
             }
 
-            return <p>Could not fetch, check console output</p>;
+            return <p>无法提取，请检查控制台输出</p>;
         }
 
         return (
             <>
-                <p>Loading.. </p>
+                <p>加载... </p>
                 <LoadingOutlined />
             </>
         );
@@ -66,13 +66,13 @@ function ReviewSummaryComponent({ jobInstance }: { jobInstance: any }): JSX.Elem
             <tbody>
                 <tr>
                     <td>
-                        <Text strong>Unsolved issues</Text>
+                        <Text strong>未解决的问题</Text>
                     </td>
                     <td>{summary.issues_unsolved}</td>
                 </tr>
                 <tr>
                     <td>
-                        <Text strong>Resolved issues</Text>
+                        <Text strong>已解决的问题</Text>
                     </td>
                     <td>{summary.issues_resolved}</td>
                 </tr>
@@ -87,6 +87,8 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
         onJobUpdate,
         history: { push },
     } = props;
+
+    moment.locale('zh-cn'); //汉化时间
 
     const { jobs, id: taskId } = taskInstance;
 
@@ -144,7 +146,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                         }}
                         href={`/tasks/${taskId}/jobs/${id}`}
                     >
-                        {`Job #${id}`}
+                        {`工作#${id}`}
                     </Button>
                 </div>
             ),
