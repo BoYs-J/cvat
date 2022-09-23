@@ -4,8 +4,8 @@
 
 import React from 'react';
 import Tooltip, { TooltipProps } from 'antd/lib/tooltip';
-import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
 function CVATTooltip(props: TooltipProps): JSX.Element {
     const { children, ...rest } = props;
