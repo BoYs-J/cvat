@@ -100,7 +100,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
                 if (data !== null && this.mounted) {
                     if (data.status.error) {
                         notification.error({
-                            message: 'Could not receive repository status',
+                            message: '无法获取存储库状态',
                             description: data.status.error,
                         });
                     } else {
@@ -119,7 +119,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
             .catch((error): void => {
                 if (this.mounted) {
                     notification.error({
-                        message: 'Could not receive repository status',
+                        message: '无法获取存储库状态',
                         description: error.toString(),
                     });
                 }
@@ -149,7 +149,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
             .catch((error) => {
                 this.setState({ repository: old });
                 notification.error({
-                    message: 'Could not update repository',
+                    message: '无法更新存储库',
                     description: error,
                 });
             })
@@ -165,7 +165,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
             .catch((error) => {
                 this.setState({ lfs: old });
                 notification.error({
-                    message: 'Could not update LFS',
+                    message: '无法更新LFS',
                     description: error,
                 });
             })
@@ -181,7 +181,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
             .catch((error) => {
                 this.setState({ format: old });
                 notification.error({
-                    message: 'Could not update format',
+                    message: '无法更新格式',
                     description: error,
                 });
             })
@@ -225,9 +225,9 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
 
         return (
             <Descriptions className='cvat-task-parameters' bordered layout='vertical' size='small'>
-                <Descriptions.Item label='Overlap size'>{overlap}</Descriptions.Item>
-                <Descriptions.Item label='Segment size'>{segmentSize}</Descriptions.Item>
-                <Descriptions.Item label='Image quality'>{imageQuality}</Descriptions.Item>
+                <Descriptions.Item label='重叠大小'>{overlap}</Descriptions.Item>
+                <Descriptions.Item label='段大小'>{segmentSize}</Descriptions.Item>
+                <Descriptions.Item label='图像质量'>{imageQuality}</Descriptions.Item>
             </Descriptions>
         );
     }
@@ -236,7 +236,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
         const { taskInstance, onTaskUpdate } = this.props;
         const owner = taskInstance.owner ? taskInstance.owner.username : null;
         const assignee = taskInstance.assignee ? taskInstance.assignee : null;
-        const created = moment(taskInstance.createdDate).format('MMMM Do YYYY');
+        const created = moment(taskInstance.createdDate).format('YYYY-MM-DD');
         const assigneeSelect = (
             <UserSelector
                 value={assignee}
@@ -252,11 +252,11 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
             <Row className='cvat-task-details-user-block' justify='space-between' align='middle'>
                 <Col span={12}>
                     {owner && (
-                        <Text type='secondary'>{`Task #${taskInstance.id} Created by ${owner} on ${created}`}</Text>
+                        <Text type='secondary'>{`任务#${taskInstance.id} 由 ${owner} 于 ${created} 创建`}</Text>
                     )}
                 </Col>
                 <Col span={10}>
-                    <Text type='secondary'>Assigned to</Text>
+                    <Text type='secondary'>分配给</Text>
                     {assigneeSelect}
                 </Col>
             </Row>
@@ -282,19 +282,19 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
                             {repositoryStatus === 'sync' && (
                                 <Tag color='blue'>
                                     <CheckCircleOutlined />
-                                    Synchronized
+                                    已同步
                                 </Tag>
                             )}
                             {repositoryStatus === 'merged' && (
                                 <Tag color='green'>
                                     <CheckCircleOutlined />
-                                    Merged
+                                    已合并
                                 </Tag>
                             )}
                             {repositoryStatus === 'syncing' && (
                                 <Tag color='purple'>
                                     <LoadingOutlined />
-                                    Syncing
+                                    正在同步
                                 </Tag>
                             )}
                             {repositoryStatus === '!sync' && (
@@ -317,7 +317,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
                                                 if (this.mounted) {
                                                     Modal.error({
                                                         width: 800,
-                                                        title: 'Could not synchronize the repository',
+                                                        title: '无法同步存储库',
                                                         content: error.toString(),
                                                     });
 
@@ -329,11 +329,11 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
                                     }}
                                 >
                                     <ExclamationCircleOutlined />
-                                    Synchronize
+                                    同步
                                 </Tag>
                             )}
                         </Paragraph>
-                        <Text strong className='cvat-text-color'>Using format: </Text>
+                        <Text strong className='cvat-text-color'>使用格式：</Text>
                         <Space>
                             <Select disabled={updatingRepository} onChange={this.onChangeFormatValue} className='cvat-repository-format-select' value={format}>
                                 {
@@ -343,7 +343,7 @@ export default class DetailsComponent extends React.PureComponent<Props, State> 
                                 }
                             </Select>
                             <Checkbox disabled={updatingRepository} onChange={this.onChangeLFSValue} checked={lfs}>
-                                Large file support
+                                大文件支持
                             </Checkbox>
                             {updatingRepository && <LoadingOutlined style={{ fontSize: 14 }} spin />}
                         </Space>

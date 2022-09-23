@@ -131,7 +131,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
 
     const columns = [
         {
-            title: 'Job',
+            title: '工作',
             dataIndex: 'job',
             key: 'job',
             render: (id: number): JSX.Element => (
@@ -150,13 +150,13 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             ),
         },
         {
-            title: 'Frames',
+            title: '帧数',
             dataIndex: 'frames',
             key: 'frames',
             className: 'cvat-text-color cvat-job-item-frames',
         },
         {
-            title: 'Stage',
+            title: '阶段',
             dataIndex: 'stage',
             key: 'stage',
             className: 'cvat-job-item-stage',
@@ -191,7 +191,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             onFilter: (value: string | number | boolean, record: any) => record.stage.stage === value,
         },
         {
-            title: 'State',
+            title: '状态',
             dataIndex: 'state',
             key: 'state',
             className: 'cvat-job-item-state',
@@ -205,27 +205,27 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             },
             sorter: sorter('state.state'),
             filters: [
-                { text: '新', value: 'new' },
-                { text: '进行中', value: 'in progress' },
+                { text: 'new', value: 'new' },
+                { text: 'in progress', value: 'in progress' },
                 { text: 'completed', value: 'completed' },
                 { text: 'rejected', value: 'rejected' },
             ],
             onFilter: (value: string | number | boolean, record: any) => record.state.state === value,
         },
         {
-            title: 'Started on',
+            title: '开始于',
             dataIndex: 'started',
             key: 'started',
             className: 'cvat-text-color',
         },
         {
-            title: 'Duration',
+            title: '持续时间',
             dataIndex: 'duration',
             key: 'duration',
             className: 'cvat-text-color',
         },
         {
-            title: 'Assignee',
+            title: '分配',
             dataIndex: 'assignee',
             key: 'assignee',
             className: 'cvat-job-item-assignee',
@@ -263,7 +263,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             frames: `${job.startFrame}-${job.stopFrame}`,
             state: job,
             stage: job,
-            started: `${created.format('MMMM Do YYYY HH:MM')}`,
+            started: `${created.format('YYYY-MM-DD HH:MM')}`,
             duration: `${moment.duration(now.diff(created)).humanize()}`,
             assignee: job,
         });
@@ -275,8 +275,8 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
         <div className='cvat-task-job-list'>
             <Row justify='space-between' align='middle'>
                 <Col>
-                    <Text className='cvat-text-color cvat-jobs-header'> Jobs </Text>
-                    <CVATTooltip trigger='click' title='Copied to clipboard!'>
+                    <Text className='cvat-text-color cvat-jobs-header'> 工作 </Text>
+                    <CVATTooltip trigger='click' title='已复制到剪贴板！'>
                         <Button
                             type='link'
                             onClick={(): void => {
@@ -284,7 +284,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                                 const [latestJob] = [...taskInstance.jobs].reverse();
                                 for (const job of taskInstance.jobs) {
                                     const baseURL = window.location.origin;
-                                    serialized += `Job #${job.id}`.padEnd(`${latestJob.id}`.length + 6, ' ');
+                                    serialized += `工作#${job.id}`.padEnd(`${latestJob.id}`.length + 6, ' ');
                                     serialized += `: ${baseURL}/tasks/${taskInstance.id}/jobs/${job.id}`.padEnd(
                                         `${latestJob.id}`.length + baseURL.length + 8,
                                         ' ',
@@ -304,12 +304,12 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                             }}
                         >
                             <CopyOutlined />
-                            Copy
+                            复制
                         </Button>
                     </CVATTooltip>
                 </Col>
                 <Col>
-                    <Text className='cvat-text-color'>{`${completed} of ${data.length} jobs`}</Text>
+                    <Text className='cvat-text-color'>{`${completed}/${data.length} 工作`}</Text>
                 </Col>
             </Row>
             <Table

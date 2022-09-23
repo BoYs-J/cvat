@@ -57,14 +57,14 @@ export default function MoveTaskModal(): JSX.Element {
     const submitMove = async (): Promise<void> => {
         if (!projectId) {
             notification.error({
-                message: 'Project not selected',
+                message: '没有选择项目',
             });
             return;
         }
         if (!Object.values(labelMap).every((map) => map.newLabelName !== null)) {
             notification.error({
-                message: 'Not all labels mapped',
-                description: 'Please choose any action to not mapped labels first',
+                message: '并非所有标签都已映射',
+                description: '请选择任何行动，先不要映射标签',
             });
             return;
         }
@@ -118,9 +118,9 @@ export default function MoveTaskModal(): JSX.Element {
             okButtonProps={{ disabled: taskUpdating }}
             title={(
                 <span>
-                    {`Move task ${task?.id} to project`}
+                    {`将 任务#${task?.id} 移动到指定项目`}
                     {/* TODO: replace placeholder */}
-                    <CVATTooltip title='Some moving process description here'>
+                    <CVATTooltip title='将任务移动到指定项目'>
                         <QuestionCircleOutlined className='ant-typography-secondary' />
                     </CVATTooltip>
                 </span>
@@ -128,7 +128,7 @@ export default function MoveTaskModal(): JSX.Element {
             className='cvat-task-move-modal'
         >
             <Row align='middle'>
-                <Col>Project:</Col>
+                <Col>项目：</Col>
                 <Col>
                     <ProjectSearch
                         value={projectId}
@@ -137,7 +137,7 @@ export default function MoveTaskModal(): JSX.Element {
                     />
                 </Col>
             </Row>
-            <Divider orientation='left'>Label mapping</Divider>
+            <Divider orientation='left'>标签映射</Divider>
             {!!Object.keys(labelMap).length &&
                 !taskUpdating &&
                 task?.labels.map((label: any) => (

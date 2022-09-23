@@ -37,15 +37,15 @@ export enum TaskStatus {
  * @enum {string}
  * @name JobStage
  * @memberof module:API.cvat.enums
- * @property {string} ANNOTATION '注释'
- * @property {string} VALIDATION '验证'
- * @property {string} ACCEPTANCE '接受'
+ * @property {string} ANNOTATION 'annotation'
+ * @property {string} VALIDATION 'validation'
+ * @property {string} ACCEPTANCE 'acceptance'
  * @readonly
 */
 export enum JobStage {
-    ANNOTATION = '注释',
-    VALIDATION = '验证',
-    ACCEPTANCE = '接受',
+    ANNOTATION = 'annotation',
+    VALIDATION = 'validation',
+    ACCEPTANCE = 'acceptance',
 }
 
 /**
@@ -53,17 +53,17 @@ export enum JobStage {
  * @enum {string}
  * @name JobState
  * @memberof module:API.cvat.enums
- * @property {string} NEW '新'
- * @property {string} IN_PROGRESS '进行中'
- * @property {string} COMPLETED '已完成'
- * @property {string} REJECTED '被拒绝'
+ * @property {string} NEW 'new'
+ * @property {string} IN_PROGRESS 'in progress'
+ * @property {string} COMPLETED 'completed'
+ * @property {string} REJECTED 'rejected'
  * @readonly
 */
 export enum JobState {
-    NEW = '新',
-    IN_PROGRESS = '进行中',
-    COMPLETED = '已完成',
-    REJECTED = '被拒绝',
+    NEW = 'new',
+    IN_PROGRESS = 'in progress',
+    COMPLETED = 'completed',
+    REJECTED = 'rejected',
 }
 
 /**

@@ -31,19 +31,19 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
                         size='large'
                     >
                         <LeftOutlined />
-                        Back to project
+                        返回项目
                     </Button>
                 ) : (
                     <Button onClick={() => history.push('/tasks')} type='link' size='large'>
                         <LeftOutlined />
-                        Back to tasks
+                        返回任务
                     </Button>
                 )}
             </Col>
             <Col>
                 <Dropdown overlay={<ActionsMenuContainer taskInstance={taskInstance} />}>
                     <Button size='middle' className='cvat-task-page-actions-button'>
-                        <Text className='cvat-text-color'>Actions</Text>
+                        <Text className='cvat-text-color'>操作</Text>
                         <MoreOutlined className='cvat-menu-icon' />
                     </Button>
                 </Dropdown>

@@ -51,7 +51,7 @@ export default function ResourceFilterHOC(
         try {
             savedItems = JSON.parse(localStorage.getItem(localStorageRecentKeyword) || '[]');
             if (!Array.isArray(savedItems) || savedItems.some((item: any) => typeof item !== 'string')) {
-                throw new Error('Wrong filters value stored');
+                throw new Error('存储了错误的筛选器值');
             }
         } catch (_: any) {
             // nothing to do
@@ -66,7 +66,7 @@ export default function ResourceFilterHOC(
         try {
             recentFilters = JSON.parse(localStorage.getItem(localStorageRecentKeyword) || '[]');
             if (!Array.isArray(recentFilters) || recentFilters.some((item: any) => typeof item !== 'string')) {
-                throw new Error('Wrong filters value stored');
+                throw new Error('存储了错误的筛选器值');
             }
         } catch (_: any) {
             // nothing to do

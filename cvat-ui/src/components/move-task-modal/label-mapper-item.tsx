@@ -73,7 +73,7 @@ export default function LabelMapperItem(props: LabelMapperItemProps): JSX.Elemen
                             clearAttributes: _value.target.checked,
                         })}
                 >
-                    Clear attributes
+                    清除属性
                 </Checkbox>
             </Col>
         </Row>

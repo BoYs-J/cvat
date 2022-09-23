@@ -66,8 +66,8 @@ class TaskPageComponent extends React.PureComponent<Props> {
                 <Result
                     className='cvat-not-found'
                     status='404'
-                    title='Sorry, but this task was not found'
-                    subTitle='Please, be sure information you tried to get exist and you have access'
+                    title='对不起，没有找到这个任务'
+                    subTitle='请确保你获取的信息存在并且你有权限获取'
                 />
             );
         }
