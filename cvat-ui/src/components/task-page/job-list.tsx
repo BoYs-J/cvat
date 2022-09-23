@@ -14,8 +14,6 @@ import Select from 'antd/lib/select';
 import Text from 'antd/lib/typography/Text';
 import moment from 'moment';
 import copy from 'copy-to-clipboard';
-import { ConfigProvider } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN';
 
 import { JobStage } from 'reducers';
 import CVATTooltip from 'components/common/cvat-tooltip';
@@ -169,7 +167,6 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
 
                 return (
                     <div>
-                        <ConfigProvider locale={zhCN}>
                         <Select
                             value={stage}
                             onChange={(newValue: string) => {
@@ -184,7 +181,6 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                         <CVATTooltip title={<ReviewSummaryComponent jobInstance={jobInstance} />}>
                             <QuestionCircleOutlined />
                         </CVATTooltip>
-                        </ConfigProvider>
                     </div>
                 );
             },
