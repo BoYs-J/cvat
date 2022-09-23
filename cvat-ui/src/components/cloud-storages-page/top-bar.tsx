@@ -37,7 +37,7 @@ export default function StoragesTopBar(props: Props): JSX.Element {
 
     return (
         <Row justify='space-between' align='middle' className='cvat-cloud-storages-list-top-bar'>
-            <Col span={24}>
+            <Col span={26}>
                 <div className='cvat-cloudstorages-page-filters-wrapper'>
                     <Input.Search
                         enterButton
