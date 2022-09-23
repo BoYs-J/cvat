@@ -43,9 +43,9 @@ export enum TaskStatus {
  * @readonly
 */
 export enum JobStage {
-    ANNOTATION = 'annotation',
-    VALIDATION = 'validation',
-    ACCEPTANCE = 'acceptance',
+    ANNOTATION = '注释',
+    VALIDATION = '验证',
+    ACCEPTANCE = '接受',
 }
 
 /**
@@ -60,10 +60,10 @@ export enum JobStage {
  * @readonly
 */
 export enum JobState {
-    NEW = 'new',
-    IN_PROGRESS = 'in progress',
-    COMPLETED = 'completed',
-    REJECTED = 'rejected',
+    NEW = '新',
+    IN_PROGRESS = '进行中',
+    COMPLETED = '已完成',
+    REJECTED = '被拒绝',
 }
 
 /**
