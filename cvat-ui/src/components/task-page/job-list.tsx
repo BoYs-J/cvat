@@ -205,8 +205,8 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             },
             sorter: sorter('state.state'),
             filters: [
-                { text: 'new', value: 'new' },
-                { text: 'in progress', value: 'in progress' },
+                { text: '新', value: 'new' },
+                { text: '进行中', value: 'in progress' },
                 { text: 'completed', value: 'completed' },
                 { text: 'rejected', value: 'rejected' },
             ],

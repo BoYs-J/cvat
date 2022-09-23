@@ -93,8 +93,8 @@ class StageChoice(str, Enum):
         return self.value
 
 class StateChoice(str, Enum):
-    NEW = '新'
-    IN_PROGRESS = '进行中'
+    NEW = 'new'
+    IN_PROGRESS = 'in progress'
     COMPLETED = 'completed'
     REJECTED = 'rejected'
 

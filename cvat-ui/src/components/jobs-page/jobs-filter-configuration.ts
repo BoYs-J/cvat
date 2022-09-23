@@ -13,8 +13,8 @@ export const config: Partial<Config> = {
             valueSources: ['value'],
             fieldSettings: {
                 listValues: [
-                    { value: 'new', title: 'new' },
-                    { value: 'in progress', title: 'in progress' },
+                    { value: 'new', title: '新' },
+                    { value: 'in progress', title: '进行中' },
                     { value: 'rejected', title: 'rejected' },
                     { value: 'completed', title: 'completed' },
                 ],
