@@ -9,14 +9,9 @@ export const config: Partial<Config> = {
         state: {
             label: '状态',
             type: 'select',
-            subfields: {
-                state2: {
-                    label: '状态2',
-                    label2: '状态22',
-                    type: 'select',
-                    operators: ['select_any_in', 'select_equals'], // ['select_equals', 'select_not_equals', 'select_any_in', 'select_not_any_in']
-                    valueSources: ['value'],
-                    fieldSettings: {
+            operators: ['select_any_in', 'select_equals'], // ['select_equals', 'select_not_equals', 'select_any_in', 'select_not_any_in']
+            valueSources: ['value'],
+            fieldSettings: {
                 listValues: [
                     { value: 'new', title: '新' },
                     { value: 'in progress', title: '进行中' },
@@ -24,8 +19,6 @@ export const config: Partial<Config> = {
                     { value: 'completed', title: '完成' },
                 ],
             },
-        },
-        },
         },
         stage: {
             label: '阶段',
