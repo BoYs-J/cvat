@@ -254,6 +254,13 @@ export default function ResourceFilterHOC(
                                                     if (!tree) {
                                                         return null;
                                                     }
+                                                    console.log('1:'+QbUtils.queryString());
+                                                    console.log('2:'+QbUtils.queryString(immutableTree));
+                                                    console.log('3:'+QbUtils.queryString(config));
+                                                    console.log('4:'+QbUtils.queryString(true));
+                                                    console.log('5:'+QbUtils.queryString(immutableTree, config));
+                                                    console.log('6:'+QbUtils.queryString(config, true));
+                                                    console.log('7:'+QbUtils.queryString(immutableTree, config, true));
 
                                                     return (
                                                         <Menu.Item
