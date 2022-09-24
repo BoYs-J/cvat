@@ -17,7 +17,6 @@ export interface Props {
 }
 
 function MemberItem(props: Props): JSX.Element {
-    // moment.locale('zh-cn'); //汉化时间
     const {
         membershipInstance, onRemoveMembership, onUpdateMembershipRole,
     } = props;
