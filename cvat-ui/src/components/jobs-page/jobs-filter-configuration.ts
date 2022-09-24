@@ -8,12 +8,13 @@ export const config: Partial<Config> = {
     fields: {
         state: {
             label: '状态',
+            label2: '状态',
             type: 'select',
             operators: ['select_any_in', 'select_equals'], // ['select_equals', 'select_not_equals', 'select_any_in', 'select_not_any_in']
             valueSources: ['value'],
             fieldSettings: {
                 listValues: [
-                    { value: 'new', title: '新' },
+                    { value: 'new', label2: '新', title: '新' },
                     { value: 'in progress', title: '进行中' },
                     { value: 'rejected', title: '驳回' },
                     { value: 'completed', title: '完成' },
