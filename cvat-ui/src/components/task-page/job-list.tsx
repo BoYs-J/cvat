@@ -88,6 +88,8 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
         history: { push },
     } = props;
 
+    moment.locale('zh-cn'); //汉化时间
+
     const { jobs, id: taskId } = taskInstance;
 
     function sorter(path: string) {

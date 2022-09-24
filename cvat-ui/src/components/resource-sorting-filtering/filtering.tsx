@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import 'react-awesome-query-builder/lib/css/styles.css';
-import AntdConfig from 'react-awesome-query-builder/lib/config/antd';
+import AntdConfig from 'react-awesome-query-builder-j/lib/config/antd';
 import {
     Builder, Config, ImmutableTree, Query, Utils as QbUtils,
 } from 'react-awesome-query-builder';
