@@ -260,6 +260,12 @@ export default function ResourceFilterHOC(
                                                     console.log("4:"+tree)
                                                     console.log("5:"+JSON.parse(key))
                                                     console.log("6:"+QbUtils.queryString(tree, config))
+                                                    const FilterData:any = ['ID', 'Owner', 'Status', 'Assignee', 'Updated date', 'Subset', 'Mode', 'Dimension',	 'Description', 'Stage', 'State', 'Task ID', 'Task name', 'Project ID', 'Name', 'Project name', 'Provider type', 'Display name', 'Resource', 'Credentials type']
+                                                    const FilterData_ch:any = ['ID', '所有者', '状态', '受让人', '更新时间', '子集', '模式', '维度', '类型', '阶段', '状态', '任务ID',	'任务名称',	'项目ID', '名称', '项目名称', '供应商类型', '显示名称', '资源', '凭据类型']
+                                                    for (let i = 0; i < FilterData.length; i++) {
+                                                        var lately_ch = QbUtils.queryString(tree, config).replace(FilterData[i],FilterData_ch[i])
+                                                        console.log("7:"+lately_ch)
+                                                    }
 
                                                     return (
                                                         <Menu.Item
@@ -275,7 +281,7 @@ export default function ResourceFilterHOC(
                                                                 }
                                                             }}
                                                         >
-                                                            {QbUtils.queryString(tree, config)}
+                                                            {lately_ch}
                                                         </Menu.Item>
                                                     );
                                                 })}
