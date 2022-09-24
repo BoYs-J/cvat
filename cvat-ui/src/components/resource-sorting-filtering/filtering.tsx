@@ -254,7 +254,7 @@ export default function ResourceFilterHOC(
                                                     if (!tree) {
                                                         return null;
                                                     }
-                                                    var zero = QbUtils.loadFromJsonLogic(JSON.parse(key), config);
+                                                    console.log(tree);
 
                                                     return (
                                                         <Menu.Item
@@ -353,7 +353,6 @@ export default function ResourceFilterHOC(
                 </Button>
             </div>
         );
-        console.log(zero);
     }
 
     return React.memo(ResourceFilterComponent);
