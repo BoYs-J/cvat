@@ -30,7 +30,6 @@ const useCardHeight = useCardHeightHOC({
 });
 
 export default function ProjectItemComponent(props: Props): JSX.Element {
-    moment.locale('zh-cn');
     const {
         projectInstance: { instance, preview },
     } = props;

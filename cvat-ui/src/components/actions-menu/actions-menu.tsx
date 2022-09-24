@@ -85,8 +85,8 @@ function ActionsMenuComponent(props: Props): JSX.Element {
                 onFileUpload: (format: string, file: File): void => {
                     if (file) {
                         Modal.confirm({
-                            title: 'Current annotation will be lost',
-                            content: 'You are going to upload new annotations to this task. Continue?',
+                            title: '当前注释内容将丢失',
+                            content: '你将向该任务上传新的注释，点击“更新”继续！',
                             className: 'cvat-modal-content-load-task-annotation',
                             onOk: () => {
                                 onUploadAnnotations(format, file);
@@ -95,28 +95,28 @@ function ActionsMenuComponent(props: Props): JSX.Element {
                                 type: 'primary',
                                 danger: true,
                             },
-                            okText: 'Update',
+                            okText: '更新',
                         });
                     }
                 },
                 menuKey: Actions.LOAD_TASK_ANNO,
                 taskDimension,
             })}
-            <Menu.Item key={Actions.EXPORT_TASK_DATASET}>Export task dataset</Menu.Item>
-            {!!bugTracker && <Menu.Item key={Actions.OPEN_BUG_TRACKER}>Open bug tracker</Menu.Item>}
+            <Menu.Item key={Actions.EXPORT_TASK_DATASET}>导出任务数据集</Menu.Item>
+            {!!bugTracker && <Menu.Item key={Actions.OPEN_BUG_TRACKER}>打开BUG跟踪器</Menu.Item>}
             <Menu.Item disabled={inferenceIsActive} key={Actions.RUN_AUTO_ANNOTATION}>
-                Automatic annotation
+                自动标注
             </Menu.Item>
             <Menu.Item
                 key={Actions.EXPORT_TASK}
                 disabled={exportIsActive}
                 icon={exportIsActive && <LoadingOutlined id='cvat-export-task-loading' />}
             >
-                Backup Task
+                备份任务
             </Menu.Item>
             <Menu.Divider />
-            <Menu.Item key={Actions.MOVE_TASK_TO_PROJECT}>Move to project</Menu.Item>
-            <Menu.Item key={Actions.DELETE_TASK}>Delete</Menu.Item>
+            <Menu.Item key={Actions.MOVE_TASK_TO_PROJECT}>移动到项目</Menu.Item>
+            <Menu.Item key={Actions.DELETE_TASK}>删除</Menu.Item>
         </Menu>
     );
 }
