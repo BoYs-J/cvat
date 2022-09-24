@@ -25,7 +25,7 @@ import { getOrganizationsAsync } from 'actions/organization-actions';
 import { resetErrors, resetMessages } from './actions/notification-actions';
 import { CombinedState, NotificationsState } from './reducers';
 import { ConfigProvider } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN';
+import zhCN from 'antd/es/locale/zh_CN'; //全局中文提示
 
 import moment from 'moment';
 import 'moment/locale/zh-cn';
