@@ -27,6 +27,10 @@ import { CombinedState, NotificationsState } from './reducers';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+import locale from 'antd/es/locale/zh_CN';
+
 createCVATStore(createRootReducer);
 const cvatStore = getCVATStore();
 
@@ -127,12 +131,14 @@ const ReduxAppWrapper = connect(mapStateToProps, mapDispatchToProps)(CVATApplica
 
 ReactDOM.render(
     <ConfigProvider locale={zhCN}>
-        <Provider store={cvatStore}>
-            <BrowserRouter>
-                <ReduxAppWrapper />
-            </BrowserRouter>
-            <LayoutGrid />
-        </Provider>
+        <ConfigProvider locale={locale}>
+            <Provider store={cvatStore}>
+                <BrowserRouter>
+                    <ReduxAppWrapper />
+                </BrowserRouter>
+                <LayoutGrid />
+            </Provider>
+        </ConfigProvider>
     </ConfigProvider>,
     document.getElementById('root'),
 );
