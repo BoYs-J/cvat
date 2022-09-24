@@ -257,7 +257,9 @@ export default function ResourceFilterHOC(
                                                     console.log("1:"+key);
                                                     console.log("2:"+config);
                                                     console.log("3:"+recentFilters);
-                                                    console.log("4:"+QbUtils.queryString(tree, config))
+                                                    console.log("4:"+tree)
+                                                    console.log("5:"+JSON.parse(key))
+                                                    console.log("6:"+QbUtils.queryString(tree, config))
 
                                                     return (
                                                         <Menu.Item
