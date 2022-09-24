@@ -281,7 +281,7 @@ export default function ResourceFilterHOC(
                                                                 }
                                                             }}
                                                         >
-                                                            {lately_ch}
+                                                            我
                                                         </Menu.Item>
                                                     );
                                                 })}
