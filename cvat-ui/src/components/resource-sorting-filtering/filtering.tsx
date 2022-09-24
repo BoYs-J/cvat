@@ -249,14 +249,12 @@ export default function ResourceFilterHOC(
                                         <div className='cvat-resource-page-recent-filters-list'>
                                             <Menu selectable={false}>
                                                 {Object.keys(recentFilters).map((key: string): JSX.Element | null => {
-                                                    if (config == "state"){
-                                                        configa = "状态"
-                                                    }
-                                                    const tree = QbUtils.loadFromJsonLogic(JSON.parse(key), configa);
+                                                    const tree = QbUtils.loadFromJsonLogic(JSON.parse(key), config);
 
                                                     if (!tree) {
                                                         return null;
                                                     }
+                                                    var zero = QbUtils.loadFromJsonLogic(JSON.parse(key), config);
 
                                                     return (
                                                         <Menu.Item
@@ -272,7 +270,7 @@ export default function ResourceFilterHOC(
                                                                 }
                                                             }}
                                                         >
-                                                            {QbUtils.queryString(tree, configa)}
+                                                            {QbUtils.queryString(tree, config)}
                                                         </Menu.Item>
                                                     );
                                                 })}
@@ -355,6 +353,7 @@ export default function ResourceFilterHOC(
                 </Button>
             </div>
         );
+        console.log(zero);
     }
 
     return React.memo(ResourceFilterComponent);
