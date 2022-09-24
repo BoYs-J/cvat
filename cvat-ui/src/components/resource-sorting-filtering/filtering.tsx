@@ -254,7 +254,9 @@ export default function ResourceFilterHOC(
                                                     if (!tree) {
                                                         return null;
                                                     }
-                                                    console.log(tree);
+                                                    console.log("1:"+key);
+                                                    console.log("2:"+config);
+                                                    console.log("3:"+recentFilters);
 
                                                     return (
                                                         <Menu.Item
@@ -262,6 +264,8 @@ export default function ResourceFilterHOC(
                                                             onClick={() => {
                                                                 if (appliedFilter.recent === key) {
                                                                     setAppliedFilter(defaultAppliedFilter);
+                                                                    console.log("4:"+appliedFilter.recent);
+                                                                    console.log("5:"+defaultAppliedFilter);
                                                                 } else {
                                                                     setAppliedFilter({
                                                                         ...defaultAppliedFilter,
