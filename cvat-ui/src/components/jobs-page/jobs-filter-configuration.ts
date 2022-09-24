@@ -8,7 +8,6 @@ export const config: Partial<Config> = {
     fields: {
         state: {
             label: '状态',
-            labelForFormat: '状态',
             type: 'select',
             operators: ['select_any_in', 'select_equals'], // ['select_equals', 'select_not_equals', 'select_any_in', 'select_not_any_in']
             valueSources: ['value'],
