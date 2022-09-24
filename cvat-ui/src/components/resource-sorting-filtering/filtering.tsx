@@ -3,11 +3,11 @@
 // SPDX-License-Identifier: MIT
 
 import React, { useState, useEffect } from 'react';
-import 'zero-awesome-query-builder/lib/css/styles.css';
-import AntdConfig from 'zero-awesome-query-builder/lib/config/antd';
+import 'zero-awesome-query-builder-test/lib/css/styles.css';
+import AntdConfig from 'zero-awesome-query-builder-test/lib/config/antd';
 import {
     Builder, Config, ImmutableTree, Query, Utils as QbUtils,
-} from 'zero-awesome-query-builder';
+} from 'zero-awesome-query-builder-test';
 import {
     DownOutlined, FilterFilled, FilterOutlined,
 } from '@ant-design/icons';
