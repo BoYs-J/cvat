@@ -125,15 +125,15 @@ class GlobalErrorBoundary extends React.PureComponent<Props, State> {
                 <div className='cvat-global-boundary'>
                     <Result
                         status='error'
-                        title='Oops, something went wrong'
-                        subTitle='More likely there are some issues with the tool'
+                        title='哎呀，出问题了'
+                        subTitle='有可能是工具出了问题'
                     >
                         <div>
                             <Paragraph>
-                                <Paragraph strong>What has happened?</Paragraph>
-                                <Paragraph>Program error has just occurred</Paragraph>
+                                <Paragraph strong>发生了什么？</Paragraph>
+                                <Paragraph>程序刚刚发生错误</Paragraph>
                                 <Collapse accordion>
-                                    <Collapse.Panel header='Error message' key='errorMessage'>
+                                    <Collapse.Panel header='错误信息'>
                                         <Text type='danger'>
                                             <TextArea
                                                 className='cvat-global-boundary-error-field'
@@ -146,11 +146,11 @@ class GlobalErrorBoundary extends React.PureComponent<Props, State> {
                             </Paragraph>
 
                             <Paragraph>
-                                <Text strong>What should I do?</Text>
+                                <Text strong>我该怎么办？</Text>
                             </Paragraph>
                             <ul>
                                 <li>
-                                    <CVATTooltip title='Copied!' trigger='click'>
+                                    <CVATTooltip title='已复制！' trigger='click'>
                                         {/* eslint-disable-next-line */}
                                         <a
                                             onClick={() => {
@@ -158,35 +158,37 @@ class GlobalErrorBoundary extends React.PureComponent<Props, State> {
                                             }}
                                         >
                                             {' '}
-                                            Copy
+                                            复制
                                             {' '}
                                         </a>
                                     </CVATTooltip>
-                                    the error message to clipboard
+                                    错误信息到剪贴板
                                 </li>
                                 <li>
-                                    Notify an administrator or submit the issue directly on
-                                    <a href={consts.GITHUB_URL}> GitHub. </a>
-                                    Please, provide also:
+                                    通知
+                                    <a href='dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=1gj-c35iwn4hxp'> 管理员 </a>
+                                    或直接提交问题到
+                                    <a href={consts.GITHUB_URL}> GitHub</a>
+                                    ，同时提供：
                                     <ul>
-                                        <li>Steps to reproduce the issue</li>
-                                        <li>Your operating system and browser version</li>
-                                        <li>CVAT version</li>
+                                        <li>重现问题的步骤</li>
+                                        <li>你的操作系统和浏览器版本</li>
+                                        <li>CVAT 版本</li>
                                         <ul>
                                             <li>
-                                                <Text strong>Server: </Text>
+                                                <Text strong>服务器：</Text>
                                                 {serverVersion}
                                             </li>
                                             <li>
-                                                <Text strong>Core: </Text>
+                                                <Text strong>核心：</Text>
                                                 {coreVersion}
                                             </li>
                                             <li>
-                                                <Text strong>Canvas: </Text>
+                                                <Text strong>画布：</Text>
                                                 {canvasVersion}
                                             </li>
                                             <li>
-                                                <Text strong>UI: </Text>
+                                                <Text strong>UI版本：</Text>
                                                 {uiVersion}
                                             </li>
                                         </ul>
@@ -194,19 +196,19 @@ class GlobalErrorBoundary extends React.PureComponent<Props, State> {
                                 </li>
                                 {job ? (
                                     <li>
-                                        Press
+                                        点击
                                         {/* eslint-disable-next-line */}
-                                        <a onClick={restoreGlobalState}> here </a>
-                                        if you wish CVAT tried to restore your annotation progress or
+                                        <a onClick={restoreGlobalState}> 这里 </a>
+                                        尝试恢复CVAT注释进度或
                                         {/* eslint-disable-next-line */}
-                                        <a onClick={() => window.location.reload()}> update </a>
-                                        the page
+                                        <a onClick={() => window.location.reload()}> 更新 </a>
+                                        页面
                                     </li>
                                 ) : (
                                     <li>
                                         {/* eslint-disable-next-line */}
-                                        <a onClick={() => window.location.reload()}>Update </a>
-                                        the page
+                                        <a onClick={() => window.location.reload()}>更新 </a>
+                                        页面
                                     </li>
                                 )}
                             </ul>
