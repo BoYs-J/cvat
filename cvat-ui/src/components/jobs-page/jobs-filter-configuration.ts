@@ -9,9 +9,14 @@ export const config: Partial<Config> = {
         state: {
             label: '状态',
             type: 'select',
-            operators: ['select_any_in', 'select_equals'], // ['select_equals', 'select_not_equals', 'select_any_in', 'select_not_any_in']
-            valueSources: ['value'],
-            fieldSettings: {
+            subfields: {
+                state2: {
+                    label: '状态2',
+                    label2: '状态22',
+                    type: 'select',
+                    operators: ['select_any_in', 'select_equals'], // ['select_equals', 'select_not_equals', 'select_any_in', 'select_not_any_in']
+                    valueSources: ['value'],
+                    fieldSettings: {
                 listValues: [
                     { value: 'new', title: '新' },
                     { value: 'in progress', title: '进行中' },
@@ -20,21 +25,23 @@ export const config: Partial<Config> = {
                 ],
             },
         },
+        },
+        },
         stage: {
-            label: 'Stage',
+            label: '阶段',
             type: 'select',
             operators: ['select_any_in', 'select_equals'],
             valueSources: ['value'],
             fieldSettings: {
                 listValues: [
-                    { value: 'annotation', title: 'annotation' },
-                    { value: 'validation', title: 'validation' },
-                    { value: 'acceptance', title: 'acceptance' },
+                    { value: 'annotation', title: '注释' },
+                    { value: 'validation', title: '验证' },
+                    { value: 'acceptance', title: '接受' },
                 ],
             },
         },
         dimension: {
-            label: 'Dimension',
+            label: '维度',
             type: 'select',
             operators: ['select_equals'],
             valueSources: ['value'],
@@ -46,7 +53,7 @@ export const config: Partial<Config> = {
             },
         },
         assignee: {
-            label: 'Assignee',
+            label: '受让人',
             type: 'text', // todo: change to select
             valueSources: ['value'],
             fieldSettings: {
@@ -72,7 +79,7 @@ export const config: Partial<Config> = {
             },
         },
         updated_date: {
-            label: 'Last updated',
+            label: '更新时间',
             type: 'datetime',
             operators: ['between', 'greater', 'greater_or_equal', 'less', 'less_or_equal'],
         },
@@ -84,27 +91,27 @@ export const config: Partial<Config> = {
             valueSources: ['value'],
         },
         task_id: {
-            label: 'Task ID',
+            label: '任务ID',
             type: 'number',
             operators: ['equal', 'between', 'greater', 'greater_or_equal', 'less', 'less_or_equal'],
             fieldSettings: { min: 0 },
             valueSources: ['value'],
         },
         project_id: {
-            label: 'Project ID',
+            label: '项目ID',
             type: 'number',
             operators: ['equal', 'between', 'greater', 'greater_or_equal', 'less', 'less_or_equal'],
             fieldSettings: { min: 0 },
             valueSources: ['value'],
         },
         task_name: {
-            label: 'Task name',
+            label: '任务名称',
             type: 'text',
             valueSources: ['value'],
             operators: ['like'],
         },
         project_name: {
-            label: 'Project name',
+            label: '项目名称',
             type: 'text',
             valueSources: ['value'],
             operators: ['like'],
