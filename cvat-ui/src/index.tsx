@@ -29,7 +29,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/es/locale/zh_CN';
+import locale from 'antd/es/locale/zh_CN'; //全局中文时间
 
 createCVATStore(createRootReducer);
 const cvatStore = getCVATStore();

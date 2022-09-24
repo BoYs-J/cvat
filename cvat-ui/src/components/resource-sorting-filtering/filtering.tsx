@@ -336,7 +336,7 @@ export default function ResourceFilterHOC(
                     )}
                 >
                     <Button type='default' onClick={() => onBuilderVisibleChange(!builderVisible)}>
-                        筛选器
+                        高级筛选器
                         { appliedFilter.built || appliedFilter.recent ?
                             <FilterFilled /> :
                             <FilterOutlined />}
