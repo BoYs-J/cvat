@@ -520,9 +520,9 @@ export enum ObjectType {
 }
 
 export enum StatesOrdering {
-    ID_DESCENT = 'ID 降序',
-    ID_ASCENT = 'ID 升序',
-    UPDATED = '更新时间',
+    ID_DESCENT = 'ID - descent',
+    ID_ASCENT = 'ID - ascent',
+    UPDATED = 'Updated time',
 }
 
 export enum ContextMenuType {
@@ -653,19 +653,19 @@ export interface AnnotationState {
 }
 
 export enum Workspace {
-    STANDARD3D = '标准 3D',
-    STANDARD = '标准',
-    ATTRIBUTE_ANNOTATION = '属性注释',
-    TAG_ANNOTATION = '标记注释',
-    REVIEW_WORKSPACE = '审查/验证',
+    STANDARD3D = 'Standard 3D',
+    STANDARD = 'Standard',
+    ATTRIBUTE_ANNOTATION = 'Attribute annotation',
+    TAG_ANNOTATION = 'Tag annotation',
+    REVIEW_WORKSPACE = 'Review',
 }
 
 export enum GridColor {
-    White = '白色',
-    Black = '黑色',
-    Red = '红色',
-    Green = '绿色',
-    Blue = '蓝色',
+    White = 'White',
+    Black = 'Black',
+    Red = 'Red',
+    Green = 'Green',
+    Blue = 'Blue',
 }
 
 export enum FrameSpeed {
@@ -678,9 +678,9 @@ export enum FrameSpeed {
 }
 
 export enum ColorBy {
-    INSTANCE = '实例',
-    GROUP = '组合',
-    LABEL = '标签',
+    INSTANCE = 'Instance',
+    GROUP = 'Group',
+    LABEL = 'Label',
 }
 
 export interface PlayerSettingsState {

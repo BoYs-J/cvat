@@ -27,13 +27,13 @@ function StatesOrderingSelectorComponent(props: StatesOrderingSelectorComponentP
                 onChange={changeStatesOrdering}
             >
                 <Select.Option key={StatesOrdering.ID_DESCENT} value={StatesOrdering.ID_DESCENT}>
-                    {StatesOrdering.ID_DESCENT}
+                    ID-[降序]
                 </Select.Option>
                 <Select.Option key={StatesOrdering.ID_ASCENT} value={StatesOrdering.ID_ASCENT}>
-                    {StatesOrdering.ID_ASCENT}
+                    ID-[升序]
                 </Select.Option>
                 <Select.Option key={StatesOrdering.UPDATED} value={StatesOrdering.UPDATED}>
-                    {StatesOrdering.UPDATED}
+                    更新时间
                 </Select.Option>
             </Select>
         </Col>

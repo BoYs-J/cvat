@@ -144,9 +144,15 @@ function AppearanceBlock(props: Props): JSX.Element {
                         value={colorBy}
                         onChange={changeShapesColorBy}
                     >
-                        <Radio.Button value={ColorBy.LABEL}>{ColorBy.LABEL}</Radio.Button>
-                        <Radio.Button value={ColorBy.INSTANCE}>{ColorBy.INSTANCE}</Radio.Button>
-                        <Radio.Button value={ColorBy.GROUP}>{ColorBy.GROUP}</Radio.Button>
+                        <Radio.Button value={ColorBy.LABEL}>
+                            标签
+                        </Radio.Button>
+                        <Radio.Button value={ColorBy.INSTANCE}>
+                            实例
+                        </Radio.Button>
+                        <Radio.Button value={ColorBy.GROUP}>
+                            组合
+                        </Radio.Button>
                     </Radio.Group>
                     <Text type='secondary'>透明度</Text>
                     <Slider

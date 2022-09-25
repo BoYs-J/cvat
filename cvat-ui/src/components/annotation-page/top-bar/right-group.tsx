@@ -13,6 +13,7 @@ import Moment from 'react-moment';
 
 import moment from 'moment';
 import { useSelector } from 'react-redux';
+import consts from 'consts'; //全局变量
 
 import {
     FilterIcon, FullscreenIcon, InfoIcon, BrainIcon,
@@ -122,6 +123,7 @@ function RightGroup(props: Props): JSX.Element {
     }
 
     const filters = useSelector((state: CombinedState) => state.annotation.annotations.filters);
+    const { ZH_CN_TEXT } = consts; //中文字符集
 
     return (
         <Col className='cvat-annotation-header-right-group'>
@@ -181,14 +183,14 @@ function RightGroup(props: Props): JSX.Element {
                             }
                             return (
                                 <Select.Option disabled={ws !== Workspace.STANDARD3D} key={ws} value={ws}>
-                                    {ws}
+                                    {ZH_CN_TEXT.pattern[ws]}
                                 </Select.Option>
                             );
                         }
                         if (ws !== Workspace.STANDARD3D) {
                             return (
                                 <Select.Option key={ws} value={ws}>
-                                    {ws}
+                                    {ZH_CN_TEXT.pattern[ws]}
                                 </Select.Option>
                             );
                         }

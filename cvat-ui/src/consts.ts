@@ -127,9 +127,17 @@ const ZH_CN_TEXT:any = {
         'Resource': '资源',
         'Credentials type': '凭据类型'
     },
+    pattern:{
+        'Standard 3D':'标准 3D',
+        'Standard':'标准',
+        'Attribute annotation':'属性注释',
+        'Tag annotation':'标记注释',
+        'Review':'审查/验证',
+    },
 
 };
-
+// import consts from 'consts'; //全局变量
+// const { ZH_CN_TEXT } = consts; //中文字符集
 export default {
     UNDEFINED_ATTRIBUTE_VALUE,
     NO_BREAK_SPACE,
