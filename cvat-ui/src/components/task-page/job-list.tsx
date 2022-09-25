@@ -126,7 +126,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                     return job[path].username;
                 }),
             ),
-        ).map((value: string | null) => ({ text: value || 'Is Empty', value: value || false }));
+        ).map((value: string | null) => ({ text: value || '为空', value: value || false }));
     }
 
     const columns = [
@@ -172,9 +172,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                                 onJobUpdate(jobInstance);
                             }}
                         >
-                            <Select.Option value={JobStage.ANNOTATION}>{JobStage.ANNOTATION}</Select.Option>
-                            <Select.Option value={JobStage.REVIEW}>{JobStage.REVIEW}</Select.Option>
-                            <Select.Option value={JobStage.ACCEPTANCE}>{JobStage.ACCEPTANCE}</Select.Option>
+                            <Select.Option value={JobStage.ANNOTATION}>注释</Select.Option>
+                            <Select.Option value={JobStage.REVIEW}>验证</Select.Option>
+                            <Select.Option value={JobStage.ACCEPTANCE}>接受</Select.Option>
                         </Select>
                         <CVATTooltip title={<ReviewSummaryComponent jobInstance={jobInstance} />}>
                             <QuestionCircleOutlined />
@@ -184,9 +184,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             },
             sorter: sorter('stage.stage'),
             filters: [
-                { text: 'annotation', value: 'annotation' },
-                { text: 'validation', value: 'validation' },
-                { text: 'acceptance', value: 'acceptance' },
+                { text: '注释', value: 'annotation' },
+                { text: '验证', value: 'validation' },
+                { text: '接受', value: 'acceptance' },
             ],
             onFilter: (value: string | number | boolean, record: any) => record.stage.stage === value,
         },
@@ -196,19 +196,20 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             key: 'state',
             className: 'cvat-job-item-state',
             render: (jobInstance: any): JSX.Element => {
+                const Filter_State:any = {new:'新', in progress:'进行中', completed:'完成', rejected:'驳回'};
                 const { state } = jobInstance;
                 return (
                     <Text type='secondary'>
-                        {state}
+                        {Filter_State[state]}
                     </Text>
                 );
             },
             sorter: sorter('state.state'),
             filters: [
-                { text: 'new', value: 'new' },
-                { text: 'in progress', value: 'in progress' },
-                { text: 'completed', value: 'completed' },
-                { text: 'rejected', value: 'rejected' },
+                { text: '新', value: 'new' },
+                { text: '进行中', value: 'in progress' },
+                { text: '完成', value: 'completed' },
+                { text: '驳回', value: 'rejected' },
             ],
             onFilter: (value: string | number | boolean, record: any) => record.state.state === value,
         },
