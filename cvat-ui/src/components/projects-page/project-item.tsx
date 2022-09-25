@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 import React from 'react';
-// import moment from 'moment';
+import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import Text from 'antd/lib/typography/Text';
@@ -30,6 +30,7 @@ const useCardHeight = useCardHeightHOC({
 });
 
 export default function ProjectItemComponent(props: Props): JSX.Element {
+    moment.locale('zh-cn'); //中文时间
     const {
         projectInstance: { instance, preview },
     } = props;

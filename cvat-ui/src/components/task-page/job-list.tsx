@@ -12,7 +12,7 @@ import Table from 'antd/lib/table';
 import Button from 'antd/lib/button';
 import Select from 'antd/lib/select';
 import Text from 'antd/lib/typography/Text';
-// import moment from 'moment';
+import moment from 'moment';
 import copy from 'copy-to-clipboard';
 
 import { JobStage } from 'reducers';
@@ -83,6 +83,7 @@ function ReviewSummaryComponent({ jobInstance }: { jobInstance: any }): JSX.Elem
 }
 
 function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
+    moment.locale('zh-cn'); //中文时间
     const {
         taskInstance,
         onJobUpdate,

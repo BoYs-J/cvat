@@ -14,7 +14,7 @@ import Button from 'antd/lib/button';
 import Dropdown from 'antd/lib/dropdown';
 import Menu from 'antd/lib/menu';
 import Modal from 'antd/lib/modal';
-// import moment from 'moment';
+import moment from 'moment';
 
 import { CloudStorage, CombinedState } from 'reducers';
 import { deleteCloudStorageAsync } from 'actions/cloud-storage-actions';
@@ -27,6 +27,7 @@ interface Props {
 }
 
 export default function CloudStorageItemComponent(props: Props): JSX.Element {
+    moment.locale('zh-cn'); //中文时间
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -97,25 +98,25 @@ export default function CloudStorageItemComponent(props: Props): JSX.Element {
                 description={(
                     <>
                         <Paragraph>
-                            <Text type='secondary'>Provider: </Text>
+                            <Text type='secondary'>供应商：</Text>
                             <Text>{providerType}</Text>
                         </Paragraph>
                         <Paragraph>
-                            <Text type='secondary'>Created </Text>
+                            <Text type='secondary'>创建 </Text>
                             {owner ? <Text type='secondary'>{`by ${owner.username}`}</Text> : null}
                             <Text type='secondary'> on </Text>
-                            <Text type='secondary'>{moment(createdDate).format('MMMM Do YYYY')}</Text>
+                            <Text type='secondary'>{moment(createdDate).format('YYYY-MMMM-DD')}</Text>
                         </Paragraph>
                         <Paragraph>
-                            <Text type='secondary'>Last updated </Text>
+                            <Text type='secondary'>最近更新 </Text>
                             <Text type='secondary'>{moment(updatedDate).fromNow()}</Text>
                         </Paragraph>
                         <Status cloudStorage={cloudStorage} />
                         <Dropdown
                             overlay={(
                                 <Menu className='cvat-project-actions-menu'>
-                                    <Menu.Item onClick={onUpdate}>Update</Menu.Item>
-                                    <Menu.Item onClick={onDelete}>Delete</Menu.Item>
+                                    <Menu.Item onClick={onUpdate}>更新</Menu.Item>
+                                    <Menu.Item onClick={onDelete}>删除</Menu.Item>
                                 </Menu>
                             )}
                         >

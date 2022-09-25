@@ -18,7 +18,7 @@ import Text from 'antd/lib/typography/Text';
 import Title from 'antd/lib/typography/Title';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
-// import moment from 'moment';
+import moment from 'moment';
 import CVATTooltip from 'components/common/cvat-tooltip';
 import { deleteIssueAsync } from 'actions/review-actions';
 
@@ -40,6 +40,7 @@ interface Props {
 }
 
 export default function IssueDialog(props: Props): JSX.Element {
+    moment.locale('zh-cn'); //中文时间
     const ref = useRef<HTMLDivElement>(null);
     const [currentText, setCurrentText] = useState<string>('');
     const dispatch = useDispatch();

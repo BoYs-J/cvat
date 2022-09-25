@@ -4,7 +4,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import moment from 'moment';
+import moment from 'moment';
 import { Row, Col } from 'antd/lib/grid';
 import Text from 'antd/lib/typography/Text';
 import Modal from 'antd/lib/modal';
@@ -34,6 +34,7 @@ export interface Props {
 }
 
 function OrganizationTopBar(props: Props): JSX.Element {
+    moment.locale('zh-cn'); //中文时间
     const { organizationInstance, userInstance, fetchMembers } = props;
     const {
         owner, createdDate, description, updatedDate, slug, name, contact,

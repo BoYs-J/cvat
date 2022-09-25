@@ -29,7 +29,6 @@ import zhCN from 'antd/es/locale/zh_CN'; //全局中文提示
 
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
 
 createCVATStore(createRootReducer);
 const cvatStore = getCVATStore();

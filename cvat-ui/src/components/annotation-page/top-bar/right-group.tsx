@@ -11,7 +11,7 @@ import Text from 'antd/lib/typography/Text';
 import Tooltip from 'antd/lib/tooltip';
 import Moment from 'react-moment';
 
-// import moment from 'moment';
+import moment from 'moment';
 import { useSelector } from 'react-redux';
 
 import {
