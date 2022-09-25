@@ -196,8 +196,11 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             key: 'state',
             className: 'cvat-job-item-state',
             render: (jobInstance: any): JSX.Element => {
-                const Filter_State:any = {new:'新', in progress:'进行中', completed:'完成', rejected:'驳回'};
+                const Filter_State:any = {'new':'新', 'in progress':'进行中', 'completed':'完成', 'rejected':'驳回'};
                 const { state } = jobInstance;
+                console.log('1:'+state)
+                console.log('2:'+{stat})
+                console.log('3:'+jobInstance)
                 return (
                     <Text type='secondary'>
                         {Filter_State[state]}
