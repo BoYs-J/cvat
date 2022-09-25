@@ -95,15 +95,15 @@ const DEFAULT_GOOGLE_CLOUD_STORAGE_LOCATIONS: string[][] = [
 
 const ZH_CN_TEXT:any = {
     state:{
-        'new':'新',
-        'in progress':'进行中',
-        'completed':'完成',
-        'rejected':'驳回'
+        'new': '新',
+        'in progress': '进行中',
+        'completed': '完成',
+        'rejected': '驳回'
     },
     stage:{
-        'annotation':'注释',
-        'validation':'验证',
-        'acceptance':'接受'
+        'annotation': '注释',
+        'validation': '验证',
+        'acceptance': '接受'
     },
     filter:{
         'ID':'D',
@@ -128,16 +128,16 @@ const ZH_CN_TEXT:any = {
         'Credentials type': '凭据类型'
     },
     pattern:{
-        'Standard 3D':'标准 3D',
-        'Standard':'标准',
-        'Attribute annotation':'属性注释',
-        'Tag annotation':'标记注释',
-        'Review':'审查/验证',
+        'Standard 3D': '标准 3D',
+        'Standard': '标准',
+        'Attribute annotation': '属性注释',
+        'Tag annotation': '标记注释',
+        'Review': '审查/验证',
     },
     colorby_ch:{
-        instance = '实例',
-        group = '组合',
-        label = '标签',
+        'instance': '实例',
+        'group': '组合',
+        'label': '标签',
     },
 
 };
