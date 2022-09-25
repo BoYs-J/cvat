@@ -18,6 +18,7 @@ import copy from 'copy-to-clipboard';
 import { JobStage } from 'reducers';
 import CVATTooltip from 'components/common/cvat-tooltip';
 import UserSelector, { User } from './user-selector';
+import consts from 'consts'; //全局变量
 
 interface Props {
     taskInstance: any;

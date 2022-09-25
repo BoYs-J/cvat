@@ -14,6 +14,7 @@ import Menu from 'antd/lib/menu';
 import { MenuInfo } from 'rc-menu/lib/interface';
 
 import { useCardHeightHOC } from 'utils/hooks';
+import consts from 'consts'; //全局变量
 
 const useCardHeight = useCardHeightHOC({
     containerClassName: 'cvat-jobs-page',

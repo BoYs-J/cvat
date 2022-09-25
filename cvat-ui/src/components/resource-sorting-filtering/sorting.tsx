@@ -12,6 +12,7 @@ import Dropdown from 'antd/lib/dropdown';
 import Radio from 'antd/lib/radio';
 
 import CVATTooltip from 'components/common/cvat-tooltip';
+import consts from 'consts'; //全局变量
 
 interface Props {
     sortingFields: string[];
