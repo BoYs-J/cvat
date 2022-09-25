@@ -130,8 +130,8 @@ function mapDispatchToProps(dispatch: any): DispatchToProps {
 const ReduxAppWrapper = connect(mapStateToProps, mapDispatchToProps)(CVATApplication);
 
 ReactDOM.render(
-    <ConfigProvider locale={zhCN}>
-        <ConfigProvider locale={locale}>
+    <ConfigProvider locale={locale}>
+        <ConfigProvider locale={zhCN}>
             <Provider store={cvatStore}>
                 <BrowserRouter>
                     <ReduxAppWrapper />

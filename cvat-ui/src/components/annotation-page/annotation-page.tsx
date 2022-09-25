@@ -75,10 +75,10 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
                     const notificationKey = `cvat-notification-continue-job-${job.id}`;
                     notification.info({
                         key: notificationKey,
-                        message: `You finished working on frame ${parsedFrame}`,
+                        message: `已完成对第${parsedFrame}帧的处理`,
                         description: (
                             <span>
-                                Press
+                                如果想继续，请点击
                                 <Button
                                     className='cvat-notification-continue-job-button'
                                     type='link'
@@ -87,9 +87,9 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
                                         notification.close(notificationKey);
                                     }}
                                 >
-                                    here
+                                    这里
                                 </Button>
-                                if you would like to continue
+                                回到上次的位置
                             </span>
                         ),
                         placement: 'topRight',
@@ -100,16 +100,16 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
 
             if (!job.labels.length) {
                 notification.warning({
-                    message: 'No labels',
+                    message: '没有标签',
                     description: (
                         <span>
-                            {`${job.projectId ? 'Project' : 'Task'} ${
+                            {`${job.projectId ? '项目' : '任务'}#${
                                 job.projectId || job.taskId
-                            } does not contain any label. `}
+                            } 不包含任何标签，`}
                             <a href={`/${job.projectId ? 'projects' : 'tasks'}/${job.projectId || job.id}/`}>
-                                Add
+                                添加
                             </a>
-                            {' the first one for editing annotation.'}
+                            {' 标签/属性'}
                         </span>
                     ),
                     placement: 'topRight',
@@ -128,8 +128,8 @@ export default function AnnotationPageComponent(props: Props): JSX.Element {
             <Result
                 className='cvat-not-found'
                 status='404'
-                title='Sorry, but this job was not found'
-                subTitle='Please, be sure information you tried to get exist and you have access'
+                title='很抱歉，没有找到这个工作'
+                subTitle='请确保你试图获取的信息存在并且你有权限获取'
             />
         );
     }

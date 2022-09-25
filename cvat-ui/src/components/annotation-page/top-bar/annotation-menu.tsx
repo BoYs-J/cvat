@@ -19,6 +19,7 @@ import CVATTooltip from 'components/common/cvat-tooltip';
 import LoadSubmenu from 'components/actions-menu/load-submenu';
 import { getCore } from 'cvat-core-wrapper';
 import { JobStage } from 'reducers';
+import consts from 'consts'; //全局变量
 
 const core = getCore();
 
@@ -63,19 +64,20 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
     const jobState = jobInstance.state;
     const taskID = jobInstance.taskId;
     const { JobState } = core.enums;
+    const { ZH_CN_TEXT } = consts; //中文字符集
 
     function onClickMenuWrapper(params: MenuInfo): void {
         function checkUnsavedChanges(_params: MenuInfo): void {
             if (jobInstance.annotations.hasUnsavedChanges()) {
                 Modal.confirm({
-                    title: 'The job has unsaved annotations',
-                    content: 'Would you like to save changes before continue?',
+                    title: '作业有未保存的注释',
+                    content: '继续操作之前是否要保存更改？',
                     className: 'cvat-modal-content-save-job',
                     okButtonProps: {
-                        children: 'Save',
+                        children: '保存',
                     },
                     cancelButtonProps: {
-                        children: 'No',
+                        children: '取消',
                     },
                     onOk: () => {
                         saveAnnotations(jobInstance, () => onClickMenu(_params));
@@ -99,16 +101,16 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
             let removeOnlyKeyframes = false;
             const { Panel } = Collapse;
             Modal.confirm({
-                title: 'Remove Annotations',
+                title: '删除注释',
                 content: (
                     <div>
-                        <Text>You are going to remove the annotations from the client. </Text>
-                        <Text>It will stay on the server till you save the job. Continue?</Text>
+                        <Text>将标注数据从你的客户端删除，</Text>
+                        <Text>删除前的数据仍然保留在服务器上，直到您保存这个工作；确定继续？</Text>
                         <br />
                         <br />
                         <Collapse bordered={false}>
-                            <Panel header={<Text>Select Range</Text>} key={1}>
-                                <Text>From: </Text>
+                            <Panel header={<Text>选择范围</Text>} key={1}>
+                                <Text>开始：</Text>
                                 <InputNumber
                                     min={0}
                                     max={stopFrame}
@@ -116,13 +118,13 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                                         removeFrom = value;
                                     }}
                                 />
-                                <Text>  To: </Text>
+                                <Text>  到：</Text>
                                 <InputNumber
                                     min={0}
                                     max={stopFrame}
                                     onChange={(value) => { removeUpTo = value; }}
                                 />
-                                <CVATTooltip title='Applicable only for annotations in range'>
+                                <CVATTooltip title='仅适用于范围内的标注'>
                                     <br />
                                     <br />
                                     <Checkbox
@@ -130,7 +132,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                                             removeOnlyKeyframes = check.target.checked;
                                         }}
                                     >
-                                        Delete only keyframes for tracks
+                                        只删除轨迹内的标注数据
                                     </Checkbox>
                                 </CVATTooltip>
                             </Panel>
@@ -149,10 +151,10 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
             });
         } else if (params.key.startsWith('state:')) {
             Modal.confirm({
-                title: 'Do you want to change current job state?',
-                content: `Job state will be switched to "${params.key.split(':')[1]}". Continue?`,
-                okText: 'Continue',
-                cancelText: 'Cancel',
+                title: '要更改当前工作状态吗？',
+                content: `工作状态将切换为 "${ZH_CN_TEXT.state[params.key.split(':')[1]]}" ，确定要继续吗？`,
+                okText: '继续',
+                cancelText: '取消',
                 className: 'cvat-modal-content-change-job-state',
                 onOk: () => {
                     checkUnsavedChanges(params);
@@ -160,10 +162,10 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
             });
         } else if (params.key === Actions.FINISH_JOB) {
             Modal.confirm({
-                title: 'The job stage is going to be switched',
-                content: 'Stage will be changed to "acceptance". Would you like to continue?',
-                okText: 'Continue',
-                cancelText: 'Cancel',
+                title: '更改工作阶段',
+                content: '阶段将改为“接受”，要继续吗？',
+                okText: '继续',
+                cancelText: '取消',
                 className: 'cvat-modal-content-finish-job',
                 onOk: () => {
                     checkUnsavedChanges(params);
@@ -171,10 +173,10 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
             });
         } else if (params.key === Actions.RENEW_JOB) {
             Modal.confirm({
-                title: 'Do you want to renew the job?',
-                content: 'Stage will be set to "in progress", state will be set to "annotation". Would you like to continue?',
-                okText: 'Continue',
-                cancelText: 'Cancel',
+                title: '你想更新这份工作吗？',
+                content: '状态将设置为“进行中”，阶段将设置为“注释”。是否要继续？',
+                okText: '继续',
+                cancelText: '取消',
                 className: 'cvat-modal-content-renew-job',
                 onOk: () => {
                     onClickMenu(params);
@@ -198,8 +200,8 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                 onFileUpload: (format: string, file: File): void => {
                     if (file) {
                         Modal.confirm({
-                            title: 'Current annotation will be lost',
-                            content: 'You are going to upload new annotations to this job. Continue?',
+                            title: '当前的注释将丢失',
+                            content: '你将为这项工作上传新的注释，继续吗？',
                             className: 'cvat-modal-content-load-job-annotation',
                             onOk: () => {
                                 onUploadAnnotations(format, file);
@@ -208,15 +210,15 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                                 type: 'primary',
                                 danger: true,
                             },
-                            okText: 'Update',
+                            okText: '更新',
                         });
                     }
                 },
                 menuKey: Actions.LOAD_JOB_ANNO,
                 taskDimension: jobInstance.dimension,
             })}
-            <Menu.Item key={Actions.EXPORT_TASK_DATASET}>Export task dataset</Menu.Item>
-            <Menu.Item key={Actions.REMOVE_ANNO}>Remove annotations</Menu.Item>
+            <Menu.Item key={Actions.EXPORT_TASK_DATASET}>导出任务数据集</Menu.Item>
+            <Menu.Item key={Actions.REMOVE_ANNO}>删除注释</Menu.Item>
             <Menu.Item key={Actions.OPEN_TASK}>
                 <a
                     href={`/tasks/${taskID}`}
@@ -226,27 +228,27 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                         return false;
                     }}
                 >
-                    Open the task
+                    打开任务
                 </a>
             </Menu.Item>
-            <Menu.SubMenu popupClassName='cvat-annotation-menu-job-state-submenu' key='job-state-submenu' title='Change job state'>
+            <Menu.SubMenu popupClassName='cvat-annotation-menu-job-state-submenu' key='job-state-submenu' title='改变工作状态'>
                 <Menu.Item key={`state:${JobState.NEW}`}>
-                    <Text className={computeClassName(JobState.NEW)}>{JobState.NEW}</Text>
+                    <Text className={computeClassName(JobState.NEW)}>新</Text>
                 </Menu.Item>
                 <Menu.Item key={`state:${JobState.IN_PROGRESS}`}>
-                    <Text className={computeClassName(JobState.IN_PROGRESS)}>{JobState.IN_PROGRESS}</Text>
+                    <Text className={computeClassName(JobState.IN_PROGRESS)}>进行中</Text>
                 </Menu.Item>
                 <Menu.Item key={`state:${JobState.REJECTED}`}>
-                    <Text className={computeClassName(JobState.REJECTED)}>{JobState.REJECTED}</Text>
+                    <Text className={computeClassName(JobState.REJECTED)}>驳回</Text>
                 </Menu.Item>
                 <Menu.Item key={`state:${JobState.COMPLETED}`}>
-                    <Text className={computeClassName(JobState.COMPLETED)}>{JobState.COMPLETED}</Text>
+                    <Text className={computeClassName(JobState.COMPLETED)}>完成</Text>
                 </Menu.Item>
             </Menu.SubMenu>
             {[JobStage.ANNOTATION, JobStage.REVIEW].includes(jobStage) ?
-                <Menu.Item key={Actions.FINISH_JOB}>Finish the job</Menu.Item> : null}
+                <Menu.Item key={Actions.FINISH_JOB}>完成这项工作</Menu.Item> : null}
             {jobStage === JobStage.ACCEPTANCE ?
-                <Menu.Item key={Actions.RENEW_JOB}>Renew the job</Menu.Item> : null}
+                <Menu.Item key={Actions.RENEW_JOB}>更新工作</Menu.Item> : null}
         </Menu>
     );
 }

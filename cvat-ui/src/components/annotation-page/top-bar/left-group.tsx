@@ -71,7 +71,7 @@ function LeftGroup(props: Props): JSX.Element {
 
     return (
         <>
-            <Modal title='Saving changes on the server' visible={saving} footer={[]} closable={false}>
+            <Modal title='在服务器上保存更改' visible={saving} footer={[]} closable={false}>
                 <Timeline pending={savingStatuses[savingStatuses.length - 1] || 'Pending..'}>
                     {savingStatuses.slice(0, -1).map((status: string, id: number) => (
                         <Timeline.Item key={id}>{status}</Timeline.Item>
@@ -82,20 +82,20 @@ function LeftGroup(props: Props): JSX.Element {
                 <Dropdown overlay={<AnnotationMenuContainer />}>
                     <Button type='link' className='cvat-annotation-header-button'>
                         <Icon component={MainMenuIcon} />
-                        Menu
+                        菜单
                     </Button>
                 </Dropdown>
-                <CVATTooltip overlay={`Save current changes ${saveShortcut}`}>
+                <CVATTooltip overlay={`保存当前修改的内容 ${saveShortcut}`}>
                     <Button
                         onClick={saving ? undefined : onSaveAnnotation}
                         type='link'
                         className={saving ? 'cvat-annotation-disabled-header-button' : 'cvat-annotation-header-button'}
                     >
                         <Icon component={SaveIcon} />
-                        {saving ? 'Saving...' : 'Save'}
+                        {saving ? '保存...' : '保存'}
                     </Button>
                 </CVATTooltip>
-                <CVATTooltip overlay={`Undo: ${undoAction} ${undoShortcut}`}>
+                <CVATTooltip overlay={`撤销操作 ${undoAction} ${undoShortcut}`}>
                     <Button
                         style={{ pointerEvents: undoAction ? 'initial' : 'none', opacity: undoAction ? 1 : 0.5 }}
                         type='link'
@@ -103,10 +103,10 @@ function LeftGroup(props: Props): JSX.Element {
                         onClick={onUndoClick}
                     >
                         <Icon component={UndoIcon} />
-                        <span>Undo</span>
+                        <span>撤销</span>
                     </Button>
                 </CVATTooltip>
-                <CVATTooltip overlay={`Redo: ${redoAction} ${redoShortcut}`}>
+                <CVATTooltip overlay={`恢复操作 ${redoAction} ${redoShortcut}`}>
                     <Button
                         style={{ pointerEvents: redoAction ? 'initial' : 'none', opacity: redoAction ? 1 : 0.5 }}
                         type='link'
@@ -114,19 +114,19 @@ function LeftGroup(props: Props): JSX.Element {
                         onClick={onRedoClick}
                     >
                         <Icon component={RedoIcon} />
-                        Redo
+                        恢复
                     </Button>
                 </CVATTooltip>
                 {includesDoneButton ? (
-                    <CVATTooltip overlay={`Press "${drawShortcut}" to finish`}>
+                    <CVATTooltip overlay={`按 "${drawShortcut}" 完成`}>
                         <Button type='link' className='cvat-annotation-header-button' onClick={onFinishDraw}>
                             <CheckCircleOutlined />
-                            Done
+                            完成
                         </Button>
                     </CVATTooltip>
                 ) : null}
                 {includesToolsBlockerButton ? (
-                    <CVATTooltip overlay={`Press "${switchToolsBlockerShortcut}" to postpone running the algorithm `}>
+                    <CVATTooltip overlay={`按 "${switchToolsBlockerShortcut}" 推迟运行算法`}>
                         <Button
                             type='link'
                             className={`cvat-annotation-header-button ${
@@ -135,7 +135,7 @@ function LeftGroup(props: Props): JSX.Element {
                             onClick={shouldEnableToolsBlockerOnClick ? onSwitchToolsBlockerState : undefined}
                         >
                             <StopOutlined />
-                            Block
+                            区块
                         </Button>
                     </CVATTooltip>
                 ) : null}

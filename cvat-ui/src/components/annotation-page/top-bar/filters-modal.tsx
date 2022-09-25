@@ -264,13 +264,13 @@ function FiltersModalComponent(): JSX.Element {
             onCancel={() => dispatch(showFilters(false))}
             footer={[
                 <Button key='clear' disabled={!activeFilters.length} onClick={() => applyFilters([])}>
-                    Clear filters
+                    清除筛选器
                 </Button>,
                 <Button key='cancel' onClick={() => dispatch(showFilters(false))}>
-                    Cancel
+                    取消
                 </Button>,
                 <Button key='submit' type='primary' disabled={!isModalConfirmable()} onClick={confirmModal}>
-                    Submit
+                    提交
                 </Button>,
             ]}
         >
@@ -281,7 +281,7 @@ function FiltersModalComponent(): JSX.Element {
             >
                 <Dropdown overlay={menu}>
                     <Button type='text'>
-                        Recently used
+                        最近使用
                         {' '}
                         <DownOutlined />
                     </Button>

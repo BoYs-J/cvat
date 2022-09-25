@@ -106,26 +106,26 @@ const ZH_CN_TEXT:any = {
         'acceptance':'接受'
     },
     filter:{
-        'ID': 'ID',
+        'ID':'D',
         'Owner': '所有者',
         'Status': '状态',
         'Assignee': '受让人',
-        'Updateddate': '更新时间',
+        'Updated date': '更新时间',
         'Subset': '子集',
         'Mode': '模式',
         'Dimension': '维度',
         'Description': '类型',
         'Stage': '阶段',
         'State': '状态',
-        'TaskID': '任务ID',
-        'Taskname': '任务名称',
-        'ProjectID': '项目ID',
+        'Task ID': '任务ID',
+        'Task name': '任务名称',
+        'Project ID': '项目ID',
         'Name': '名称',
-        'Projectname': '项目名称',
-        'Providertype': '供应商类型',
-        'Displayname': '显示名称',
+        'Project name': '项目名称',
+        'Provider type': '供应商类型',
+        'Display name': '显示名称',
         'Resource': '资源',
-        'Credentialstype': '凭据类型'
+        'Credentials type': '凭据类型'
     },
 
 };

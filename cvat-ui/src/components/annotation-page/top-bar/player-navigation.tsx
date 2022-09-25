@@ -63,10 +63,10 @@ function PlayerNavigation(props: Props): JSX.Element {
         if (!playing) {
             switchNavigationBlocked(true);
             modal.confirm({
-                title: `Do you want to delete frame #${frameNumber}?`,
-                content: 'The frame will not be visible in navigation and exported datasets, but it still can be restored with all the annotations.',
+                title: `是否要删除帧 #${frameNumber}?`,
+                content: '该帧在导航和导出的数据集中将不可见，但仍然可以用所有的注释恢复。',
                 className: 'cvat-modal-delete-frame',
-                okText: 'Delete',
+                okText: '删除',
                 okType: 'danger',
                 onOk: () => {
                     switchNavigationBlocked(false);
@@ -100,15 +100,15 @@ function PlayerNavigation(props: Props): JSX.Element {
                         </CVATTooltip>
                     </Col>
                     <Col offset={1}>
-                        <CVATTooltip title='Create frame URL'>
+                        <CVATTooltip title='创建此帧URL到剪贴板'>
                             <LinkOutlined className='cvat-player-frame-url-icon' onClick={onURLIconClick} />
                         </CVATTooltip>
                         { (!frameDeleted) ? (
-                            <CVATTooltip title='Delete the frame'>
+                            <CVATTooltip title='删除此帧'>
                                 <DeleteOutlined className='cvat-player-delete-frame' onClick={showDeleteFrameDialog} />
                             </CVATTooltip>
                         ) : (
-                            <CVATTooltip title='Restore the frame'>
+                            <CVATTooltip title='恢复此帧'>
                                 <Icon className='cvat-player-restore-frame' onClick={onRestoreFrame} component={RestoreIcon} />
                             </CVATTooltip>
                         )}
@@ -116,7 +116,7 @@ function PlayerNavigation(props: Props): JSX.Element {
                 </Row>
             </Col>
             <Col>
-                <CVATTooltip title={`Press ${focusFrameInputShortcut} to focus here`}>
+                <CVATTooltip title={`按 ${focusFrameInputShortcut} 快捷输入`}>
                     <InputNumber
                         ref={inputFrameRef}
                         className='cvat-player-frame-selector'
