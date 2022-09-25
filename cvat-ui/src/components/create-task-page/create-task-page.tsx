@@ -52,15 +52,15 @@ export default function CreateTaskPage(props: Props): JSX.Element {
             if (sshKeys.length) {
                 Modal.error({
                     width: 800,
-                    title: 'Could not clone the repository',
+                    title: '无法克隆存储库',
                     className: 'cvat-create-task-clone-repository-fail',
                     content: (
                         <>
                             <Paragraph>
-                                <Text>Please make sure it exists and you have access</Text>
+                                <Text>请确保它存在并且你有权访问</Text>
                             </Paragraph>
                             <Paragraph>
-                                <Text>Consider adding the following public ssh keys to git: </Text>
+                                <Text>考虑将以下公共ssh密钥添加到git：</Text>
                             </Paragraph>
                             <TextArea rows={10} value={sshKeys.join('\n\n')} />
                         </>
@@ -73,7 +73,7 @@ export default function CreateTaskPage(props: Props): JSX.Element {
     return (
         <Row justify='center' align='top' className='cvat-create-work-form-wrapper'>
             <Col md={20} lg={16} xl={14} xxl={9}>
-                <Text className='cvat-title'>Create a new task</Text>
+                <Text className='cvat-title'>创建新任务</Text>
                 <CreateTaskContent
                     taskId={taskId}
                     projectId={projectId}

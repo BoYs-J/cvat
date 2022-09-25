@@ -185,7 +185,7 @@ export default function CreateProjectContent(): JSX.Element {
         if (res) {
             resetForm();
             notification.info({
-                message: '已创建项目',
+                message: '项目已创建',
                 className: 'cvat-notification-create-project-success',
             });
             focusForm();

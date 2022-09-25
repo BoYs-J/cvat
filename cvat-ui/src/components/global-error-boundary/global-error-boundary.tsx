@@ -166,7 +166,7 @@ class GlobalErrorBoundary extends React.PureComponent<Props, State> {
                                 </li>
                                 <li>
                                     通知
-                                    <a href='dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=1gj-c35iwn4hxp'> 管理员 </a>
+                                    <a href={consts.ADMIN_DING_URL}> 管理员 </a>
                                     或直接提交问题到
                                     <a href={consts.GITHUB_URL}> GitHub</a>
                                     ，同时提供：

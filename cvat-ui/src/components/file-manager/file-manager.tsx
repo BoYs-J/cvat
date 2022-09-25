@@ -121,7 +121,7 @@ export class FileManager extends React.PureComponent<Props, State> {
         const { files } = this.state;
 
         return (
-            <Tabs.TabPane className='cvat-file-manager-local-tab' key='local' tab='My computer'>
+            <Tabs.TabPane className='cvat-file-manager-local-tab' key='local' tab='我的电脑'>
                 <Upload.Dragger
                     multiple
                     listType='text'
@@ -144,8 +144,8 @@ export class FileManager extends React.PureComponent<Props, State> {
                     <p className='ant-upload-drag-icon'>
                         <InboxOutlined />
                     </p>
-                    <p className='ant-upload-text'>Click or drag files to this area</p>
-                    <p className='ant-upload-hint'>Support for a bulk images or a single video</p>
+                    <p className='ant-upload-text'>单击或拖动文件到此区域</p>
+                    <p className='ant-upload-hint'>支持批量图像或单个视频</p>
                 </Upload.Dragger>
                 {files.local.length >= 5 && (
                     <>
@@ -180,7 +180,7 @@ export class FileManager extends React.PureComponent<Props, State> {
         const { expandedKeys, files } = this.state;
 
         return (
-            <Tabs.TabPane key='share' tab='Connected file share'>
+            <Tabs.TabPane key='share' tab='文件共享'>
                 {treeData[0].children && treeData[0].children.length ? (
                     <Tree
                         className='cvat-share-tree'
@@ -220,11 +220,11 @@ export class FileManager extends React.PureComponent<Props, State> {
                     <div className='cvat-empty-share-tree'>
                         <Empty />
                         <Paragraph className='cvat-text-color'>
-                            Please, be sure you had
+                            请确保在建立CVAT之前已经
                             <Text strong>
-                                <a href={SHARE_MOUNT_GUIDE_URL}> mounted </a>
+                                <a href={SHARE_MOUNT_GUIDE_URL}> 挂载 </a>
                             </Text>
-                            share before you built CVAT and the shared storage contains files
+                            共享，并且共享存储中包含文件
                         </Paragraph>
                     </div>
                 )}
@@ -236,10 +236,10 @@ export class FileManager extends React.PureComponent<Props, State> {
         const { files } = this.state;
 
         return (
-            <Tabs.TabPane key='remote' tab='Remote sources'>
+            <Tabs.TabPane key='remote' tab='远程数据'>
                 <Input.TextArea
                     className='cvat-file-selector-remote'
-                    placeholder='Enter one URL per line'
+                    placeholder='每行输入一个URL'
                     rows={6}
                     value={[...files.remote].join('\n')}
                     onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => {
@@ -261,7 +261,7 @@ export class FileManager extends React.PureComponent<Props, State> {
             <Tabs.TabPane
                 key='cloudStorage'
                 className='cvat-create-task-page-cloud-storage-tab'
-                tab={<span> Cloud Storage </span>}
+                tab={<span> 云端储存 </span>}
             >
                 <CloudStorageTab
                     formRef={this.cloudStorageTabFormRef}

@@ -119,22 +119,22 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
         if (showPlatformNotification()) {
             stopNotifications(false);
             Modal.warning({
-                title: 'Unsupported platform detected',
+                title: '检测到不支持的平台',
                 className: 'cvat-modal-unsupported-platform-warning',
                 content: (
                     <>
                         <Row>
                             <Col>
                                 <Text>
-                                    {`The browser you are using is ${name} ${version} based on ${engine}.` +
-                                        ' CVAT was tested in the latest versions of Chrome and Firefox.' +
-                                        ' We recommend to use Chrome (or another Chromium based browser)'}
+                                    {`您正在使用${name} ${version} ，基于${engine}；` +
+                                        'CVAT在最新版本的Chrome和Firefox中进行了测试，' +
+                                        '我们建议使用Chrome（或其他基于Chromium的浏览器）'}
                                 </Text>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <Text type='secondary'>{`The operating system is ${os}`}</Text>
+                                <Text type='secondary'>{`操作系统是：${os}`}</Text>
                             </Col>
                         </Row>
                     </>
@@ -144,11 +144,11 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
         } else if (showUnsupportedNotification()) {
             stopNotifications(false);
             Modal.warning({
-                title: 'Unsupported features detected',
+                title: '检测到不支持的功能',
                 className: 'cvat-modal-unsupported-features-warning',
                 content: (
                     <Text>
-                        {`${name} v${version} does not support API, which is used by CVAT. `}
+                        {`${name} v${version} 不支持CVAT使用的API。 `}
                         It is strongly recommended to update your browser.
                     </Text>
                 ),
@@ -277,7 +277,7 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                     />
                 ),
                 duration: null,
-                description: error.length > 200 ? 'Open the Browser Console to get details' : error,
+                description: error.length > 200 ? '打开浏览器控制台以获取详细信息' : error,
             });
 
             // eslint-disable-next-line no-console

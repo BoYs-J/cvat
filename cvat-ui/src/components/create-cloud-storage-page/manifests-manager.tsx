@@ -43,7 +43,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
     useEffect(() => {
         if (limitingAddingManifestNotification) {
             notification.warning({
-                message: `Unable to add manifest. The maximum number of files is ${maxManifestsCount.current}`,
+                message: `无法添加清单，最大文件数为 ${maxManifestsCount.current}`,
                 className: 'cvat-notification-limiting-adding-manifest',
             });
         }
@@ -76,8 +76,8 @@ export default function ManifestsManager(props: Props): JSX.Element {
                 className='cvat-manifests-manager-form-item'
                 label={(
                     <>
-                        Manifests
-                        <Tooltip title='More information'>
+                        清单
+                        <Tooltip title='更多信息'>
                             <Button
                                 type='link'
                                 target='_blank'
@@ -97,7 +97,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
                     {
                         validator: async (_: RuleObject, names: string[]): Promise<void> => {
                             if (!names || !names.length) {
-                                throw new Error('Please, specify at least one manifest file');
+                                throw new Error('请至少指定一个清单文件');
                             }
                         },
                     },
@@ -115,13 +115,13 @@ export default function ManifestsManager(props: Props): JSX.Element {
                                                 rules={[
                                                     {
                                                         required: true,
-                                                        message: 'Please specify a manifest name',
+                                                        message: '请输入清单名称',
                                                     },
                                                 ]}
                                                 initialValue={field.name}
                                             >
                                                 <Input
-                                                    placeholder='manifest.jsonl'
+                                                    placeholder='清单.jsonl'
                                                     onChange={(event) => onChangeManifestPath(event.target.value, idx)}
                                                 />
                                             </Form.Item>
@@ -144,7 +144,7 @@ export default function ManifestsManager(props: Props): JSX.Element {
             <Row justify='start'>
                 <Col>
                     <Button type='ghost' onClick={onAddManifestItem} className='cvat-add-manifest-button'>
-                        Add manifest
+                        添加清单
                         <PlusCircleOutlined />
                     </Button>
                 </Col>

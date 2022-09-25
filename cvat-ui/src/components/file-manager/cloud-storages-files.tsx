@@ -193,7 +193,7 @@ export default function CloudStorageFiles(props: Props): JSX.Element {
         return (
             <Alert
                 className='cvat-cloud-storage-alert-fetching-failed'
-                message='Could not fetch cloud storage data'
+                message='无法获取云存储数据'
                 type='error'
             />
         );
@@ -231,7 +231,7 @@ export default function CloudStorageFiles(props: Props): JSX.Element {
                     />
                 </>
             ) : (
-                <Empty className='cvat-empty-cloud-storages-tree' description='The storage is empty' />
+                <Empty className='cvat-empty-cloud-storages-tree' description='存储空间为空' />
             )}
         </>
     );

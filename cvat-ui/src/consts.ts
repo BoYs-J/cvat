@@ -12,6 +12,9 @@ const DISCORD_URL = 'https://discord.gg/fNR3eXfk6C';
 const GITHUB_URL = 'https://github.com/opencv/cvat';
 const ZERO_URL = 'https://www.cdzero.cn';
 const ZERO_EMAIL_URL = 'mailto:cvat@cdzero.cn';
+const ADMIN_DING_URL = 'dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=1gj-c35iwn4hxp';
+const ADMIN_QQ_URL = 'http://api.xtaoa.com/api/qqtalk.php?qq=2664993852';
+const DING_WORD_URL = 'https://alidocs.dingtalk.com/i/team/l2AmoVReMZ4RjXdb';
 const BEIAN_GOV_URL = 'https://beian.miit.gov.cn';
 const GITHUB_IMAGE_URL = 'https://github.com/opencv/cvat/raw/develop/site/content/en/images/cvat.jpg';
 const GUIDE_URL = 'https://opencv.github.io/cvat/docs';
@@ -102,6 +105,9 @@ export default {
     GUIDE_URL,
     ZERO_URL,
     ZERO_EMAIL_URL,
+    ADMIN_DING_URL,
+    ADMIN_QQ_URL,
+    DING_WORD_URL,
     BEIAN_GOV_URL,
     SHARE_MOUNT_GUIDE_URL,
     CANVAS_BACKGROUND_COLORS,

@@ -39,19 +39,19 @@ function renderContent(): JSX.Element {
         <>
             <StarOutlined />
             <Text style={{ marginLeft: '10px' }}>
-                Star us on
-                <a target='_blank' rel='noopener noreferrer' href={GITHUB_URL}>
+                使用及配置说明：
+                <a target='_blank' rel='noopener noreferrer' href={DING_WORD_URL}>
                     {' '}
-                    GitHub
+                    钉钉文档
                 </a>
             </Text>
             <br />
             <LikeOutlined />
             <Text style={{ marginLeft: '10px' }}>
-                Leave a
-                <a target='_blank' rel='noopener noreferrer' href={DISCORD_URL}>
+                成都零零网络：
+                <a target='_blank' rel='noopener noreferrer' href={ZERO_URL}>
                     {' '}
-                    feedback
+                    官网
                 </a>
             </Text>
             <hr />
@@ -83,10 +83,14 @@ function renderContent(): JSX.Element {
             </div>
             <hr />
             <Text style={{ marginTop: '50px' }}>
-                Do you need help? Contact us on
-                <a target='_blank' rel='noopener noreferrer' href={DISCORD_URL}>
+                需要帮助？联系管理员：
+                <a target='_blank' rel='noopener noreferrer' href={ADMIN_DING_URL}>
                     {' '}
-                    Discord
+                    [钉钉]
+                </a>
+                <a target='_blank' rel='noopener noreferrer' href={ADMIN_QQ_URL}>
+                    {' '}
+                    [QQ]
                 </a>
             </Text>
         </>
@@ -100,7 +104,7 @@ export default function Feedback(): JSX.Element {
         <>
             <Popover
                 placement='leftTop'
-                title={<Text className='cvat-text-color'>Help to make CVAT better</Text>}
+                title={<Text className='cvat-text-color'>获取CVAT的帮助</Text>}
                 content={renderContent()}
                 visible={visible}
                 overlayClassName='cvat-feedback-popover'

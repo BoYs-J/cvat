@@ -33,7 +33,7 @@ async function searchCloudStorages(filter: Record<string, string>): Promise<Clou
         return data;
     } catch (error) {
         notification.error({
-            message: 'Could not fetch a list of cloud storages',
+            message: '无法获取云存储列表',
             description: error.toString(),
         });
     }
@@ -112,15 +112,15 @@ export default function CloudStorageTab(props: Props): JSX.Element {
     return (
         <Form ref={formRef} className='cvat-create-task-page-cloud-storages-tab-form' layout='vertical'>
             <Form.Item
-                label='Select cloud storage'
+                label='选择云存储'
                 name='cloudStorageSelect'
-                rules={[{ required: true, message: 'Please, specify a cloud storage' }]}
+                rules={[{ required: true, message: '请指定一个云存储设备' }]}
                 valuePropName='label'
             >
                 <AutoComplete
                     onBlur={onBlur}
                     value={searchPhrase}
-                    placeholder='Search...'
+                    placeholder='搜索...'
                     showSearch
                     onSearch={(phrase: string) => {
                         setSearchPhrase(phrase);
@@ -157,9 +157,9 @@ export default function CloudStorageTab(props: Props): JSX.Element {
 
             {cloudStorage ? (
                 <Form.Item
-                    label='Select manifest file'
+                    label='清单文件'
                     name='manifestSelect'
-                    rules={[{ required: true, message: 'Please, specify a manifest file' }]}
+                    rules={[{ required: true, message: '请指定清单文件' }]}
                     initialValue={cloudStorage.manifests[0]}
                 >
                     <Select
@@ -178,9 +178,9 @@ export default function CloudStorageTab(props: Props): JSX.Element {
 
             {cloudStorage && selectedManifest ? (
                 <Form.Item
-                    label='Files'
+                    label='文件'
                     name='cloudStorageFiles'
-                    rules={[{ required: true, message: 'Please, select a files' }]}
+                    rules={[{ required: true, message: '请选择一个文件' }]}
                 >
                     <CloudStorageFiles
                         cloudStorage={cloudStorage}

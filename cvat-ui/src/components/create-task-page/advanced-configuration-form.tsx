@@ -60,7 +60,7 @@ interface Props {
 
 function validateURL(_: RuleObject, value: string): Promise<void> {
     if (value && !patterns.validateURL.pattern.test(value)) {
-        return Promise.reject(new Error('URL is not a valid URL'));
+        return Promise.reject(new Error('问题跟踪器必须是URL（不是有效的URL）'));
     }
 
     return Promise.resolve();
@@ -68,7 +68,7 @@ function validateURL(_: RuleObject, value: string): Promise<void> {
 
 function validateRepositoryPath(_: RuleObject, value: string): Promise<void> {
     if (value && !patterns.validatePath.pattern.test(value)) {
-        return Promise.reject(new Error('Repository path is not a valid path'));
+        return Promise.reject(new Error('存储库路径不是有效路径'));
     }
 
     return Promise.resolve();
@@ -93,15 +93,15 @@ const isInteger = ({ min, max }: { min?: number; max?: number }) => (
 
     const intValue = +value;
     if (Number.isNaN(intValue) || !Number.isInteger(intValue)) {
-        return Promise.reject(new Error('Value must be a positive integer'));
+        return Promise.reject(new Error('值必须为正整数'));
     }
 
     if (typeof min !== 'undefined' && intValue < min) {
-        return Promise.reject(new Error(`Value must be more than ${min}`));
+        return Promise.reject(new Error(`值必须大于 ${min}`));
     }
 
     if (typeof max !== 'undefined' && intValue > max) {
-        return Promise.reject(new Error(`Value must be less than ${max}`));
+        return Promise.reject(new Error(`值必须小于 ${max}`));
     }
 
     return Promise.resolve();
@@ -113,7 +113,7 @@ const validateOverlapSize: RuleRender = ({ getFieldValue }): RuleObject => ({
             const segmentSize = getFieldValue('segmentSize');
             if (typeof segmentSize !== 'undefined' && segmentSize !== '') {
                 if (+segmentSize <= +value) {
-                    return Promise.reject(new Error('Segment size must be more than overlap size'));
+                    return Promise.reject(new Error('必须小于“段大小”'));
                 }
             }
         }
@@ -128,7 +128,7 @@ const validateStopFrame: RuleRender = ({ getFieldValue }): RuleObject => ({
             const startFrame = getFieldValue('startFrame');
             if (typeof startFrame !== 'undefined' && startFrame !== '') {
                 if (+startFrame > +value) {
-                    return Promise.reject(new Error('Start frame must not be more than stop frame'));
+                    return Promise.reject(new Error('不能小于“起始帧”'));
                 }
             }
         }
@@ -164,7 +164,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             );
         }
 
-        return Promise.reject(new Error('Form ref is empty'));
+        return Promise.reject(new Error('表单引用为空'));
     }
 
     public resetFields(): void {
@@ -177,12 +177,12 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderCopyDataChechbox(): JSX.Element {
         return (
             <Form.Item
-                help='If you have a low data transfer rate over the network you can copy data into CVAT to speed up work'
+                help='如果网络上的数据传输速率较低，可以将数据复制到CVAT中以加快工作速度'
                 name='copyData'
                 valuePropName='checked'
             >
                 <Checkbox>
-                    <Text className='cvat-text-color'>Copy data into CVAT</Text>
+                    <Text className='cvat-text-color'>拷贝数据到CVAT</Text>
                 </Checkbox>
             </Form.Item>
         );
@@ -191,25 +191,25 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderSortingMethodRadio(): JSX.Element {
         return (
             <Form.Item
-                label='Sorting method'
+                label='排序方式'
                 name='sortingMethod'
                 rules={[
                     {
                         required: true,
-                        message: 'The field is required.',
+                        message: '必需填写该字段',
                     },
                 ]}
-                help='Specify how to sort images. It is not relevant for videos.'
+                help='指定如何对图像进行排序，这与视频无关'
             >
                 <Radio.Group>
                     <Radio value={SortingMethod.LEXICOGRAPHICAL} key={SortingMethod.LEXICOGRAPHICAL}>
-                        Lexicographical
+                        字典式
                     </Radio>
-                    <Radio value={SortingMethod.NATURAL} key={SortingMethod.NATURAL}>Natural</Radio>
+                    <Radio value={SortingMethod.NATURAL} key={SortingMethod.NATURAL}>自然</Radio>
                     <Radio value={SortingMethod.PREDEFINED} key={SortingMethod.PREDEFINED}>
-                        Predefined
+                        预定义
                     </Radio>
-                    <Radio value={SortingMethod.RANDOM} key={SortingMethod.RANDOM}>Random</Radio>
+                    <Radio value={SortingMethod.RANDOM} key={SortingMethod.RANDOM}>随机</Radio>
                 </Radio.Group>
             </Form.Item>
         );
@@ -217,14 +217,14 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderImageQuality(): JSX.Element {
         return (
-            <CVATTooltip title='Defines images compression level'>
+            <CVATTooltip title='定义图像压缩级别'>
                 <Form.Item
-                    label='Image quality'
+                    label='图像质量'
                     name='imageQuality'
                     rules={[
                         {
                             required: true,
-                            message: 'The field is required.',
+                            message: '必需填写该字段',
                         },
                         { validator: isInteger({ min: 5, max: 100 }) },
                     ]}
@@ -237,9 +237,9 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderOverlap(): JSX.Element {
         return (
-            <CVATTooltip title='Defines a number of intersected frames between different segments'>
+            <CVATTooltip title='定义不同工作段之间有多少重叠帧'>
                 <Form.Item
-                    label='Overlap size'
+                    label='重叠大小'
                     name='overlapSize'
                     dependencies={['segmentSize']}
                     rules={[{ validator: isInteger({ min: 0 }) }, validateOverlapSize]}
@@ -252,8 +252,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderSegmentSize(): JSX.Element {
         return (
-            <CVATTooltip title='Defines a number of frames in a segment'>
-                <Form.Item label='Segment size' name='segmentSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
+            <CVATTooltip title='定义一个工作段中有多少帧'>
+                <Form.Item label='段大小' name='segmentSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
                     <Input size='large' type='number' min={1} />
                 </Form.Item>
             </CVATTooltip>
@@ -262,7 +262,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderStartFrame(): JSX.Element {
         return (
-            <Form.Item label='Start frame' name='startFrame' rules={[{ validator: isInteger({ min: 0 }) }]}>
+            <Form.Item label='起始帧' name='startFrame' rules={[{ validator: isInteger({ min: 0 }) }]}>
                 <Input size='large' type='number' min={0} step={1} />
             </Form.Item>
         );
@@ -271,7 +271,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderStopFrame(): JSX.Element {
         return (
             <Form.Item
-                label='Stop frame'
+                label='停止帧'
                 name='stopFrame'
                 dependencies={['startFrame']}
                 rules={[{ validator: isInteger({ min: 0 }) }, validateStopFrame]}
@@ -283,7 +283,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderFrameStep(): JSX.Element {
         return (
-            <Form.Item label='Frame step' name='frameStep' rules={[{ validator: isInteger({ min: 1 }) }]}>
+            <Form.Item label='帧步（帧间隔）' name='frameStep' rules={[{ validator: isInteger({ min: 1 }) }]}>
                 <Input size='large' type='number' min={1} step={1} />
             </Form.Item>
         );
@@ -292,12 +292,12 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderGitLFSBox(): JSX.Element {
         return (
             <Form.Item
-                help='If annotation files are large, you can use git LFS feature'
+                help='如果注释文件比较大，可以使用git LFS特性'
                 name='lfs'
                 valuePropName='checked'
             >
                 <Checkbox>
-                    <Text className='cvat-text-color'>Use LFS (Large File Support):</Text>
+                    <Text className='cvat-text-color'>使用LFS（大文件支持）：</Text>
                 </Checkbox>
             </Form.Item>
         );
@@ -308,11 +308,11 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             <Form.Item
                 hasFeedback
                 name='repository'
-                label='Dataset repository URL'
-                extra='Attach a repository to store annotations there'
+                label='数据存储库URL'
+                extra='附加一个存储库来存储注释'
                 rules={[{ validator: validateRepository }]}
             >
-                <Input size='large' placeholder='e.g. https//github.com/user/repos [annotation/<anno_file_name>.zip]' />
+                <Input size='large' placeholder='例如：https//github.com/user/repos [注释/<文件名>.zip]' />
             </Form.Item>
         );
     }
@@ -323,7 +323,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             <Form.Item
                 initialValue='CVAT for video 1.1'
                 name='format'
-                label='Choose format'
+                label='选择格式'
             >
                 <Select style={{ width: '100%' }}>
                     {
@@ -363,8 +363,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             <Form.Item
                 hasFeedback
                 name='bugTracker'
-                label='Issue tracker'
-                extra='Attach issue tracker where the task is described'
+                label='问题跟踪器'
+                extra='在任务描述的位置附加问题跟踪器'
                 rules={[{ validator: validateURL }]}
             >
                 <Input size='large' />
@@ -375,12 +375,12 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderUzeZipChunks(): JSX.Element {
         return (
             <Form.Item
-                help='Force to use zip chunks as compressed data. Cut out content for videos only.'
+                help='强制使用zip块作为压缩数据，仅适用于视频'
                 name='useZipChunks'
                 valuePropName='checked'
             >
                 <Checkbox>
-                    <Text className='cvat-text-color'>Use zip/video chunks</Text>
+                    <Text className='cvat-text-color'>使用视频压缩块</Text>
                 </Checkbox>
             </Form.Item>
         );
@@ -388,9 +388,9 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderCreateTaskMethod(): JSX.Element {
         return (
-            <Form.Item help='Using cache to store data.' name='useCache' valuePropName='checked'>
+            <Form.Item help='使用缓存存储数据' name='useCache' valuePropName='checked'>
                 <Checkbox>
-                    <Text className='cvat-text-color'>Use cache</Text>
+                    <Text className='cvat-text-color'>使用缓存</Text>
                 </Checkbox>
             </Form.Item>
         );
@@ -401,22 +401,22 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             <CVATTooltip
                 title={(
                     <>
-                        Defines a number of frames to be packed in a chunk when send from client to server. Server
-                        defines automatically if empty.
+                        定义从客户端发送到服务器时要打包在一个块中的帧数；
+                        如果为空，服务器将自动定义。
                         <br />
-                        Recommended values:
+                        推荐值：
                         <br />
-                        1080p or less: 36
+                        1080p 或更少：36
                         <br />
-                        2k or less: 8 - 16
+                        2k 或更少：8 - 16
                         <br />
-                        4k or less: 4 - 8
+                        4k 或更少：4 - 8
                         <br />
-                        More: 1 - 4
+                        更多：1 - 4
                     </>
                 )}
             >
-                <Form.Item label='Chunk size' name='dataChunkSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
+                <Form.Item label='块大小' name='dataChunkSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
                     <Input size='large' type='number' />
                 </Form.Item>
             </CVATTooltip>

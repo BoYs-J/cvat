@@ -66,7 +66,7 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
                             <Col>
                                 <Text strong>
                                     无法重置密码？联系
-                                    <Link href='dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=1gj-c35iwn4hxp'> 管理员 </Link>
+                                    <Link href={consts.ADMIN_DING_URL}> 管理员 </Link>
                                 </Text>
                             </Col>
                         </Row>
