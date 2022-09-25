@@ -17,6 +17,7 @@ import {
     ObjectType, ShapeType, ColorBy, DimensionType,
 } from 'reducers';
 import ColorPicker from './color-picker';
+import consts from 'consts'; //全局变量
 
 interface Props {
     readonly: boolean;
@@ -148,6 +149,7 @@ function ToForegroundItem(props: ItemProps): JSX.Element {
 
 function SwitchColorItem(props: ItemProps): JSX.Element {
     const { toolProps, ...rest } = props;
+    const { ZH_CN_TEXT } = consts; //中文字符集
     const {
         color,
         colorPickerVisible,
@@ -168,7 +170,7 @@ function SwitchColorItem(props: ItemProps): JSX.Element {
                 <CVATTooltip title={`${changeColorShortcut}`}>
                     <Button type='link'>
                         <Icon component={ColorizeIcon} />
-                        {`更改${colorBy.toLowerCase()}颜色`}
+                        {`更改${ZH_CN_TEXT.colorby_ch[colorBy.toLowerCase()]}颜色`}
                     </Button>
                 </CVATTooltip>
             </ColorPicker>

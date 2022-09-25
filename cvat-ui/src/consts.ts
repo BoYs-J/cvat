@@ -134,6 +134,11 @@ const ZH_CN_TEXT:any = {
         'Tag annotation':'标记注释',
         'Review':'审查/验证',
     },
+    colorby_ch:{
+        instance = '实例',
+        group = '组合',
+        label = '标签',
+    },
 
 };
 // import consts from 'consts'; //全局变量
