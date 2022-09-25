@@ -18,8 +18,8 @@ interface Props {
     onSelectRegion: any;
     internalCommonProps: any;
 
-    label: 'Location' | 'Region';
-    name: 'location' | 'region';
+    label: '位置' | '地区';
+    name: '位置' | '地区';
     values: string[][];
     href: string;
 }
@@ -89,12 +89,12 @@ export default function Location(props: Props): JSX.Element {
                                 value={newRegionKey}
                                 onChange={(event: any) => setNewRegionKey(event.target.value)}
                                 maxLength={14}
-                                placeholder='key'
+                                placeholder='关键值'
                             />
                             <Input
                                 value={newRegionName}
                                 onChange={(event: any) => setNewRegionName(event.target.value)}
-                                placeholder='name'
+                                placeholder='名称'
                             />
                             <Button
                                 type='link'
