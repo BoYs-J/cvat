@@ -33,7 +33,7 @@ import {
 import consts from 'consts';
 
 function renderContent(): JSX.Element {
-    const { GITHUB_URL, GITHUB_IMAGE_URL, DISCORD_URL } = consts;
+    const { GITHUB_URL, GITHUB_IMAGE_URL, DING_WORD_URL, ZERO_URL,ADMIN_DING_URL ,ADMIN_QQ_URL} = consts;
 
     return (
         <>

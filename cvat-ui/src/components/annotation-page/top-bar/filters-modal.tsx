@@ -6,10 +6,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     Builder, Config, ImmutableTree, JsonLogicTree, Query, Utils as QbUtils,
-} from 'react-awesome-query-builder';
-import AntdWidgets from 'react-awesome-query-builder/lib/components/widgets/antd';
-import AntdConfig from 'react-awesome-query-builder/lib/config/antd';
-import 'react-awesome-query-builder/lib/css/styles.css';
+} from 'zero-awesome-query-builder-test';
+import AntdWidgets from 'zero-awesome-query-builder-test/lib/components/widgets/antd';
+import AntdConfig from 'zero-awesome-query-builder-test/lib/config/antd';
+import 'zero-awesome-query-builder-test/lib/css/styles.css';
 import { DownOutlined } from '@ant-design/icons';
 import Dropdown from 'antd/lib/dropdown';
 import Menu from 'antd/lib/menu';
@@ -82,7 +82,7 @@ function FiltersModalComponent(): JSX.Element {
         ...AntdConfig,
         fields: {
             label: {
-                label: 'Label',
+                label: '标签',
                 type: 'select',
                 valueSources: ['value'],
                 fieldSettings: {
@@ -90,59 +90,59 @@ function FiltersModalComponent(): JSX.Element {
                 },
             },
             type: {
-                label: 'Type',
+                label: '类型',
                 type: 'select',
                 fieldSettings: {
                     listValues: [
-                        { value: 'shape', title: 'Shape' },
-                        { value: 'track', title: 'Track' },
-                        { value: 'tag', title: 'Tag' },
+                        { value: 'shape', title: '形状' },
+                        { value: 'track', title: '轨道' },
+                        { value: 'tag', title: '标记' },
                     ],
                 },
             },
             shape: {
-                label: 'Shape',
+                label: '形状',
                 type: 'select',
                 fieldSettings: {
                     listValues: [
-                        { value: 'rectangle', title: 'Rectangle' },
-                        { value: 'points', title: 'Points' },
-                        { value: 'polyline', title: 'Polyline' },
-                        { value: 'polygon', title: 'Polygon' },
-                        { value: 'cuboid', title: 'Cuboid' },
-                        { value: 'ellipse', title: 'Ellipse' },
-                        { value: 'skeleton', title: 'Skeleton' },
+                        { value: 'rectangle', title: '长方形' },
+                        { value: 'points', title: '点' },
+                        { value: 'polyline', title: '多段线' },
+                        { value: 'polygon', title: '多边形' },
+                        { value: 'cuboid', title: '长方体' },
+                        { value: 'ellipse', title: '椭圆' },
+                        { value: 'skeleton', title: '骨骼' },
                     ],
                 },
             },
             occluded: {
-                label: 'Occluded',
+                label: '封闭的',
                 type: 'boolean',
             },
             width: {
-                label: 'Width',
+                label: '宽度',
                 type: 'number',
                 fieldSettings: { min: 0 },
             },
             height: {
-                label: 'Height',
+                label: '高度',
                 type: 'number',
                 fieldSettings: { min: 0 },
             },
             objectID: {
-                label: 'ObjectID',
+                label: '对象ID',
                 type: 'number',
                 hideForCompare: true,
                 fieldSettings: { min: 0 },
             },
             serverID: {
-                label: 'ServerID',
+                label: '服务器ID',
                 type: 'number',
                 hideForCompare: true,
                 fieldSettings: { min: 0 },
             },
             attr: {
-                label: 'Attributes',
+                label: '属性',
                 type: '!struct',
                 subfields: getAttributesSubfields(),
                 fieldSettings: {

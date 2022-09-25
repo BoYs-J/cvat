@@ -7,7 +7,7 @@ import { Config } from 'react-awesome-query-builder';
 export const config: Partial<Config> = {
     fields: {
         dimension: {
-            label: 'Dimension',
+            label: '维度',
             type: 'select',
             operators: ['select_equals'],
             valueSources: ['value'],
@@ -19,49 +19,49 @@ export const config: Partial<Config> = {
             },
         },
         status: {
-            label: 'Status',
+            label: '状态',
             type: 'select',
             valueSources: ['value'],
             operators: ['select_equals', 'select_any_in', 'select_not_any_in'],
             fieldSettings: {
                 listValues: [
-                    { value: 'annotation', title: 'Annotation' },
-                    { value: 'validation', title: 'Validation' },
-                    { value: 'completed', title: 'Completed' },
+                    { value: 'annotation', title: '注释' },
+                    { value: 'validation', title: '验证' },
+                    { value: 'completed', title: '完成' },
                 ],
             },
         },
         mode: {
-            label: 'Data',
+            label: '数据',
             type: 'select',
             valueSources: ['value'],
             fieldSettings: {
                 listValues: [
-                    { value: 'interpolation', title: 'Video' },
-                    { value: 'annotation', title: 'Images' },
+                    { value: 'interpolation', title: '视频' },
+                    { value: 'annotation', title: '图像' },
                 ],
             },
         },
         subset: {
-            label: 'Subset',
+            label: '子集',
             type: 'text',
             valueSources: ['value'],
             operators: ['equal'],
         },
         assignee: {
-            label: 'Assignee',
+            label: '受让人',
             type: 'text',
             valueSources: ['value'],
             operators: ['equal'],
         },
         owner: {
-            label: 'Owner',
+            label: '所有者',
             type: 'text',
             valueSources: ['value'],
             operators: ['equal'],
         },
         updated_date: {
-            label: 'Last updated',
+            label: '更新时间',
             type: 'datetime',
             operators: ['between', 'greater', 'greater_or_equal', 'less', 'less_or_equal'],
         },
@@ -73,20 +73,20 @@ export const config: Partial<Config> = {
             valueSources: ['value'],
         },
         project_id: {
-            label: 'Project ID',
+            label: '项目ID',
             type: 'number',
             operators: ['equal', 'between', 'greater', 'greater_or_equal', 'less', 'less_or_equal'],
             fieldSettings: { min: 0 },
             valueSources: ['value'],
         },
         name: {
-            label: 'Name',
+            label: '名称',
             type: 'text',
             valueSources: ['value'],
             operators: ['like'],
         },
         project_name: {
-            label: 'Project name',
+            label: '项目名称',
             type: 'text',
             valueSources: ['value'],
             operators: ['like'],
