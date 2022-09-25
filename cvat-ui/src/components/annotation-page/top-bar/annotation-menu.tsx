@@ -147,7 +147,7 @@ function AnnotationMenuComponent(props: Props & RouteComponentProps): JSX.Elemen
                     type: 'primary',
                     danger: true,
                 },
-                okText: 'Delete',
+                okText: '删除',
             });
         } else if (params.key.startsWith('state:')) {
             Modal.confirm({

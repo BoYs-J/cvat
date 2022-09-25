@@ -4,7 +4,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import moment from 'moment';
+// import moment from 'moment';
 import { Row, Col } from 'antd/lib/grid';
 import Text from 'antd/lib/typography/Text';
 import Modal from 'antd/lib/modal';

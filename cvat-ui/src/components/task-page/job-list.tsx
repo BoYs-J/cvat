@@ -12,7 +12,7 @@ import Table from 'antd/lib/table';
 import Button from 'antd/lib/button';
 import Select from 'antd/lib/select';
 import Text from 'antd/lib/typography/Text';
-import moment from 'moment';
+// import moment from 'moment';
 import copy from 'copy-to-clipboard';
 
 import { JobStage } from 'reducers';

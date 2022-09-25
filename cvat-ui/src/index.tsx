@@ -29,7 +29,7 @@ import zhCN from 'antd/es/locale/zh_CN'; //全局中文提示
 
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/es/locale/zh_CN'; //全局中文时间
+moment.locale('zh-cn');
 
 createCVATStore(createRootReducer);
 const cvatStore = getCVATStore();
@@ -130,15 +130,13 @@ function mapDispatchToProps(dispatch: any): DispatchToProps {
 const ReduxAppWrapper = connect(mapStateToProps, mapDispatchToProps)(CVATApplication);
 
 ReactDOM.render(
-    <ConfigProvider locale={locale}>
-        <ConfigProvider locale={zhCN}>
-            <Provider store={cvatStore}>
-                <BrowserRouter>
-                    <ReduxAppWrapper />
-                </BrowserRouter>
-                <LayoutGrid />
-            </Provider>
-        </ConfigProvider>
+    <ConfigProvider locale={zhCN}>
+           <Provider store={cvatStore}>
+               <BrowserRouter>
+                   <ReduxAppWrapper />
+               </BrowserRouter>
+               <LayoutGrid />
+        </Provider>
     </ConfigProvider>,
     document.getElementById('root'),
 );

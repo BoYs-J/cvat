@@ -11,7 +11,7 @@ import Button from 'antd/lib/button';
 import { MoreOutlined } from '@ant-design/icons';
 import Dropdown from 'antd/lib/dropdown';
 import Progress from 'antd/lib/progress';
-import moment from 'moment';
+// import moment from 'moment';
 
 import ActionsMenuContainer from 'containers/actions-menu/actions-menu';
 import { ActiveInference } from 'reducers';

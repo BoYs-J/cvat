@@ -18,7 +18,7 @@ import Text from 'antd/lib/typography/Text';
 import Title from 'antd/lib/typography/Title';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
-import moment from 'moment';
+// import moment from 'moment';
 import CVATTooltip from 'components/common/cvat-tooltip';
 import { deleteIssueAsync } from 'actions/review-actions';
 
