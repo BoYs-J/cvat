@@ -43,14 +43,7 @@ const SortableItem = SortableElement(
                 setAppliedSorting({ ...appliedSorting, [value]: `-${value}` });
             }
         };
-
-        const FilterData:any = ['ID', 'Owner', 'Status', 'Assignee', 'Updated date', 'Subset', 'Mode', 'Dimension',	 'Description', 'Stage', 'State', 'Task ID', 'Task name', 'Project ID', 'Name', 'Project name', 'Provider type', 'Display name', 'Resource', 'Credentials type']
-        const FilterData_ch:any = ['ID', '所有者', '状态', '受让人', '更新时间', '子集', '模式', '维度', '类型', '阶段', '状态', '任务ID',	'任务名称',	'项目ID', '名称', '项目名称', '供应商类型', '显示名称', '资源', '凭据类型']
-            for (let i = 0; i < FilterData.length; i++) {
-                if (value === FilterData[i]){
-                    var valuedate = FilterData_ch[i]
-                }
-            }
+        const { ZH_CN_TEXT } = consts; //中文字符集
 
         if (value === ANCHOR_KEYWORD) {
             return (
@@ -60,7 +53,7 @@ const SortableItem = SortableElement(
 
         return (
             <div className='cvat-sorting-field'>
-                <Radio.Button disabled={valueIndex > anchorIndex}>{valuedate}</Radio.Button>
+                <Radio.Button disabled={valueIndex > anchorIndex}>{ZH_CN_TEXT.filter[value]}</Radio.Button>
                 <div>
                     <CVATTooltip overlay={appliedSorting[value]?.startsWith('-') ? 'Descending sort' : 'Ascending sort'}>
                         <Button type='text' disabled={!isActiveField} onClick={onClick}>

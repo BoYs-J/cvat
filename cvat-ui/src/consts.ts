@@ -93,6 +93,43 @@ const DEFAULT_GOOGLE_CLOUD_STORAGE_LOCATIONS: string[][] = [
     ['NAM4', '美国中心1、美国东部1'],
 ];
 
+const ZH_CN_TEXT:any = {
+    state:{
+        'new':'新',
+        'in progress':'进行中',
+        'completed':'完成',
+        'rejected':'驳回'
+    },
+    stage:{
+        'annotation':'注释',
+        'validation':'验证',
+        'acceptance':'接受'
+    },
+    filter:{
+        'ID': 'ID',
+        'Owner': '所有者',
+        'Status': '状态',
+        'Assignee': '受让人',
+        'Updateddate': '更新时间',
+        'Subset': '子集',
+        'Mode': '模式',
+        'Dimension': '维度',
+        'Description': '类型',
+        'Stage': '阶段',
+        'State': '状态',
+        'TaskID': '任务ID',
+        'Taskname': '任务名称',
+        'ProjectID': '项目ID',
+        'Name': '名称',
+        'Projectname': '项目名称',
+        'Providertype': '供应商类型',
+        'Displayname': '显示名称',
+        'Resource': '资源',
+        'Credentialstype': '凭据类型'
+    },
+
+};
+
 export default {
     UNDEFINED_ATTRIBUTE_VALUE,
     NO_BREAK_SPACE,
@@ -125,4 +162,5 @@ export default {
     INTEL_COOKIES_URL,
     INTEL_PRIVACY_URL,
     OPENVINO_URL,
+    ZH_CN_TEXT, //中文字符集
 };

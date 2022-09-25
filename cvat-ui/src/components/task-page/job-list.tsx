@@ -126,7 +126,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                     return job[path].username;
                 }),
             ),
-        ).map((value: string | null) => ({ text: value || '为空', value: value || false }));
+        ).map((value: string | null) => ({ text: value || '未分配', value: value || false }));
     }
 
     const columns = [
@@ -196,13 +196,11 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             key: 'state',
             className: 'cvat-job-item-state',
             render: (jobInstance: any): JSX.Element => {
-                const Filter_State:any = {'new':'新', 'in progress':'进行中', 'completed':'完成', 'rejected':'驳回'};
+                const { ZH_CN_TEXT } = consts; //中文字符集
                 const { state } = jobInstance;
-                console.log('1:'+state)
-                console.log('3:'+jobInstance)
                 return (
                     <Text type='secondary'>
-                        {Filter_State[state]}
+                        {ZH_CN_TEXT.state[state]}
                     </Text>
                 );
             },

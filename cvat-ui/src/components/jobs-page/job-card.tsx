@@ -41,6 +41,7 @@ function JobCardComponent(props: Props): JSX.Element {
             history.push(url);
         }
     };
+    const { ZH_CN_TEXT } = consts; //中文字符集
 
     return (
         <Card
@@ -72,8 +73,8 @@ function JobCardComponent(props: Props): JSX.Element {
             )}
         >
             <Descriptions column={1} size='small'>
-                <Descriptions.Item label='阶段'>{job.stage}</Descriptions.Item>
-                <Descriptions.Item label='状态'>{job.state}</Descriptions.Item>
+                <Descriptions.Item label='阶段'>{ZH_CN_TEXT.stage[job.stage]}</Descriptions.Item>
+                <Descriptions.Item label='状态'>{ZH_CN_TEXT.state[job.state]}</Descriptions.Item>
                 { expanded ? (
                     <Descriptions.Item label='大小'>{job.stopFrame - job.startFrame + 1}</Descriptions.Item>
                 ) : null}
