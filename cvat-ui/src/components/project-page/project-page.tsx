@@ -155,7 +155,7 @@ export default function ProjectPageComponent(): JSX.Element {
             </Row>
         </>
     ) : (
-        <Empty description='No tasks found' />
+        <Empty description='未找到任务' />
     );
 
     return (

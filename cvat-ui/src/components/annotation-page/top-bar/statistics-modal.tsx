@@ -60,7 +60,7 @@ function mapStateToProps(state: CombinedState): StateToProps {
         startFrame,
         stopFrame,
         dimension,
-        assignee: assignee?.username || 'Nobody',
+        assignee: assignee?.username || '无',
     };
 }
 
@@ -122,7 +122,7 @@ function StatisticsModalComponent(props: StateToProps & DispatchToProps): JSX.El
 
     rows.push({
         key: '___total',
-        label: 'Total',
+        label: '总计',
         rectangle: `${data.total.rectangle.shape} / ${data.total.rectangle.track}`,
         polygon: `${data.total.polygon.shape} / ${data.total.polygon.track}`,
         polyline: `${data.total.polyline.shape} / ${data.total.polyline.track}`,
