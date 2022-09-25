@@ -23,8 +23,8 @@ export default function GCSLocation(props: Props): JSX.Element {
             onSelectRegion={onSelectRegion}
             internalCommonProps={internalCommonProps}
             values={consts.DEFAULT_GOOGLE_CLOUD_STORAGE_LOCATIONS}
-            name='location'
-            label='Location'
+            name='位置'
+            label='位置'
             href='https://cloud.google.com/storage/docs/locations#available-locations'
         />
     );

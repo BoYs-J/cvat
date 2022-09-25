@@ -23,8 +23,8 @@ export default function S3Region(props: Props): JSX.Element {
             onSelectRegion={onSelectRegion}
             internalCommonProps={internalCommonProps}
             values={consts.DEFAULT_AWS_S3_REGIONS}
-            name='region'
-            label='Region'
+            name='地区'
+            label='地区'
             href='https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions'
         />
     );

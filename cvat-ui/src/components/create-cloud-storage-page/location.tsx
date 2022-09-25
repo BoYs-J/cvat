@@ -18,8 +18,8 @@ interface Props {
     onSelectRegion: any;
     internalCommonProps: any;
 
-    label: '位置' | '地区';
-    name: '位置' | '地区';
+    label: 'Location' | 'Region';
+    name: 'location' | 'region';
     values: string[][];
     href: string;
 }
