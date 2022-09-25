@@ -90,19 +90,19 @@ export default function ImageSetupsContent(): JSX.Element {
                         }}
                     >
                         <Select.Option key='white' value={GridColor.White}>
-                            White
+                            白色
                         </Select.Option>
                         <Select.Option key='black' value={GridColor.Black}>
-                            Black
+                            黑色
                         </Select.Option>
                         <Select.Option key='red' value={GridColor.Red}>
-                            Red
+                            红色
                         </Select.Option>
                         <Select.Option key='green' value={GridColor.Green}>
-                            Green
+                            绿色
                         </Select.Option>
                         <Select.Option key='blue' value={GridColor.Blue}>
-                            Blue
+                            蓝色
                         </Select.Option>
                     </Select>
                 </Col>

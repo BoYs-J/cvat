@@ -40,7 +40,7 @@ function LockAllSwitcher(props: Props): JSX.Element {
     } = props;
     return (
         <Col span={2}>
-            <CVATTooltip title={`Switch lock property for all ${switchLockAllShortcut}`}>
+            <CVATTooltip title={`所有属性切换锁定状态 ${switchLockAllShortcut}`}>
                 {statesLocked ? <LockFilled onClick={unlockAllStates} /> : <UnlockOutlined onClick={lockAllStates} />}
             </CVATTooltip>
         </Col>
@@ -53,7 +53,7 @@ function HideAllSwitcher(props: Props): JSX.Element {
     } = props;
     return (
         <Col span={2}>
-            <CVATTooltip title={`Switch hidden property for all ${switchHiddenAllShortcut}`}>
+            <CVATTooltip title={`所有属性切换隐藏状态 ${switchHiddenAllShortcut}`}>
                 {statesHidden ? (
                     <EyeInvisibleFilled onClick={showAllStates} />
                 ) : (
@@ -68,7 +68,7 @@ function CollapseAllSwitcher(props: Props): JSX.Element {
     const { statesCollapsed, expandAllStates, collapseAllStates } = props;
     return (
         <Col span={2}>
-            <CVATTooltip title='Expand/collapse all'>
+            <CVATTooltip title='全部展开/折叠'>
                 {statesCollapsed ? (
                     <CaretDownOutlined onClick={expandAllStates} />
                 ) : (

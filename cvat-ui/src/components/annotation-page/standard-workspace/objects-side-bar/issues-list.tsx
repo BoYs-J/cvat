@@ -53,17 +53,17 @@ export default function LabelsListComponent(): JSX.Element {
             <div className='cvat-objects-sidebar-issues-list-header'>
                 <Row justify='start' align='middle'>
                     <Col>
-                        <CVATTooltip title='Find the previous frame with issues'>
+                        <CVATTooltip title='找到上一个问题的帧'>
                             <LeftOutlined className='cvat-issues-sidebar-previous-frame' {...dinamicLeftProps} />
                         </CVATTooltip>
                     </Col>
                     <Col offset={1}>
-                        <CVATTooltip title='Find the next frame with issues'>
+                        <CVATTooltip title='找到下一个问题的帧'>
                             <RightOutlined className='cvat-issues-sidebar-next-frame' {...dinamicRightProps} />
                         </CVATTooltip>
                     </Col>
                     <Col offset={2}>
-                        <CVATTooltip title='Show/hide all issues'>
+                        <CVATTooltip title='显示/隐藏所有问题'>
                             {issuesHidden ? (
                                 <EyeInvisibleFilled
                                     className='cvat-issues-sidebar-hidden-issues'
@@ -78,7 +78,7 @@ export default function LabelsListComponent(): JSX.Element {
                         </CVATTooltip>
                     </Col>
                     <Col offset={2}>
-                        <CVATTooltip title='Show/hide resolved issues'>
+                        <CVATTooltip title='显示/隐藏已解决的问题'>
                             { issuesResolvedHidden ? (
                                 <CheckCircleFilled
                                     className='cvat-issues-sidebar-hidden-resolved-status'
@@ -120,9 +120,9 @@ export default function LabelsListComponent(): JSX.Element {
                             }}
                         >
                             {frameIssue.resolved ? (
-                                <Alert message='Resolved' type='success' showIcon />
+                                <Alert message='已解决' type='success' showIcon />
                             ) : (
-                                <Alert message='Opened' type='warning' showIcon />
+                                <Alert message='开启' type='warning' showIcon />
                             )}
                         </div>
                     ),

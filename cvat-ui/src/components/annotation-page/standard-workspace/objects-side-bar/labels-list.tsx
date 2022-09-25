@@ -79,7 +79,7 @@ function LabelsListComponent(): JSX.Element {
                 } else {
                     dispatch(rememberObject({ activeLabelID: labelID }));
                     message.destroy();
-                    message.success(`Default label was changed to "${label.name}"`);
+                    message.success(`默认标签已更改为 "${label.name}"`);
                 }
             }
         },

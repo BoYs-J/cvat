@@ -57,7 +57,7 @@ function CreateURLItem(props: ItemProps): JSX.Element {
     return (
         <Menu.Item {...rest}>
             <Button disabled={serverID === undefined} type='link' icon={<LinkOutlined />} onClick={createURL}>
-                Create object URL
+                复制对象URL
             </Button>
         </Menu.Item>
     );
@@ -68,9 +68,9 @@ function MakeCopyItem(props: ItemProps): JSX.Element {
     const { copyShortcut, pasteShortcut, copy } = toolProps;
     return (
         <Menu.Item {...rest}>
-            <CVATTooltip title={`${copyShortcut} and ${pasteShortcut}`}>
+            <CVATTooltip title={`${copyShortcut} 和 ${pasteShortcut}`}>
                 <Button type='link' icon={<CopyOutlined />} onClick={copy}>
-                    Make a copy
+                    创建副本
                 </Button>
             </CVATTooltip>
         </Menu.Item>
@@ -84,7 +84,7 @@ function PropagateItem(props: ItemProps): JSX.Element {
         <Menu.Item {...rest}>
             <CVATTooltip title={`${propagateShortcut}`}>
                 <Button type='link' icon={<BlockOutlined />} onClick={propagate}>
-                    Propagate
+                    传播
                 </Button>
             </CVATTooltip>
         </Menu.Item>
@@ -97,7 +97,7 @@ function SwitchOrientationItem(props: ItemProps): JSX.Element {
     return (
         <Menu.Item {...rest}>
             <Button type='link' icon={<RetweetOutlined />} onClick={switchOrientation}>
-                Switch orientation
+                开关方向
             </Button>
         </Menu.Item>
     );
@@ -110,7 +110,7 @@ function ResetPerspectiveItem(props: ItemProps): JSX.Element {
         <Menu.Item {...rest}>
             <Button type='link' onClick={resetCuboidPerspective}>
                 <Icon component={ResetPerspectiveIcon} />
-                Reset perspective
+                重置视图
             </Button>
         </Menu.Item>
     );
@@ -124,7 +124,7 @@ function ToBackgroundItem(props: ItemProps): JSX.Element {
             <CVATTooltip title={`${toBackgroundShortcut}`}>
                 <Button type='link' onClick={toBackground}>
                     <Icon component={BackgroundIcon} />
-                    To background
+                    转到背景
                 </Button>
             </CVATTooltip>
         </Menu.Item>
@@ -139,7 +139,7 @@ function ToForegroundItem(props: ItemProps): JSX.Element {
             <CVATTooltip title={`${toForegroundShortcut}`}>
                 <Button type='link' onClick={toForeground}>
                     <Icon component={ForegroundIcon} />
-                    To foreground
+                    转到最前
                 </Button>
             </CVATTooltip>
         </Menu.Item>
@@ -168,7 +168,7 @@ function SwitchColorItem(props: ItemProps): JSX.Element {
                 <CVATTooltip title={`${changeColorShortcut}`}>
                     <Button type='link'>
                         <Icon component={ColorizeIcon} />
-                        {`Change ${colorBy.toLowerCase()} color`}
+                        {`更改${colorBy.toLowerCase()}颜色`}
                     </Button>
                 </CVATTooltip>
             </ColorPicker>
@@ -187,7 +187,7 @@ function RemoveItem(props: ItemProps): JSX.Element {
                     icon={<DeleteOutlined />}
                     onClick={remove}
                 >
-                    Remove
+                    删除
                 </Button>
             </CVATTooltip>
         </Menu.Item>

@@ -38,7 +38,7 @@ function PopoverContent(props: LabelKeySelectorPopoverContentProps): JSX.Element
                         const labelName = Number.isInteger(previousLabelID) ?
                             labels.filter((label: any): boolean => label.id === previousLabelID)[0]?.name ||
                               'undefined' :
-                            'None';
+                            '无';
 
                         return (
                             <Col key={i} span={8}>
