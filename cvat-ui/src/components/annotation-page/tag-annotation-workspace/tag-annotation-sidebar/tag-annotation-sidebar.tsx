@@ -296,10 +296,9 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
                             <Text code>N</Text>
                             &nbsp;或数字&nbsp;
                             <Text code>0-9</Text>
-                            &nbsp;添加选定的标记，&nbsp;
-                            按下&nbsp;
+                            &nbsp;添加选定的标记<br/>按下&nbsp;
                             <Text code>Shift</Text>
-                            &nbsp;和&nbsp;
+                            &nbsp;+&nbsp;
                             <Text code>0-9</Text>
                             &nbsp;删除指定标记。
                         </Text>

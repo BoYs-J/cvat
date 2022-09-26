@@ -54,7 +54,7 @@ function GroupControl(props: Props): JSX.Element {
         `组合形状${
             jobInstance && jobInstance.dimension === DimensionType.DIM_3D ? '' : '/跟踪'
         } ${switchGroupShortcut}`,
-        `<br>选中并按 ${resetGroupShortcut} 重置分组`,
+        `，选中并按 ${resetGroupShortcut} 重置分组`,
     ].join(' ');
 
     return disabled ? (

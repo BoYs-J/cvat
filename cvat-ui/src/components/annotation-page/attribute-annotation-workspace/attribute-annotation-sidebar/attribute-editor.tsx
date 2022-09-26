@@ -29,7 +29,7 @@ function renderInputElement(parameters: InputElementParameters): JSX.Element {
 
     const renderCheckbox = (): JSX.Element => (
         <>
-            <Text strong>Checkbox: </Text>
+            <Text strong>选择框：</Text>
             <div className='attribute-annotation-sidebar-attr-elem-wrapper'>
                 <Checkbox
                     onChange={(event: CheckboxChangeEvent): void => onChange(event.target.checked ? 'true' : 'false')}
@@ -41,7 +41,7 @@ function renderInputElement(parameters: InputElementParameters): JSX.Element {
 
     const renderSelect = (): JSX.Element => (
         <>
-            <Text strong>Values: </Text>
+            <Text strong>值：</Text>
             <div className='attribute-annotation-sidebar-attr-elem-wrapper'>
                 <Select
                     value={currentValue}
@@ -62,7 +62,7 @@ function renderInputElement(parameters: InputElementParameters): JSX.Element {
 
     const renderRadio = (): JSX.Element => (
         <>
-            <Text strong>Values: </Text>
+            <Text strong>值：</Text>
             <div className='attribute-annotation-sidebar-attr-elem-wrapper'>
                 <Radio.Group value={currentValue} onChange={(event: RadioChangeEvent) => onChange(event.target.value)}>
                     {values.map(
@@ -87,7 +87,7 @@ function renderInputElement(parameters: InputElementParameters): JSX.Element {
 
     const renderText = (): JSX.Element => (
         <>
-            {inputType === 'number' ? <Text strong>Number: </Text> : <Text strong>Text: </Text>}
+            {inputType === 'number' ? <Text strong>数字：</Text> : <Text strong>文本：</Text>}
             <div className='attribute-annotation-sidebar-attr-elem-wrapper'>
                 <Input
                     autoFocus
@@ -149,8 +149,8 @@ function renderList(parameters: ListParameters): JSX.Element | null {
         sortedValues.forEach((value: string, index: number): void => {
             const key = `SET_${index}_VALUE`;
             keyMap[key] = {
-                name: `Set value "${value}"`,
-                description: `Change current value for the attribute to "${value}"`,
+                name: `设置值 "${value}"`,
+                description: `将属性的当前值更改为 "${value}"`,
                 sequences: [`${index}`],
                 action: 'keydown',
             };
@@ -189,8 +189,8 @@ function renderList(parameters: ListParameters): JSX.Element | null {
         filteredValues.slice(0, 10).forEach((value: string, index: number): void => {
             const key = `SET_${index}_VALUE`;
             keyMap[key] = {
-                name: `Set value "${value}"`,
-                description: `Change current value for the attribute to "${value}"`,
+                name: `设置值 "${value}"`,
+                description: `将属性的当前值更改为 "${value}"`,
                 sequences: [`${index}`],
                 action: 'keydown',
             };
@@ -223,15 +223,15 @@ function renderList(parameters: ListParameters): JSX.Element | null {
         return (
             <div className='attribute-annotation-sidebar-attr-list-wrapper'>
                 <div>
-                    <Text strong>From:</Text>
+                    <Text strong>开始：</Text>
                     <Text>{` ${values[0]}`}</Text>
                 </div>
                 <div>
-                    <Text strong>To:</Text>
+                    <Text strong>到：</Text>
                     <Text>{` ${values[1]}`}</Text>
                 </div>
                 <div>
-                    <Text strong>Step:</Text>
+                    <Text strong>步进：</Text>
                     <Text>{` ${values[2]}`}</Text>
                 </div>
             </div>

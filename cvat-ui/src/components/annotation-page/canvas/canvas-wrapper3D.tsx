@@ -406,7 +406,7 @@ const CanvasWrapperComponent = (props: Props): ReactElement => {
 
     const ArrowGroup = (): ReactElement => (
         <span className='cvat-canvas3d-perspective-arrow-directions'>
-            <CVATTooltip title='Shift+Arrow Up' placement='topRight'>
+            <CVATTooltip title='Shift+上' placement='topRight'>
                 <button
                     data-cy='arrow-up'
                     onClick={() => screenKeyControl(CameraAction.TILT_UP, false, true)}
@@ -417,7 +417,7 @@ const CanvasWrapperComponent = (props: Props): ReactElement => {
                 </button>
             </CVATTooltip>
             <br />
-            <CVATTooltip title='Shift+Arrow Left' placement='topRight'>
+            <CVATTooltip title='Shift+左' placement='topRight'>
                 <button
                     onClick={() => screenKeyControl(CameraAction.ROTATE_LEFT, false, true)}
                     type='button'
@@ -426,7 +426,7 @@ const CanvasWrapperComponent = (props: Props): ReactElement => {
                     <ArrowLeftOutlined className='cvat-canvas3d-perspective-arrow-directions-icons-color' />
                 </button>
             </CVATTooltip>
-            <CVATTooltip title='Shift+Arrow Bottom' placement='topRight'>
+            <CVATTooltip title='Shift+下' placement='topRight'>
                 <button
                     onClick={() => screenKeyControl(CameraAction.TILT_DOWN, false, true)}
                     type='button'
@@ -435,7 +435,7 @@ const CanvasWrapperComponent = (props: Props): ReactElement => {
                     <ArrowDownOutlined className='cvat-canvas3d-perspective-arrow-directions-icons-color' />
                 </button>
             </CVATTooltip>
-            <CVATTooltip title='Shift+Arrow Right' placement='topRight'>
+            <CVATTooltip title='Shift+右' placement='topRight'>
                 <button
                     onClick={() => screenKeyControl(CameraAction.ROTATE_RIGHT, false, true)}
                     type='button'
@@ -542,7 +542,7 @@ const CanvasWrapperComponent = (props: Props): ReactElement => {
                     onResize={(e: SyntheticEvent) => setViewSize({ type: ViewType.TOP, e })}
                 >
                     <div className='cvat-canvas3d-orthographic-view cvat-canvas3d-topview'>
-                        <div className='cvat-canvas3d-header'>TOP</div>
+                        <div className='cvat-canvas3d-header'>顶部</div>
                         <div className='cvat-canvas3d-fullsize' ref={topView} />
                     </div>
                 </ResizableBox>
@@ -555,7 +555,7 @@ const CanvasWrapperComponent = (props: Props): ReactElement => {
                     onResize={(e: SyntheticEvent) => setViewSize({ type: ViewType.SIDE, e })}
                 >
                     <div className='cvat-canvas3d-orthographic-view cvat-canvas3d-sideview'>
-                        <div className='cvat-canvas3d-header'>SIDE</div>
+                        <div className='cvat-canvas3d-header'>侧面</div>
                         <div className='cvat-canvas3d-fullsize' ref={sideView} />
                     </div>
                 </ResizableBox>
@@ -563,7 +563,7 @@ const CanvasWrapperComponent = (props: Props): ReactElement => {
                     className='cvat-canvas3d-orthographic-view cvat-canvas3d-frontview'
                     style={{ width: viewSize.front, height: viewSize.fullHeight - viewSize.vertical }}
                 >
-                    <div className='cvat-canvas3d-header'>FRONT</div>
+                    <div className='cvat-canvas3d-header'>正面</div>
                     <div className='cvat-canvas3d-fullsize' ref={frontView} />
                 </div>
             </div>

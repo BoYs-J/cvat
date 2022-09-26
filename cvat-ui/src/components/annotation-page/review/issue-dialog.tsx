@@ -71,7 +71,7 @@ export default function IssueDialog(props: Props): JSX.Element {
 
     const onDeleteIssue = useCallback((): void => {
         Modal.confirm({
-            title: `The issue${id >= 0 ? ` #${id}` : ''} will be deleted.`,
+            title: `将 问题${id >= 0 ? `#${id}` : ''} 删除`,
             className: 'cvat-modal-confirm-remove-issue',
             onOk: () => {
                 collapse();
@@ -81,7 +81,7 @@ export default function IssueDialog(props: Props): JSX.Element {
                 type: 'primary',
                 danger: true,
             },
-            okText: 'Delete',
+            okText: '删除',
         });
     }, []);
 
@@ -97,7 +97,7 @@ export default function IssueDialog(props: Props): JSX.Element {
                     author={<Text strong>{_comment.owner ? _comment.owner.username : 'Unknown'}</Text>}
                     content={<p>{_comment.message}</p>}
                     datetime={(
-                        <CVATTooltip title={created.format('MMMM Do YYYY')}>
+                        <CVATTooltip title={created.format('YYYY-MM-DD')}>
                             <span>{diff}</span>
                         </CVATTooltip>
                     )}
@@ -108,11 +108,11 @@ export default function IssueDialog(props: Props): JSX.Element {
 
     const resolveButton = resolved ? (
         <Button loading={isFetching} type='primary' onClick={reopen}>
-            Reopen
+            重开
         </Button>
     ) : (
         <Button loading={isFetching} type='primary' onClick={resolve}>
-            Resolve
+            解决
         </Button>
     );
 
@@ -120,10 +120,10 @@ export default function IssueDialog(props: Props): JSX.Element {
         <div style={{ top, left, transform: `scale(${scale}) rotate(${angle}deg)` }} ref={ref} className='cvat-issue-dialog'>
             <Row className='cvat-issue-dialog-header' justify='space-between'>
                 <Col>
-                    <Title level={4}>{id >= 0 ? `Issue #${id}` : 'Issue'}</Title>
+                    <Title level={4}>{id >= 0 ? `问题 #${id}` : '问题'}</Title>
                 </Col>
                 <Col>
-                    <CVATTooltip title='Collapse the chat'>
+                    <CVATTooltip title='折叠聊天'>
                         <CloseOutlined onClick={collapse} />
                     </CVATTooltip>
                 </Col>
@@ -134,7 +134,7 @@ export default function IssueDialog(props: Props): JSX.Element {
             <Row className='cvat-issue-dialog-input' justify='start'>
                 <Col span={24}>
                     <Input
-                        placeholder='Print a comment here..'
+                        placeholder='在这里填写评论...'
                         value={currentText}
                         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                             setCurrentText(event.target.value);
@@ -151,7 +151,7 @@ export default function IssueDialog(props: Props): JSX.Element {
             <Row className='cvat-issue-dialog-footer' justify='space-between'>
                 <Col>
                     <Button type='link' danger onClick={onDeleteIssue}>
-                        Remove
+                        移除
                     </Button>
                 </Col>
                 <Col>
@@ -165,7 +165,7 @@ export default function IssueDialog(props: Props): JSX.Element {
                                 setCurrentText('');
                             }}
                         >
-                            Comment
+                            评论
                         </Button>
                     ) : (
                         resolveButton

@@ -294,7 +294,7 @@ function AttributeAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.
                         ant-layout-sider-zero-width-trigger-left`}
                     onClick={collapse}
                 >
-                    {sidebarCollapsed ? <MenuFoldOutlined title='Show' /> : <MenuUnfoldOutlined title='Hide' />}
+                    {sidebarCollapsed ? <MenuFoldOutlined title='显示' /> : <MenuUnfoldOutlined title='隐藏' />}
                 </span>
                 <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />
                 <div className='cvat-sidebar-collapse-button-spacer' />
@@ -352,7 +352,7 @@ function AttributeAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.
                     </>
                 ) : (
                     <div className='attribute-annotations-sidebar-not-found-wrapper'>
-                        <Text strong>No attributes found</Text>
+                        <Text strong>没有找到属性</Text>
                     </div>
                 )}
 
@@ -370,11 +370,11 @@ function AttributeAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.
                     ant-layout-sider-zero-width-trigger-left`}
                 onClick={collapse}
             >
-                {sidebarCollapsed ? <MenuFoldOutlined title='Show' /> : <MenuUnfoldOutlined title='Hide' />}
+                {sidebarCollapsed ? <MenuFoldOutlined title='显示' /> : <MenuUnfoldOutlined title='隐藏' />}
             </span>
             <div className='cvat-sidebar-collapse-button-spacer' />
             <div className='attribute-annotations-sidebar-not-found-wrapper'>
-                <Text strong>No objects found</Text>
+                <Text strong>没有找到对象</Text>
             </div>
         </Layout.Sider>
     );

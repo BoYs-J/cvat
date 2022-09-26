@@ -37,18 +37,18 @@ function MessageForm(props: FormProps): JSX.Element {
             style={{ top, left, transform: `scale(${scale}) rotate(${angle}deg)` }}
             onFinish={(values: Store) => handleSubmit(values)}
         >
-            <Form.Item name='issue_description' rules={[{ required: true, message: 'Please, fill out the field' }]}>
-                <Input autoComplete='off' placeholder='Please, describe the issue' />
+            <Form.Item name='issue_description' rules={[{ required: true, message: '请填写描述到这一栏' }]}>
+                <Input autoComplete='off' placeholder='请描述一下这个问题' />
             </Form.Item>
             <Row justify='space-between'>
                 <Col>
                     <Button onClick={cancel} type='ghost'>
-                        Cancel
+                        取消
                     </Button>
                 </Col>
                 <Col>
                     <Button type='primary' htmlType='submit'>
-                        Submit
+                        提交
                     </Button>
                 </Col>
             </Row>
