@@ -71,7 +71,7 @@ function DetectorRunner(props: Props): JSX.Element {
 
     if (model && model.type !== 'reid' && !model.labels.length) {
         notification.warning({
-            message: 'The selected model does not include any labels',
+            message: '所选模型不包含任何标签',
         });
     }
 
@@ -218,10 +218,10 @@ function DetectorRunner(props: Props): JSX.Element {
     return (
         <div className='cvat-run-model-content'>
             <Row align='middle'>
-                <Col span={4}>Model:</Col>
+                <Col span={4}>模型：</Col>
                 <Col span={20}>
                     <Select
-                        placeholder={dimension === DimensionType.DIM_2D ? 'Select a model' : 'No models available'}
+                        placeholder={dimension === DimensionType.DIM_2D ? '选择一个模型' : '无可用的模型'}
                         disabled={dimension !== DimensionType.DIM_2D}
                         style={{ width: '100%' }}
                         onChange={(_modelID: string): void => {
@@ -275,7 +275,7 @@ function DetectorRunner(props: Props): JSX.Element {
                                 renderMappingRow(color,
                                     modelLabel,
                                     label.name,
-                                    'Remove the mapped label',
+                                    '删除映射标签',
                                     (): void => {
                                         const newMapping = { ...mapping };
                                         delete newMapping[modelLabel];
@@ -293,7 +293,7 @@ function DetectorRunner(props: Props): JSX.Element {
                                             consts.NEW_LABEL_COLOR,
                                             mappedModelAttr,
                                             mapping[modelLabel].attributes[mappedModelAttr],
-                                            'Remove the mapped attribute',
+                                            '删除映射属性',
                                             (): void => {
                                                 const newMapping = { ...mapping };
                                                 delete mapping[modelLabel].attributes[mappedModelAttr];
@@ -308,7 +308,7 @@ function DetectorRunner(props: Props): JSX.Element {
                                     <Col span={10}>
                                         {renderSelector(
                                             attrMatches[modelLabel]?.model || '',
-                                            'Model attr labels', notMatchedModelAttributes.map((l) => l.name),
+                                            '模型属性标签', notMatchedModelAttributes.map((l) => l.name),
                                             (modelAttrLabel: string) => updateAttrMatch(
                                                 modelLabel, modelAttrLabel, null,
                                             ),
@@ -318,7 +318,7 @@ function DetectorRunner(props: Props): JSX.Element {
                                     <Col span={10} offset={1}>
                                         {renderSelector(
                                             attrMatches[modelLabel]?.task || '',
-                                            'Task attr labels', taskAttributes,
+                                            '任务属性标签', taskAttributes,
                                             (taskAttrLabel: string) => updateAttrMatch(
                                                 modelLabel, null, taskAttrLabel,
                                             ),
@@ -326,7 +326,7 @@ function DetectorRunner(props: Props): JSX.Element {
                                         )}
                                     </Col>
                                     <Col span={1} offset={1}>
-                                        <CVATTooltip title='Specify an attribute mapping between model label and task label attributes'>
+                                        <CVATTooltip title='指定模型和任务之间的属性标签映射'>
                                             <QuestionCircleOutlined className='cvat-info-circle-icon' />
                                         </CVATTooltip>
                                     </Col>
@@ -339,13 +339,13 @@ function DetectorRunner(props: Props): JSX.Element {
                 <>
                     <Row justify='start' align='middle'>
                         <Col span={10}>
-                            {renderSelector(match.model || '', 'Model labels', modelLabels, (modelLabel: string) => updateMatch(modelLabel, null))}
+                            {renderSelector(match.model || '', '模型标签', modelLabels, (modelLabel: string) => updateMatch(modelLabel, null))}
                         </Col>
                         <Col span={10} offset={1}>
-                            {renderSelector(match.task || '', 'Task labels', taskLabels, (taskLabel: string) => updateMatch(null, taskLabel))}
+                            {renderSelector(match.task || '', '任务标签', taskLabels, (taskLabel: string) => updateMatch(null, taskLabel))}
                         </Col>
                         <Col span={1} offset={1}>
-                            <CVATTooltip title='Specify a label mapping between model labels and task labels'>
+                            <CVATTooltip title='指定模型和任务之间的标签映射'>
                                 <QuestionCircleOutlined className='cvat-info-circle-icon' />
                             </CVATTooltip>
                         </Col>
@@ -358,7 +358,7 @@ function DetectorRunner(props: Props): JSX.Element {
                         checked={cleanup}
                         onChange={(e: CheckboxChangeEvent): void => setCleanup(e.target.checked)}
                     >
-                        Clean old annotations
+                        清理旧注释
                     </Checkbox>
                 </div>
             ) : null}
@@ -366,10 +366,10 @@ function DetectorRunner(props: Props): JSX.Element {
                 <div>
                     <Row align='middle' justify='start'>
                         <Col>
-                            <Text>Threshold</Text>
+                            <Text>临界值</Text>
                         </Col>
                         <Col offset={1}>
-                            <CVATTooltip title='Minimum similarity value for shapes that can be merged'>
+                            <CVATTooltip title='可合并形状的最小相似性值'>
                                 <InputNumber
                                     min={0.01}
                                     step={0.01}
@@ -386,10 +386,10 @@ function DetectorRunner(props: Props): JSX.Element {
                     </Row>
                     <Row align='middle' justify='start'>
                         <Col>
-                            <Text>Maximum distance</Text>
+                            <Text>最大距离</Text>
                         </Col>
                         <Col offset={1}>
-                            <CVATTooltip title='Maximum distance between shapes that can be merged'>
+                            <CVATTooltip title='可合并形状之间的最大距离'>
                                 <InputNumber
                                     placeholder='Threshold'
                                     min={1}
@@ -425,7 +425,7 @@ function DetectorRunner(props: Props): JSX.Element {
                             );
                         }}
                     >
-                        Annotate
+                        标注
                     </Button>
                 </Col>
             </Row>

@@ -44,7 +44,7 @@ function SplitControl(props: Props): JSX.Element {
     return disabled ? (
         <Icon className='cvat-split-track-control cvat-disabled-canvas-control' component={SplitIcon} />
     ) : (
-        <CVATTooltip title={`Split a track ${switchSplitShortcut}`} placement='right'>
+        <CVATTooltip title={`拆分一个跟踪 ${switchSplitShortcut}`} placement='right'>
             <Icon {...dynamicIconProps} component={SplitIcon} />
         </CVATTooltip>
     );

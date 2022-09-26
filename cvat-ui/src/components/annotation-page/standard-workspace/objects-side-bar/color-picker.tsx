@@ -108,7 +108,7 @@ function ColorPicker(props: Props, ref: React.Ref<any>): JSX.Element {
                         <Text strong>选择颜色</Text>
                     </Col>
                     <Col span={4}>
-                        <CVATTooltip title='Cancel'>
+                        <CVATTooltip title='关闭'>
                             <Button
                                 type='link'
                                 onClick={() => {

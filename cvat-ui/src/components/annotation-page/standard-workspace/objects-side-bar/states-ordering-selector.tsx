@@ -19,7 +19,7 @@ function StatesOrderingSelectorComponent(props: StatesOrderingSelectorComponentP
 
     return (
         <Col>
-            <Text strong>Sort by</Text>
+            <Text strong>排序方式</Text>
             <Select
                 className='cvat-objects-sidebar-ordering-selector'
                 dropdownClassName='cvat-objects-sidebar-ordering-dropdown'

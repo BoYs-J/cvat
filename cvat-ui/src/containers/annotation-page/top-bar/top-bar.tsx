@@ -250,7 +250,7 @@ class AnnotationTopBarContainer extends React.PureComponent<Props, State> {
                 location.pathname !== `/tasks/${taskID}/jobs/${jobID}` &&
                 !forceExit
             ) {
-                return 'You have unsaved changes, please confirm leaving this page.';
+                return '你有未保存的更改，请确认是否离开本页';
             }
 
             if (forceExit) {
@@ -520,7 +520,7 @@ class AnnotationTopBarContainer extends React.PureComponent<Props, State> {
     private beforeUnloadCallback = (event: BeforeUnloadEvent): string | undefined => {
         const { jobInstance, forceExit, setForceExitAnnotationFlag } = this.props;
         if (jobInstance.annotations.hasUnsavedChanges() && !forceExit) {
-            const confirmationMessage = 'You have unsaved changes, please confirm leaving this page.';
+            const confirmationMessage = '你有未保存的更改，请确认是否离开本页';
             // eslint-disable-next-line no-param-reassign
             event.returnValue = confirmationMessage;
             return confirmationMessage;
