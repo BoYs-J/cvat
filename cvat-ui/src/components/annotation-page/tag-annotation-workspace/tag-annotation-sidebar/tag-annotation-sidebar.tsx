@@ -300,7 +300,7 @@ function TagAnnotationSidebar(props: StateToProps & DispatchToProps): JSX.Elemen
                             <Text code>Shift</Text>
                             &nbsp;+&nbsp;
                             <Text code>0-9</Text>
-                            &nbsp;删除指定标记。
+                            &nbsp;删除指定标记
                         </Text>
                     </Col>
                 </Row>

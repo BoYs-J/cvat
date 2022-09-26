@@ -32,17 +32,15 @@ export default function RemoveConfirmComponent(): JSX.Element | null {
     useEffect(() => {
         const newVisible = (!!objectState && !force && objectState.lock) ||
             (objectState?.objectType === ObjectType.TRACK && !force);
-        setTitle(objectState?.lock ? 'Object is locked' : 'Remove object');
-        let descriptionMessage: string | JSX.Element = 'Are you sure you want to remove it?';
+        setTitle(objectState?.lock ? '对象已锁定' : '删除对象');
+        let descriptionMessage: string | JSX.Element = '是否确实要删除它？';
 
         if (objectState?.objectType === ObjectType.TRACK && !force) {
             descriptionMessage = (
                 <>
                     <Text>
                         {
-                            `The object you are trying to remove is a track.
-                            If you continue, it removes many drawn objects on different frames.
-                            If you want to hide it only on this frame, use the outside feature instead.
+                            `你尝试删除的对象是一个轨迹！如果继续，将删除不同帧上许多已绘制的对象！如果只想在此帧上隐藏它，请改用外部特征。
                             ${descriptionMessage}`
                         }
                     </Text>
@@ -64,8 +62,8 @@ export default function RemoveConfirmComponent(): JSX.Element | null {
     return (
         <Modal
             okType='primary'
-            okText='Yes'
-            cancelText='Cancel'
+            okText='确定'
+            cancelText='取消'
             title={title}
             visible={visible}
             onOk={onOk}
