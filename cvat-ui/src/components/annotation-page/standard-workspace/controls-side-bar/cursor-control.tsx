@@ -21,7 +21,7 @@ function CursorControl(props: Props): JSX.Element {
     const { canvasInstance, activeControl, cursorShortkey } = props;
 
     return (
-        <CVATTooltip title={`Cursor ${cursorShortkey}`} placement='right'>
+        <CVATTooltip title={`光标/选择 ${cursorShortkey}`} placement='right'>
             <Icon
                 component={CursorIcon}
                 className={

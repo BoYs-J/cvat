@@ -290,7 +290,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         } catch (error: any) {
             notification.error({
                 description: error.toString(),
-                message: 'OpenCV.js processing error occured',
+                message: 'OpenCV.js 发生处理错误',
                 className: 'cvat-notification-notice-opencv-processing-error',
             });
         }
@@ -327,7 +327,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 frame,
                 occluded: false,
                 attributes: {},
-                descriptions: [`Trackable (${activeTracker.name})`],
+                descriptions: [`可跟踪 (${activeTracker.name})`],
             });
             const [clientID] = await jobInstance.annotations.put([state]);
             this.setState({
@@ -346,7 +346,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         } catch (error: any) {
             notification.error({
                 description: error.toString(),
-                message: 'Tracking error occured',
+                message: '发生跟踪错误',
             });
         }
     };
@@ -356,12 +356,12 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         | HTMLCanvasElement
         | null;
         if (!canvas) {
-            throw new Error('Element #cvat_canvas_background was not found');
+            throw new Error('找不到 #cvat_canvas_background 元素');
         }
         const { width, height } = canvas;
         const context = canvas.getContext('2d');
         if (!context) {
-            throw new Error('Canvas context is empty');
+            throw new Error('画布上下文为空');
         }
         return context.getImageData(0, 0, width, height);
     };
@@ -401,7 +401,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         } catch (error: any) {
             notification.error({
                 description: error.toString(),
-                message: 'OpenCV.js processing error occured',
+                message: 'OpenCV.js 发生处理错误',
                 className: 'cvat-notification-notice-opencv-processing-error',
             });
         } finally {
@@ -503,7 +503,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                         this.applyTracking(imageData, shape, objectState)
                             .catch((error) => {
                                 notification.error({
-                                    message: 'Tracking error',
+                                    message: '跟踪错误',
                                     description: error.toString(),
                                 });
                             });
@@ -527,14 +527,14 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
             | HTMLCanvasElement
             | undefined;
         if (!canvas) {
-            throw new Error('Element #cvat_canvas_background was not found');
+            throw new Error('找不到 #cvat_canvas_background 元素');
         }
         if (!this.activeTool || pressedPoints.length === 0) return [];
 
         const { width, height } = canvas;
         const context = canvas.getContext('2d');
         if (!context) {
-            throw new Error('Canvas context is empty');
+            throw new Error('画布上下文为空');
         }
         let imageData;
         const [x, y] = pressedPoints.slice(-2);
@@ -609,7 +609,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         } catch (error: any) {
             notification.error({
                 description: error.toString(),
-                message: 'Could not initialize OpenCV library',
+                message: '无法初始化OpenCV库',
             });
             this.setState({
                 initializationError: true,
@@ -636,7 +636,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 </Row>
                 <Row justify='start' className='cvat-opencv-drawing-tools'>
                     <Col>
-                        <CVATTooltip title='Intelligent scissors' className='cvat-opencv-drawing-tool'>
+                        <CVATTooltip title='智能剪刀' className='cvat-opencv-drawing-tool'>
                             <Button
                                 onClick={() => {
                                     this.setState({ mode: 'interaction' });
@@ -663,7 +663,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
         return (
             <Row justify='start'>
                 <Col>
-                    <CVATTooltip title='Histogram equalization' className='cvat-opencv-image-tool'>
+                    <CVATTooltip title='图像均衡调整' className='cvat-opencv-image-tool'>
                         <Button
                             className={this.imageModifier('histogram') ? 'cvat-opencv-image-tool-active' : ''}
                             onClick={(e: React.MouseEvent<HTMLElement>) => {
@@ -699,7 +699,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 <Row justify='center' align='middle' className='cvat-opencv-tracker-content'>
                     <Col>
                         <Text type='warning' className='cvat-text-color'>
-                            No available trackers found
+                            没有找到可用的跟踪器
                         </Text>
                     </Col>
                 </Row>
@@ -709,7 +709,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
             <>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color'>Label</Text>
+                        <Text className='cvat-text-color'>标签</Text>
                     </Col>
                 </Row>
                 <Row justify='center'>
@@ -724,7 +724,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 </Row>
                 <Row justify='start'>
                     <Col>
-                        <Text className='cvat-text-color'>Tracker</Text>
+                        <Text className='cvat-text-color'>跟踪器</Text>
                     </Col>
                 </Row>
                 <Row align='middle' justify='center'>
@@ -766,7 +766,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                                 }
                             }}
                         >
-                            Track
+                            跟踪
                         </Button>
                     </Col>
                 </Row>
@@ -788,13 +788,13 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 </Row>
                 {libraryInitialized ? (
                     <Tabs tabBarGutter={8}>
-                        <Tabs.TabPane key='drawing' tab='Drawing' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='drawing' tab='绘图' className='cvat-opencv-control-tabpane'>
                             {this.renderDrawingContent()}
                         </Tabs.TabPane>
-                        <Tabs.TabPane key='image' tab='Image' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='image' tab='图像' className='cvat-opencv-control-tabpane'>
                             {this.renderImageContent()}
                         </Tabs.TabPane>
-                        <Tabs.TabPane key='tracking' tab='Tracking' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='tracking' tab='跟踪' className='cvat-opencv-control-tabpane'>
                             {this.renderTrackingContent()}
                         </Tabs.TabPane>
                     </Tabs>
@@ -804,12 +804,12 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                             <Col>
                                 {
                                     initializationProgress >= 0 ?
-                                        <Text>OpenCV is loading</Text> : (
+                                        <Text>正在加载 OpenCV</Text> : (
                                             <Button
                                                 className='cvat-opencv-initialization-button'
                                                 onClick={() => { this.initializeOpenCV(); }}
                                             >
-                                                Reload OpenCV
+                                                重新加载 OpenCV
                                             </Button>
                                         )
                                 }

@@ -352,7 +352,7 @@ export class ToolsControlComponent extends React.PureComponent<Props, State> {
 
         try {
             this.interaction.hideMessage = message.loading({
-                content: `Waiting a response from ${activeInteractor?.name}..`,
+                content: `正在等待来自 ${activeInteractor?.name} 的响应..`,
                 duration: 0,
                 className: 'cvat-tracking-notice',
             });

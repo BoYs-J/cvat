@@ -51,10 +51,10 @@ function GroupControl(props: Props): JSX.Element {
             };
 
     const title = [
-        `Group shapes${
-            jobInstance && jobInstance.dimension === DimensionType.DIM_3D ? '' : '/tracks'
+        `组合形状${
+            jobInstance && jobInstance.dimension === DimensionType.DIM_3D ? '' : '/跟踪'
         } ${switchGroupShortcut}. `,
-        `Select and press ${resetGroupShortcut} to reset a group.`,
+        `选中并按 ${resetGroupShortcut} 重置分组`,
     ].join(' ');
 
     return disabled ? (

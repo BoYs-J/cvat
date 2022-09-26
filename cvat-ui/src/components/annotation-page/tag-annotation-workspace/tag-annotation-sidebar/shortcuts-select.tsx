@@ -84,7 +84,7 @@ const ShortcutsSelect = (props: Props): JSX.Element => {
             <GlobalHotKeys keyMap={keyMap as KeyMap} handlers={handlers} />
             <Row>
                 <Col>
-                    <Text strong>Shortcuts for labels:</Text>
+                    <Text strong>标签的快捷方式：</Text>
                 </Col>
             </Row>
             {shift(Object.keys(shortcutLabelMap), 1)
@@ -101,7 +101,7 @@ const ShortcutsSelect = (props: Props): JSX.Element => {
                                 className='cvat-tag-annotation-label-select'
                             >
                                 <Select.Option value=''>
-                                    <Text type='secondary'>None</Text>
+                                    <Text type='secondary'>无</Text>
                                 </Select.Option>
                                 {(labels as any[]).map((label: any) => (
                                     <Select.Option key={label.id} value={`${label.id}`}>
@@ -109,7 +109,7 @@ const ShortcutsSelect = (props: Props): JSX.Element => {
                                     </Select.Option>
                                 ))}
                             </Select>
-                            <Text code className='cvat-tag-annotation-shortcut-key'>{`Key ${id}`}</Text>
+                            <Text code className='cvat-tag-annotation-shortcut-key'>{`按键：${id}`}</Text>
                         </Col>
                     </Row>
                 ))}

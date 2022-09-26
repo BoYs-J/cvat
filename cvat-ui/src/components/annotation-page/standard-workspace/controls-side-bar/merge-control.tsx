@@ -44,7 +44,7 @@ function MergeControl(props: Props): JSX.Element {
     return disabled ? (
         <Icon className='cvat-merge-control cvat-disabled-canvas-control' component={MergeIcon} />
     ) : (
-        <CVATTooltip title={`Merge shapes/tracks ${switchMergeShortcut}`} placement='right'>
+        <CVATTooltip title={`合并形状/跟踪 ${switchMergeShortcut}`} placement='right'>
             <Icon {...dynamicIconProps} component={MergeIcon} />
         </CVATTooltip>
     );
