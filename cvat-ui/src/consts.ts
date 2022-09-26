@@ -140,18 +140,18 @@ const ZH_CN_TEXT:any = {
         'label': '标签',
     },
     shape: {
-        rectangle = '矩形',
-        polygon = '多边形',
-        polyline = '多段线',
-        points = '点',
-        ellipse = '椭圆',
-        cuboid = '立方体',
-        skeleton = '骨骼',
+        rectangle: '矩形',
+        polygon: '多边形',
+        polyline: '多段线',
+        points: '点',
+        ellipse: '椭圆',
+        cuboid: '立方体',
+        skeleton: '骨骼',
     },
     object: {
-        shape = '普通',
-        track = '跟踪',
-        tag = '标签',
+        shape: '普通',
+        track: '跟踪',
+        tag: '标签',
     },
 
 };
