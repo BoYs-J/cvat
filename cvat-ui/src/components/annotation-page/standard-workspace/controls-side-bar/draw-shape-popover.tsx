@@ -15,6 +15,7 @@ import { clamp } from 'utils/math';
 import LabelSelector from 'components/label-selector/label-selector';
 import CVATTooltip from 'components/common/cvat-tooltip';
 import { Label } from 'components/labels-editor/common';
+import consts from 'consts'; //全局变量
 
 interface Props {
     shapeType: ShapeType;
@@ -35,6 +36,7 @@ interface Props {
 }
 
 function DrawShapePopoverComponent(props: Props): JSX.Element {
+    const { ZH_CN_TEXT } = consts; //中文字符集
     const {
         labels,
         shapeType,
@@ -58,12 +60,12 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
         <div className='cvat-draw-shape-popover-content'>
             <Row justify='start'>
                 <Col>
-                    <Text className='cvat-text-color' strong>{`Draw new ${shapeType}`}</Text>
+                    <Text className='cvat-text-color' strong>{`绘制${ZH_CN_TEXT.shape[shapeType]}`}</Text>
                 </Col>
             </Row>
             <Row justify='start'>
                 <Col>
-                    <Text className='cvat-text-color'>Label</Text>
+                    <Text className='cvat-text-color'>标签</Text>
                 </Col>
             </Row>
             <Row justify='center'>
@@ -80,7 +82,7 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
                 <>
                     <Row>
                         <Col>
-                            <Text className='cvat-text-color'> Drawing method </Text>
+                            <Text className='cvat-text-color'> 绘制方式 </Text>
                         </Col>
                     </Row>
                     <Row justify='space-around'>
@@ -91,10 +93,10 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
                                 onChange={onChangeRectDrawingMethod}
                             >
                                 <Radio value={RectDrawingMethod.CLASSIC} style={{ width: 'auto' }}>
-                                    By 2 Points
+                                    通过2点
                                 </Radio>
                                 <Radio value={RectDrawingMethod.EXTREME_POINTS} style={{ width: 'auto' }}>
-                                    By 4 Points
+                                    通过4点
                                 </Radio>
                             </Radio.Group>
                         </Col>
@@ -105,7 +107,7 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
                 <>
                     <Row>
                         <Col>
-                            <Text className='cvat-text-color'> Drawing method </Text>
+                            <Text className='cvat-text-color'> 绘制方式 </Text>
                         </Col>
                     </Row>
                     <Row justify='space-around'>
@@ -116,10 +118,10 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
                                 onChange={onChangeCuboidDrawingMethod}
                             >
                                 <Radio value={CuboidDrawingMethod.CLASSIC} style={{ width: 'auto' }}>
-                                    From rectangle
+                                    由矩形绘制
                                 </Radio>
                                 <Radio value={CuboidDrawingMethod.CORNER_POINTS} style={{ width: 'auto' }}>
-                                    By 4 Points
+                                    由4点绘制
                                 </Radio>
                             </Radio.Group>
                         </Col>
@@ -129,7 +131,7 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
             {is2D && [ShapeType.POLYGON, ShapeType.POLYLINE, ShapeType.POINTS].includes(shapeType) ? (
                 <Row justify='space-around' align='middle'>
                     <Col span={14}>
-                        <Text className='cvat-text-color'> Number of points: </Text>
+                        <Text className='cvat-text-color'> 需要绘制的点数： </Text>
                     </Col>
                     <Col span={10}>
                         <InputNumber
@@ -150,14 +152,14 @@ function DrawShapePopoverComponent(props: Props): JSX.Element {
             ) : null}
             <Row justify='space-around'>
                 <Col span={12}>
-                    <CVATTooltip title={`Press ${repeatShapeShortcut} to draw again`}>
-                        <Button onClick={onDrawShape}>Shape</Button>
+                    <CVATTooltip title={`按 ${repeatShapeShortcut} 再次绘制`}>
+                        <Button onClick={onDrawShape}>普通</Button>
                     </CVATTooltip>
                 </Col>
                 {is2D && (
                     <Col span={12}>
-                        <CVATTooltip title={`Press ${repeatShapeShortcut} to draw again`}>
-                            <Button onClick={onDrawTrack}>Track</Button>
+                        <CVATTooltip title={`按 ${repeatShapeShortcut} 再次绘制`}>
+                            <Button onClick={onDrawTrack}>跟踪</Button>
                         </CVATTooltip>
                     </Col>
                 )}

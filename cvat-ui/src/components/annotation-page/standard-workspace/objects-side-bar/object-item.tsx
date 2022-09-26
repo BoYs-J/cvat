@@ -12,6 +12,7 @@ import { ObjectType, ShapeType, ColorBy } from 'reducers';
 import { ObjectState } from 'cvat-core-wrapper';
 import ObjectItemElementComponent from './object-item-element';
 import ItemBasics from './object-item-basics';
+import consts from 'consts'; //全局变量
 
 interface Props {
     normalizedKeyMap: Record<string, string>;
@@ -43,6 +44,8 @@ interface Props {
 }
 
 function ObjectItemComponent(props: Props): JSX.Element {
+    const { ZH_CN_TEXT } = consts; //中文字符集
+
     const {
         activated,
         readonly,
@@ -75,7 +78,7 @@ function ObjectItemComponent(props: Props): JSX.Element {
     const type =
         objectType === ObjectType.TAG ?
             ObjectType.TAG.toUpperCase() :
-            `${shapeType.toUpperCase()} ${objectType.toUpperCase()}`;
+            `${ZH_CN_TEXT.shape[shapeType]} ${ZH_CN_TEXT.object[objectType]}`;
 
     const className = !activated ?
         'cvat-objects-sidebar-state-item' :
