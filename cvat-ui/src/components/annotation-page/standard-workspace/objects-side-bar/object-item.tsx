@@ -77,7 +77,7 @@ function ObjectItemComponent(props: Props): JSX.Element {
 
     const type =
         objectType === ObjectType.TAG ?
-            ObjectType.TAG.toUpperCase() :
+            ZH_CN_TEXT.object[ObjectType.TAG] :
             `${ZH_CN_TEXT.shape[shapeType]} ${ZH_CN_TEXT.object[objectType]}`;
 
     const className = !activated ?
