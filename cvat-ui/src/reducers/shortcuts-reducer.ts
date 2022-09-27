@@ -325,7 +325,7 @@ const defaultKeyMap = ({
     SWITCH_TOOLS_BLOCKER_STATE: {
         name: '切换算法拦截器',
         description: '延迟运行交互工具的算法',
-        sequences: ['сtrl'],
+        sequences: ['ctrl'],
         action: 'keydown',
         applicable: [DimensionType.DIM_2D],
     },

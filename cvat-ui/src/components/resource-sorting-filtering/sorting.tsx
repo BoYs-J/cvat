@@ -56,7 +56,7 @@ const SortableItem = SortableElement(
             <div className='cvat-sorting-field'>
                 <Radio.Button disabled={valueIndex > anchorIndex}>{ZH_CN_TEXT.filter[value]}</Radio.Button>
                 <div>
-                    <CVATTooltip overlay={appliedSorting[value]?.startsWith('-') ? 'Descending sort' : 'Ascending sort'}>
+                    <CVATTooltip overlay={appliedSorting[value]?.startsWith('-') ? '点击降序' : '点击升序'}>
                         <Button type='text' disabled={!isActiveField} onClick={onClick}>
                             {
                                 isDescendingField ? (
