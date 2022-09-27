@@ -44,7 +44,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-awesome-query-builder": "^4.5.1",
-    "zero-awesome-query-builder-test": "^0.1.1",
+    "zero-awesome-query-builder-test": "^0.1.2",
     "react-color": "^2.19.3",
     "react-cookie": "^4.0.3",
     "react-dom": "^16.14.0",
