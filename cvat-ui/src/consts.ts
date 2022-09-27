@@ -107,7 +107,7 @@ const ZH_CN_TEXT:any = {
         'acceptance': '接受'
     },
     filter: {
-        'ID':'D',
+        'ID': 'ID',
         'Owner': '所有者',
         'Status': '状态',
         'Assignee': '受让人',

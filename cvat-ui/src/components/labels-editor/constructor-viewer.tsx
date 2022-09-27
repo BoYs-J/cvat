@@ -26,7 +26,7 @@ function ConstructorViewer(props: ConstructorViewerProps): JSX.Element {
             <PlusCircleOutlined />
         </Button>,
         <Button key='create_skeleton' type='ghost' onClick={() => onCreate('skeleton')} className='cvat-constructor-viewer-new-skeleton-item'>
-            设置框架
+            设置骨骼
             <PlusCircleOutlined />
         </Button>,
     ];

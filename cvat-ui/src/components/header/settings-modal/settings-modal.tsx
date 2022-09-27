@@ -77,7 +77,7 @@ const SettingsModal = (props: SettingsModalProps): JSX.Element => {
             className='cvat-settings-modal'
             footer={(
                 <>
-                    <Tooltip title='将保存此页面设置和标准工作区页面上的外观设置'>
+                    <Tooltip title='将保存此页设置和标准工作区设置'>
                         <Button type='primary' onClick={onSaveSettings}>
                             保存
                         </Button>
