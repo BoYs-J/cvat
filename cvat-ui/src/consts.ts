@@ -154,10 +154,6 @@ const ZH_CN_TEXT:any = {
         'track': '跟踪',
         'tag': '标签',
     },
-    origin: {
-        'manual': '手动',
-        'auto': '自动',
-    },
 
 };
 // import consts from 'consts'; //全局变量

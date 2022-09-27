@@ -94,13 +94,13 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                             onSwitchAutoSave(event.target.checked);
                         }}
                     >
-                        Enable auto save
+                        启用自动保存
                     </Checkbox>
                 </Col>
             </Row>
             <Row>
                 <Col className='cvat-workspace-settings-auto-save-interval'>
-                    <Text type='secondary'> Auto save every </Text>
+                    <Text type='secondary'> 每隔 </Text>
                     <InputNumber
                         min={minAutoSaveInterval}
                         max={maxAutoSaveInterval}
@@ -114,7 +114,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                             }
                         }}
                     />
-                    <Text type='secondary'> minutes </Text>
+                    <Text type='secondary'> 分钟保存一次 </Text>
                 </Col>
             </Row>
             <Row>
@@ -127,11 +127,11 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                                 onSwitchShowingInterpolatedTracks(event.target.checked);
                             }}
                         >
-                            Show all interpolation tracks
+                            显示所有插帧轨迹
                         </Checkbox>
                     </Row>
                     <Row>
-                        <Text type='secondary'> Show hidden interpolated objects in the side panel</Text>
+                        <Text type='secondary'>在侧面板中显示隐藏的插帧对象</Text>
                     </Row>
                 </Col>
             </Row>
@@ -144,18 +144,18 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                             onSwitchShowingObjectsTextAlways(event.target.checked);
                         }}
                     >
-                        Always show object details
+                        始终显示对象细节
                     </Checkbox>
                 </Col>
                 <Col span={24}>
                     <Text type='secondary'>
-                        Show text for an object on the canvas not only when the object is activated
+                        在画布上显示对象的文本，而不仅仅是当对象被激活（选中）时
                     </Text>
                 </Col>
             </Row>
             <Row className='cvat-workspace-settings-text-settings'>
                 <Col span={24}>
-                    <Text>Content of a text</Text>
+                    <Text>需要显示的文本内容</Text>
                 </Col>
                 <Col span={16}>
                     <Select
@@ -165,19 +165,19 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                         onChange={onChangeTextContent}
                     >
                         <Select.Option value='id'>ID</Select.Option>
-                        <Select.Option value='label'>Label</Select.Option>
-                        <Select.Option value='attributes'>Attributes</Select.Option>
-                        <Select.Option value='source'>Source</Select.Option>
-                        <Select.Option value='descriptions'>Descriptions</Select.Option>
+                        <Select.Option value='label'>标签</Select.Option>
+                        <Select.Option value='attributes'>属性</Select.Option>
+                        <Select.Option value='source'>来源</Select.Option>
+                        <Select.Option value='descriptions'>描述</Select.Option>
                     </Select>
                 </Col>
             </Row>
             <Row className='cvat-workspace-settings-text-settings'>
                 <Col span={12}>
-                    <Text>Position of a text</Text>
+                    <Text>文本位置</Text>
                 </Col>
                 <Col span={12}>
-                    <Text>Font size of a text</Text>
+                    <Text>文本字体大小</Text>
                 </Col>
                 <Col span={12}>
                     <Select
@@ -185,8 +185,8 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                         value={textPosition}
                         onChange={onChangeTextPosition}
                     >
-                        <Select.Option value='auto'>Auto</Select.Option>
-                        <Select.Option value='center'>Center</Select.Option>
+                        <Select.Option value='auto'>自动</Select.Option>
+                        <Select.Option value='center'>中心</Select.Option>
                     </Select>
                 </Col>
                 <Col span={12}>
@@ -208,12 +208,12 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                             onSwitchAutomaticBordering(event.target.checked);
                         }}
                     >
-                        Automatic bordering
+                        自动接壤/连接
                     </Checkbox>
                 </Col>
                 <Col span={24}>
                     <Text type='secondary'>
-                        Enable automatic bordering for polygons and polylines during drawing/editing
+                        在绘图/编辑过程中启用多边形和多段线的自动接壤功能
                     </Text>
                 </Col>
             </Row>
@@ -226,11 +226,11 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                             onSwitchIntelligentPolygonCrop(event.target.checked);
                         }}
                     >
-                        Intelligent polygon cropping
+                        智能化多边形裁剪
                     </Checkbox>
                 </Col>
                 <Col span={24}>
-                    <Text type='secondary'>Try to crop polygons automatically when editing</Text>
+                    <Text type='secondary'>尝试在编辑时自动裁剪多边形</Text>
                 </Col>
             </Row>
             <Row className='cvat-workspace-settings-show-frame-tags'>
@@ -242,16 +242,16 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                             onSwitchShowingTagsOnFrame(event.target.checked);
                         }}
                     >
-                        Show tags on frame
+                        在帧上显示标记
                     </Checkbox>
                 </Col>
                 <Col span={24}>
-                    <Text type='secondary'>Show frame tags in the corner of the workspace</Text>
+                    <Text type='secondary'>在工作区的角落显示帧标记</Text>
                 </Col>
             </Row>
             <Row className='cvat-workspace-settings-aam-zoom-margin'>
                 <Col>
-                    <Text className='cvat-text-color'> Attribute annotation mode (AAM) zoom margin </Text>
+                    <Text className='cvat-text-color'> 属性标注模式（AAM）缩放边距 </Text>
                     <InputNumber
                         min={minAAMMargin}
                         max={maxAAMMargin}
@@ -266,7 +266,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
             </Row>
             <Row className='cvat-workspace-settings-control-points-size'>
                 <Col>
-                    <Text className='cvat-text-color'> Control points size </Text>
+                    <Text className='cvat-text-color'> 设置点大小 </Text>
                     <InputNumber
                         min={minControlPointsSize}
                         max={maxControlPointsSize}
@@ -283,9 +283,9 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
             </Row>
             <Row className='cvat-workspace-settings-approx-poly-threshold'>
                 <Col>
-                    <Text className='cvat-text-color'>Default number of points in polygon approximation</Text>
+                    <Text className='cvat-text-color'>多边形近似中的默认点数</Text>
                 </Col>
-                <Col span={7} offset={1}>
+                <Col span={7} offset={3}>
                     <Slider
                         min={0}
                         max={MAX_ACCURACY}
@@ -297,7 +297,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                     />
                 </Col>
                 <Col span={24}>
-                    <Text type='secondary'>Works for serverless interactors and OpenCV scissors</Text>
+                    <Text type='secondary'>适用于无服务器交互程序和OpenCV剪刀</Text>
                 </Col>
             </Row>
         </div>

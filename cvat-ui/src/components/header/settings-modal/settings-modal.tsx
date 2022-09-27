@@ -38,7 +38,7 @@ const SettingsModal = (props: SettingsModalProps): JSX.Element => {
         }
         localStorage.setItem('clientSettings', JSON.stringify(settingsForSaving));
         notification.success({
-            message: 'Settings was successfully saved',
+            message: '设置保存成功',
             className: 'cvat-notification-notice-save-settings-success',
         });
     };
@@ -62,7 +62,7 @@ const SettingsModal = (props: SettingsModalProps): JSX.Element => {
             dispatch(setSettings(newSettings));
         } catch {
             notification.error({
-                message: 'Failed to load settings from local storage',
+                message: '无法从本地存储加载设置',
                 className: 'cvat-notification-notice-load-settings-fail',
             });
         }
@@ -70,20 +70,20 @@ const SettingsModal = (props: SettingsModalProps): JSX.Element => {
 
     return (
         <Modal
-            title='Settings'
+            title='设置'
             visible={visible}
             onCancel={onClose}
             width={800}
             className='cvat-settings-modal'
             footer={(
                 <>
-                    <Tooltip title='Will save settings from this page and appearance settings on standard workspace page in browser'>
+                    <Tooltip title='将保存此页面设置和标准工作区页面上的外观设置'>
                         <Button type='primary' onClick={onSaveSettings}>
-                            Save
+                            保存
                         </Button>
                     </Tooltip>
                     <Button type='default' onClick={onClose}>
-                        Close
+                        取消
                     </Button>
                 </>
             )}
@@ -94,7 +94,7 @@ const SettingsModal = (props: SettingsModalProps): JSX.Element => {
                         tab={(
                             <span>
                                 <PlayCircleOutlined />
-                                <Text>Player</Text>
+                                <Text>播放器</Text>
                             </span>
                         )}
                         key='player'
@@ -105,7 +105,7 @@ const SettingsModal = (props: SettingsModalProps): JSX.Element => {
                         tab={(
                             <span>
                                 <LaptopOutlined />
-                                <Text>Workspace</Text>
+                                <Text>工作区</Text>
                             </span>
                         )}
                         key='workspace'

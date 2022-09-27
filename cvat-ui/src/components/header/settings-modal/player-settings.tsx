@@ -61,7 +61,7 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
         <div className='cvat-player-settings'>
             <Row align='bottom' className='cvat-player-settings-step'>
                 <Col>
-                    <Text className='cvat-text-color'> Player step </Text>
+                    <Text className='cvat-text-color'> 播放器步进 </Text>
                     <InputNumber
                         min={minFrameStep}
                         max={maxFrameStep}
@@ -75,16 +75,16 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                 </Col>
                 <Col offset={1}>
                     <Text type='secondary'>
-                        Number of frames skipped when selecting
+                        点击时跳过的帧数；按钮
                         <Icon component={BackJumpIcon} />
-                        or
+                        或
                         <Icon component={ForwardJumpIcon} />
                     </Text>
                 </Col>
             </Row>
             <Row align='middle' className='cvat-player-settings-speed'>
                 <Col>
-                    <Text className='cvat-text-color'> Player speed </Text>
+                    <Text className='cvat-text-color'> 播放速度 </Text>
                     <Select
                         className='cvat-player-settings-speed-select'
                         value={frameSpeed}
@@ -97,34 +97,34 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                             value={FrameSpeed.Fastest}
                             className='cvat-player-settings-speed-fastest'
                         >
-                            Fastest
+                            最快
                         </Select.Option>
                         <Select.Option key='fast' value={FrameSpeed.Fast} className='cvat-player-settings-speed-fast'>
-                            Fast
+                            快
                         </Select.Option>
                         <Select.Option
                             key='usual'
                             value={FrameSpeed.Usual}
                             className='cvat-player-settings-speed-usual'
                         >
-                            Usual
+                            正常
                         </Select.Option>
                         <Select.Option key='slow' value={FrameSpeed.Slow} className='cvat-player-settings-speed-slow'>
-                            Slow
+                            慢
                         </Select.Option>
                         <Select.Option
                             key='slower'
                             value={FrameSpeed.Slower}
                             className='cvat-player-settings-speed-slower'
                         >
-                            Slower
+                            更慢
                         </Select.Option>
                         <Select.Option
                             key='slowest'
                             value={FrameSpeed.Slowest}
                             className='cvat-player-settings-speed-slowest'
                         >
-                            Slowest
+                            最慢
                         </Select.Option>
                     </Select>
                 </Col>
@@ -142,7 +142,7 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                         overlayClassName='canvas-background-color-picker-popover'
                         trigger='click'
                     >
-                        <Button type='default'>Select canvas background color</Button>
+                        <Button type='default'>选择画布背景颜色</Button>
                     </Popover>
                 </Col>
             </Row>
@@ -157,11 +157,11 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                                     onSwitchResetZoom(event.target.checked);
                                 }}
                             >
-                                Reset zoom
+                                重置缩放
                             </Checkbox>
                         </Col>
                         <Col span={24}>
-                            <Text type='secondary'> Fit image after changing frame </Text>
+                            <Text type='secondary'> 改变帧后，图像大小适合屏幕 </Text>
                         </Col>
                     </Row>
                 </Col>
@@ -175,11 +175,11 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                                     onSwitchRotateAll(event.target.checked);
                                 }}
                             >
-                                Rotate all images
+                                旋转所有图像
                             </Checkbox>
                         </Col>
                         <Col span={24}>
-                            <Text type='secondary'> Rotate all images simultaneously </Text>
+                            <Text type='secondary'> 同时旋转所有图像 </Text>
                         </Col>
                     </Row>
                 </Col>
@@ -195,11 +195,11 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                                     onSwitchSmoothImage(event.target.checked);
                                 }}
                             >
-                                Smooth image
+                                平滑图像
                             </Checkbox>
                         </Col>
                         <Col span={24}>
-                            <Text type='secondary'> Smooth image when zoom-in it </Text>
+                            <Text type='secondary'> 放大图像时使其更平滑 </Text>
                         </Col>
                     </Row>
                 </Col>
@@ -212,11 +212,11 @@ export default function PlayerSettingsComponent(props: Props): JSX.Element {
                                 onSwitchShowingDeletedFrames(event.target.checked);
                             }}
                         >
-                            Show deleted frames
+                            显示已删除的帧
                         </Checkbox>
                     </Row>
                     <Row>
-                        <Text type='secondary'>You will be able to navigate and restore deleted frames</Text>
+                        <Text type='secondary'>你将能够导航和恢复删除的帧</Text>
                     </Row>
                 </Col>
             </Row>

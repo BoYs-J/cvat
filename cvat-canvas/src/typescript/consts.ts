@@ -27,6 +27,15 @@ const DEFAULT_SHAPE_TEXT_CONTENT = 'id,label,attributes,source,descriptions';
 const DEFAULT_SHAPE_TEXT_POSITION: 'auto' | 'center' = 'auto';
 const DEFAULT_UNDEFINED_ATTR_VALUE = '__undefined__';
 
+const ZH_CN_TEXT:any = {
+    origin: {
+        'manual': '手动',
+        'auto': '自动',
+    },
+};
+// import consts from './consts'; //全局变量
+// const { ZH_CN_TEXT } = consts; //中文字符集
+
 export default {
     BASE_STROKE_WIDTH,
     BASE_GRID_WIDTH,

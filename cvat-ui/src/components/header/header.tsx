@@ -278,7 +278,7 @@ function HeaderContainer(props: Props): JSX.Element {
                         key='switch_organization'
                         onClick={() => {
                             Modal.confirm({
-                                title: 'Select an organization',
+                                title: '选择团队',
                                 okButtonProps: {
                                     style: { display: 'none' },
                                 },
@@ -300,7 +300,7 @@ function HeaderContainer(props: Props): JSX.Element {
                                             }
                                         }}
                                     >
-                                        <Select.Option value='$personal'>Personal workspace</Select.Option>
+                                        <Select.Option value='$personal'>个人空间</Select.Option>
                                         {organizationsList.map((organization: any): JSX.Element => {
                                             const { slug } = organization;
                                             return <Select.Option key={slug} value={slug}>{slug}</Select.Option>;
@@ -310,7 +310,7 @@ function HeaderContainer(props: Props): JSX.Element {
                             });
                         }}
                     >
-                        Switch organization
+                        切换组织
                     </Menu.Item>
                 ) : (
                     <>
