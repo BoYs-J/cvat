@@ -154,7 +154,7 @@ const ZH_CN_TEXT:any = {
         'track': '跟踪',
         'tag': '标签',
     },
-    source: {
+    origin: {
         'manual': '手动',
         'auto': '自动',
     },

@@ -2460,7 +2460,7 @@ export class CanvasViewImpl implements CanvasView, Listener {
 
         return this.adoptedText
             .text((block): void => {
-                block.tspan(`${withLabel ? label.name : ''} ${withID ? clientID : ''} ${withSource ? `(${ZH_CN_TEXT.source[source]})` : ''}`).style({
+                block.tspan(`${withLabel ? label.name : ''} ${withID ? clientID : ''} ${withSource ? `(${ZH_CN_TEXT.origin[source]})` : ''}`).style({
                     'text-transform': 'uppercase',
                 });
                 if (withDescriptions) {
