@@ -285,7 +285,7 @@ function WorkspaceSettingsComponent(props: Props): JSX.Element {
                 <Col>
                     <Text className='cvat-text-color'>多边形近似中的默认点数</Text>
                 </Col>
-                <Col span={7} offset={3}>
+                <Col span={7} offset={4}>
                     <Slider
                         min={0}
                         max={MAX_ACCURACY}
