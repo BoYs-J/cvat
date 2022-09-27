@@ -40,8 +40,7 @@ export default function RemoveConfirmComponent(): JSX.Element | null {
                 <>
                     <Text>
                         {
-                            `你尝试删除的对象是一个轨迹！如果继续，将删除不同帧上许多已绘制的对象！如果只想在此帧上隐藏它，请改用外部特征。
-                            ${descriptionMessage}`
+                            `你尝试删除的对象是一个轨迹！如果继续，将删除不同帧上许多已绘制的对象！如果只想在此帧上隐藏它，请改用外部特征。${descriptionMessage}`
                         }
                     </Text>
                     <div className='cvat-remove-object-confirm-wrapper'>

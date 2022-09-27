@@ -2428,6 +2428,7 @@ export class CanvasViewImpl implements CanvasView, Listener {
     }
 
     private addText(state: any, options: { textContent?: string } = {}): SVG.Text {
+        const { ZH_CN_TEXT } = consts; //中文字符集
         const { undefinedAttrValue } = this.configuration;
         const content = options.textContent || this.configuration.textContent;
         const withID = content.includes('id');
@@ -2459,7 +2460,7 @@ export class CanvasViewImpl implements CanvasView, Listener {
 
         return this.adoptedText
             .text((block): void => {
-                block.tspan(`${withLabel ? label.name : ''} ${withID ? clientID : ''} ${withSource ? `(${source})` : ''}`).style({
+                block.tspan(`${withLabel ? label.name : ''} ${withID ? clientID : ''} ${withSource ? `(${ZH_CN_TEXT.source[source]})` : ''}`).style({
                     'text-transform': 'uppercase',
                 });
                 if (withDescriptions) {
