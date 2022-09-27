@@ -37,8 +37,8 @@ export const config: Partial<Config> = {
             valueSources: ['value'],
             fieldSettings: {
                 listValues: [
-                    { value: 'interpolation', title: '视频' },
-                    { value: 'annotation', title: '图像' },
+                    { value: 'interpolation', title: '插值' },
+                    { value: 'annotation', title: '注释' },
                 ],
             },
         },
