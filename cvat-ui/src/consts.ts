@@ -155,9 +155,9 @@ const ZH_CN_TEXT:any = {
         'tag': '标签',
     },
     source: {
-        'MANUAL': '手动',
-        'AUTO': '自动',
-    }
+        'manual': '手动',
+        'auto': '自动',
+    },
 
 };
 // import consts from 'consts'; //全局变量
