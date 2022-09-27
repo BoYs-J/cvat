@@ -26,8 +26,8 @@ export default function ProjectActionsMenuComponent(props: Props): JSX.Element {
 
     const onDeleteProject = useCallback((): void => {
         Modal.confirm({
-            title: `The project ${projectInstance.id} will be deleted`,
-            content: 'All related data (images, annotations) will be lost. Continue?',
+            title: `项目#${projectInstance.id} 将被删除`,
+            content: '所有相关数据（图像、注释）将丢失，继续吗？',
             className: 'cvat-modal-confirm-remove-project',
             onOk: () => {
                 dispatch(deleteProjectAsync(projectInstance));
@@ -36,7 +36,7 @@ export default function ProjectActionsMenuComponent(props: Props): JSX.Element {
                 type: 'primary',
                 danger: true,
             },
-            okText: 'Delete',
+            okText: '删除',
         });
     }, []);
 

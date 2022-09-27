@@ -58,8 +58,8 @@ function ActionsMenuComponent(props: Props): JSX.Element {
 
             if (params.key === Actions.DELETE_TASK) {
                 Modal.confirm({
-                    title: `任务 #${taskID} 将被删除`,
-                    content: '所有相关数据(图像、注释)将丢失，继续吗？',
+                    title: `任务#${taskID} 将被删除`,
+                    content: '所有相关数据（图像、注释）将丢失，继续吗？',
                     className: 'cvat-modal-confirm-delete-task',
                     onOk: () => {
                         onClickMenu(params);

@@ -150,7 +150,7 @@ export class FileManager extends React.PureComponent<Props, State> {
                 {files.local.length >= 5 && (
                     <>
                         <br />
-                        <Text className='cvat-text-color'>{`${files.local.length} files selected`}</Text>
+                        <Text className='cvat-text-color'>{`${files.local.length} 个文件`}</Text>
                     </>
                 )}
             </Tabs.TabPane>
