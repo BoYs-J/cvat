@@ -26,7 +26,7 @@
             return jobCache;
         }
 
-        throw new ScriptingError(`Unknown session type was received ${sessionType}`);
+        throw new ScriptingError(`收到未知会话类型 ${sessionType}`);
     }
 
     async function getAnnotationsFromServer(session) {

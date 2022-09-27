@@ -1163,7 +1163,7 @@ export function saveAnnotationsAsync(sessionInstance: any, afterSave?: () => voi
 
             dispatch({
                 type: AnnotationActionTypes.SAVE_UPDATE_ANNOTATIONS_STATUS,
-                payload: { status: 'Saving frames' },
+                payload: { status: '正在保存' },
             });
             await sessionInstance.frames.save();
             await sessionInstance.annotations.save((status: string) => {

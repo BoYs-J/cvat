@@ -125,7 +125,7 @@
                         splitted.created[type].push(object);
                     } else {
                         throw new ScriptingError(
-                            `Id of object is defined "${object.id}" but it absents in initial state`,
+                            `对象的ID定义为 "${object.id}"，但在初始状态下它不存在`,
                         );
                     }
                 }
@@ -155,7 +155,7 @@
             const indexesLength = indexes.tracks.length + indexes.shapes.length + indexes.tags.length;
             if (indexesLength !== savedLength) {
                 throw new ScriptingError(
-                    `Number of indexes is differed by number of saved objects ${indexesLength} vs ${savedLength}`,
+                    `索引数与保存的对象数不同 ${indexesLength} 与 ${savedLength}`,
                 );
             }
 
@@ -196,7 +196,7 @@
             const exported = this.collection.export();
             const { flush } = this.collection;
             if (flush) {
-                onUpdate('Created objects are being saved on the server');
+                onUpdate('正在服务器中保存创建的对象');
                 const indexes = this._receiveIndexes(exported);
                 const savedData = await this._put({ ...exported, version: this.version });
                 this.version = savedData.version;
@@ -213,7 +213,7 @@
             } else {
                 const { created, updated, deleted } = this._split(exported);
 
-                onUpdate('Created objects are being saved on the server');
+                onUpdate('正在服务器中保存创建的对象');
                 const indexes = this._receiveIndexes(created);
                 const createdData = await this._create({ ...created, version: this.version });
                 this.version = createdData.version;
@@ -226,7 +226,7 @@
                     }
                 }
 
-                onUpdate('Updated objects are being saved on the server');
+                onUpdate('正在服务器中保存更新的对象');
                 this._receiveIndexes(updated);
                 const updatedData = await this._update({ ...updated, version: this.version });
                 this.version = updatedData.version;
@@ -237,7 +237,7 @@
                     }
                 }
 
-                onUpdate('Deleted objects are being deleted from the server');
+                onUpdate('正在从服务器中删除已删除的对象');
                 this._receiveIndexes(deleted);
                 const deletedData = await this._delete({ ...deleted, version: this.version });
                 this._version = deletedData.version;

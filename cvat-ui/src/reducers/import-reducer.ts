@@ -35,7 +35,7 @@ export default (state: ImportState = defaultState, action: ImportActions): Impor
             return {
                 ...state,
                 importingId: id,
-                status: 'The file is being uploaded to the server',
+                status: '正在将文件上传到服务器',
             };
         }
         case ImportActionTypes.IMPORT_DATASET_UPDATE_STATUS: {
