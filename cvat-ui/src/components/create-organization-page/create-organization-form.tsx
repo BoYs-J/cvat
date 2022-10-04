@@ -79,7 +79,7 @@ function CreateOrganizationForm(): JSX.Element {
                 <Input autoComplete='email' placeholder='cvat@cdzero.cn' />
             </Form.Item>
             <Form.Item hasFeedback name='phoneNumber' label='电话号码：' rules={[{ ...validationPatterns.validatePhoneNumber }]}>
-                <Input autoComplete='phoneNumber' placeholder='+86 5555 5555555' />
+                <Input autoComplete='phoneNumber' placeholder='+86 188-8888-8888' />
             </Form.Item>
             <Form.Item hasFeedback name='location' label='地址：'>
                 <Input autoComplete='location' placeholder='成都市 青羊区 天府广场' />

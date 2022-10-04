@@ -26,7 +26,7 @@ function CreateIssueControl(props: Props): JSX.Element {
         disabled ? (
             <Icon component={RectangleIcon} className='cvat-issue-control cvat-disabled-canvas-control' />
         ) : (
-            <CVATTooltip title='Open an issue' placement='right'>
+            <CVATTooltip title='设置问题' placement='right'>
                 <Icon
                     component={RectangleIcon}
                     className={
