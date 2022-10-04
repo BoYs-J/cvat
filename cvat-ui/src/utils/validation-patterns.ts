@@ -77,10 +77,10 @@ const validationPatterns = {
     },
 
     validateOrganizationSlug: {
-        pattern: /^[a-zA-Z\d]+$/,
-        message: '只允许使用英文、数字！',
-        // pattern: /^[\u4e00-\u9fa5a-zA-Z\d]+$/,
-        // message: '只允许使用中文、英文、数字！',
+        // pattern: /^[a-zA-Z\d]+$/,
+        // message: '只允许使用英文、数字！',
+        pattern: /^[\u4e00-\u9fa5a-zA-Z\d]+$/,
+        message: '只允许使用中文、英文、数字！',
     },
 
     validatePhoneNumber: {
