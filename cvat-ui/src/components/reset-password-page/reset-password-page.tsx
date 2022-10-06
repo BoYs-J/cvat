@@ -50,6 +50,7 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
 
     const { fetching, onResetPassword } = props;
     const { Content } = Layout;
+    const { ADMIN_DING_URL } = consts;
 
     return (
         <Layout>
@@ -67,7 +68,7 @@ function ResetPasswordPagePageComponent(props: ResetPasswordPageComponentProps):
                             <Col>
                                 <Text strong>
                                     无法重置密码？联系
-                                    <Link href={consts.ADMIN_DING_URL}> 管理员 </Link>
+                                    <Link href={ADMIN_DING_URL}> 管理员 </Link>
                                 </Text>
                             </Col>
                         </Row>
