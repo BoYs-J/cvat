@@ -630,7 +630,7 @@
                     totalSentSize: 0,
                     totalSize: file.size,
                     onUpdate: (percentage) => {
-                        onUpdate('The dataset is being uploaded to the server', percentage);
+                        onUpdate('正在将数据集上传到服务器', percentage);
                     },
                 };
                 const url = `${backendAPI}/projects/${id}/dataset`;
@@ -859,7 +859,7 @@
                                     // If request has been successful, but task hasn't been created
                                     // Then passed data is wrong and we can pass code 400
                                     const message = `
-                                        Could not create the task on the server. ${response.data.message}.
+                                        无法在服务器上创建任务 ${response.data.message}.
                                     `;
                                     reject(new ServerError(message, 400));
                                 } else {
@@ -867,7 +867,7 @@
                                     // Therefore it is server error and we can pass code 500
                                     reject(
                                         new ServerError(
-                                            `Unknown task state has been received: ${response.data.state}`,
+                                            `收到未知任务状态：${response.data.state}`,
                                             500,
                                         ),
                                     );
@@ -910,7 +910,7 @@
 
                 let response = null;
 
-                onUpdate('The task is being created on the server..', null);
+                onUpdate('正在服务器上创建任务..', null);
                 try {
                     response = await Axios.post(`${backendAPI}/tasks`, JSON.stringify(taskSpec), {
                         proxy: config.proxy,
@@ -923,7 +923,7 @@
                     throw generateError(errorData);
                 }
 
-                onUpdate('The data are being uploaded to the server..', null);
+                onUpdate('正在上传数据到服务器..', null);
 
                 async function bulkUpload(taskId, files) {
                     const fileBulks = files.reduce((fileGroups, file) => {
@@ -943,7 +943,7 @@
                             taskData.append(`client_files[${idx}]`, element);
                         }
                         const percentage = totalSentSize / totalSize;
-                        onUpdate('The data are being uploaded to the server', percentage);
+                        onUpdate('正在上传数据到服务器', percentage);
                         await Axios.post(`${backendAPI}/tasks/${taskId}/data`, taskData, {
                             ...params,
                             proxy: config.proxy,
@@ -967,7 +967,7 @@
                     const uploadConfig = {
                         endpoint: `${origin}${backendAPI}/tasks/${response.data.id}/data/`,
                         onUpdate: (percentage) => {
-                            onUpdate('The data are being uploaded to the server', percentage);
+                            onUpdate('正在上传数据到服务器', percentage);
                         },
                         chunkSize,
                         totalSize,
@@ -1177,7 +1177,7 @@
                     });
                 } catch (errorData) {
                     const code = errorData.response ? errorData.response.status : errorData.code;
-                    throw new ServerError(`Could not get preview frame for the task ${tid} from the server`, code);
+                    throw new ServerError(`无法从服务器获取 任务#${tid} 的预览帧`, code);
                 }
 
                 return response.data;
@@ -1525,7 +1525,7 @@
                             } else if (data.status === 'done') {
                                 resolve(data);
                             } else {
-                                throw new Error(`Unknown status was received "${data.status}"`);
+                                throw new Error(`收到未知状态 "${data.status}"`);
                             }
                         } catch (error) {
                             reject(error);
@@ -1564,7 +1564,7 @@
                                 predictAnnotations.latestRequest.fetching = false;
                                 resolve(data.annotation);
                             } else {
-                                throw new Error(`Unknown status was received "${data.status}"`);
+                                throw new Error(`收到未知状态 "${data.status}"`);
                             }
                         } catch (error) {
                             predictAnnotations.latestRequest.fetching = false;
