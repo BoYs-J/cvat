@@ -56,7 +56,7 @@ function ContextImage(): JSX.Element | null {
             <div className='cvat-context-image-wrapper-header' />
             {contextImageFetching ? <Spin size='small' /> : null}
             {contextImageHidden ? (
-                <CVATTooltip title='A context image is available'>
+                <CVATTooltip title='预览图像可用'>
                     <QuestionCircleOutlined
                         className='cvat-context-image-switcher'
                         onClick={() => dispatch(hideShowContextImage(false))}
@@ -72,7 +72,7 @@ function ContextImage(): JSX.Element | null {
                         {...(contextImageData ? { src: contextImageData } : {})}
                         onError={() => {
                             notification.error({
-                                message: 'Could not display context image',
+                                message: '无法显示预览图像',
                                 description: `Source is  ${
                                     contextImageData === null ? 'empty' : contextImageData.slice(0, 100)
                                 }`,
