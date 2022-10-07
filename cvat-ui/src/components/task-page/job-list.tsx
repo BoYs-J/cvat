@@ -84,6 +84,7 @@ function ReviewSummaryComponent({ jobInstance }: { jobInstance: any }): JSX.Elem
 
 function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
     moment.locale('zh-cn'); //中文时间
+    const { ZH_CN_TEXT } = consts; //中文字符集
     const {
         taskInstance,
         onJobUpdate,
@@ -164,7 +165,6 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             className: 'cvat-job-item-stage',
             render: (jobInstance: any): JSX.Element => {
                 const { stage } = jobInstance;
-                const { ZH_CN_TEXT } = consts; //中文字符集
                 return (
                     <div>
                         <Select
@@ -186,9 +186,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             },
             sorter: sorter('stage.stage'),
             filters: [
-                { text: ZH_CN_TEXT.stage[annotation], value: 'annotation' },
-                { text: ZH_CN_TEXT.stage[validation], value: 'validation' },
-                { text: ZH_CN_TEXT.stage[acceptance], value: 'acceptance' },
+                { text: `${ZH_CN_TEXT.stage[annotation]}`, value: 'annotation' },
+                { text: `${ZH_CN_TEXT.stage[validation]}`, value: 'validation' },
+                { text: `${ZH_CN_TEXT.stage[acceptance]}`, value: 'acceptance' },
             ],
             onFilter: (value: string | number | boolean, record: any) => record.stage.stage === value,
         },
@@ -198,7 +198,6 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             key: 'state',
             className: 'cvat-job-item-state',
             render: (jobInstance: any): JSX.Element => {
-                const { ZH_CN_TEXT } = consts; //中文字符集
                 const { state } = jobInstance;
                 return (
                     <Text type='secondary'>
