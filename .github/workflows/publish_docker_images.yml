@@ -24,7 +24,7 @@ jobs:
           UI_IMAGE_REPO: 'ui'
           TAG_NAME: 'v2.2.0'
         run: |
-          docker tag "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:latest" "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:"${TAG_NAME}"
+          docker tag "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:latest" "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:${TAG_NAME}"
           docker push "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:${TAG_NAME}"
 
         #  docker push "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:latest"
