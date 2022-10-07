@@ -28,7 +28,7 @@ const NEW_LABEL_COLOR = '#b3b3b3';
 const LATEST_COMMENTS_SHOWN_QUICK_ISSUE = 3;
 const QUICK_ISSUE_INCORRECT_POSITION_TEXT = 'Wrong position';
 const QUICK_ISSUE_INCORRECT_ATTRIBUTE_TEXT = 'Wrong attribute';
-const DEFAULT_PROJECT_SUBSETS = ['Train', 'Test', 'Validation'];
+const DEFAULT_PROJECT_SUBSETS = ['训练', '测试', '验证'];
 // const OUTSIDE_PIC_URL = 'https://opencv.github.io/cvat/images/image019.jpg';
 const OUTSIDE_PIC_URL = 'https://boys-j.github.io/cvat/images/cvat_outside129*300.png'; //中文提示图片
 const INTEL_TERMS_OF_USE_URL = 'https://www.intel.com/content/www/cn/zh/legal/terms-of-use.html';
@@ -102,9 +102,9 @@ const ZH_CN_TEXT:any = {
         'rejected': '驳回'
     },
     stage: {
-        'annotation': '注释',
-        'validation': '验证',
-        'acceptance': '接受'
+        'annotation': '⌨注释',
+        'validation': '👁验证',
+        'acceptance': '✔接受'
     },
     filter: {
         'ID': 'ID',

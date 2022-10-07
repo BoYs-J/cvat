@@ -62,7 +62,7 @@ function JobCardComponent(props: Props): JSX.Element {
                         />
                     ) : (
                         <div className='cvat-jobs-page-job-item-card-preview' onClick={onClick} aria-hidden>
-                            <Empty description='Preview not found' />
+                            <Empty description='未找到预览' />
                         </div>
                     )}
                     <div className='cvat-job-page-list-item-id'>
