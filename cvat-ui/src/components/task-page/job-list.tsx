@@ -84,7 +84,6 @@ function ReviewSummaryComponent({ jobInstance }: { jobInstance: any }): JSX.Elem
 
 function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
     moment.locale('zh-cn'); //中文时间
-    const { ZH_CN_TEXT } = consts; //中文字符集
     const {
         taskInstance,
         onJobUpdate,
@@ -174,9 +173,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                                 onJobUpdate(jobInstance);
                             }}
                         >
-                            <Select.Option value={JobStage.ANNOTATION}>{ZH_CN_TEXT.stage[annotation]}</Select.Option>
-                            <Select.Option value={JobStage.REVIEW}>{ZH_CN_TEXT.stage[validation]}</Select.Option>
-                            <Select.Option value={JobStage.ACCEPTANCE}>{ZH_CN_TEXT.stage[acceptance]}</Select.Option>
+                            <Select.Option value={JobStage.ANNOTATION}>{consts.ZH_CN_TEXT.stage[annotation]}</Select.Option>
+                            <Select.Option value={JobStage.REVIEW}>{consts.ZH_CN_TEXT.stage[validation]}</Select.Option>
+                            <Select.Option value={JobStage.ACCEPTANCE}>{consts.ZH_CN_TEXT.stage[acceptance]}</Select.Option>
                         </Select>
                         <CVATTooltip title={<ReviewSummaryComponent jobInstance={jobInstance} />}>
                             <QuestionCircleOutlined />
@@ -186,9 +185,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             },
             sorter: sorter('stage.stage'),
             filters: [
-                { text: '⌨注释', value: 'annotation' },
-                { text: '👁验证', value: 'validation' },
-                { text: '✔接受', value: 'acceptance' },
+                { text: `${consts.ZH_CN_TEXT.stage[annotation]}`, value: 'annotation' },
+                { text: `${consts.ZH_CN_TEXT.stage[validation]}`, value: 'validation' },
+                { text: `${consts.ZH_CN_TEXT.stage[acceptance]}`, value: 'acceptance' },
             ],
             onFilter: (value: string | number | boolean, record: any) => record.stage.stage === value,
         },
@@ -201,7 +200,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                 const { state } = jobInstance;
                 return (
                     <Text type='secondary'>
-                        {ZH_CN_TEXT.state[state]}
+                        {consts.ZH_CN_TEXT.state[state]}
                     </Text>
                 );
             },
