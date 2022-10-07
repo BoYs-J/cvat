@@ -164,6 +164,7 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             className: 'cvat-job-item-stage',
             render: (jobInstance: any): JSX.Element => {
                 const { stage } = jobInstance;
+                const { ZH_CN_TEXT } = consts; //中文字符集
                 return (
                     <div>
                         <Select
@@ -173,9 +174,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
                                 onJobUpdate(jobInstance);
                             }}
                         >
-                            <Select.Option value={JobStage.ANNOTATION}>{consts.ZH_CN_TEXT.stage[annotation]}</Select.Option>
-                            <Select.Option value={JobStage.REVIEW}>{consts.ZH_CN_TEXT.stage[validation]}</Select.Option>
-                            <Select.Option value={JobStage.ACCEPTANCE}>{consts.ZH_CN_TEXT.stage[acceptance]}</Select.Option>
+                            <Select.Option value={JobStage.ANNOTATION}>{ZH_CN_TEXT.stage[annotation]}</Select.Option>
+                            <Select.Option value={JobStage.REVIEW}>{ZH_CN_TEXT.stage[validation]}</Select.Option>
+                            <Select.Option value={JobStage.ACCEPTANCE}>{ZH_CN_TEXT.stage[acceptance]}</Select.Option>
                         </Select>
                         <CVATTooltip title={<ReviewSummaryComponent jobInstance={jobInstance} />}>
                             <QuestionCircleOutlined />
@@ -198,9 +199,10 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             className: 'cvat-job-item-state',
             render: (jobInstance: any): JSX.Element => {
                 const { state } = jobInstance;
+                const { ZH_CN_TEXT } = consts; //中文字符集
                 return (
                     <Text type='secondary'>
-                        {consts.ZH_CN_TEXT.state[state]}
+                        {ZH_CN_TEXT.state[state]}
                     </Text>
                 );
             },
