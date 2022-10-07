@@ -186,9 +186,9 @@ function JobListComponent(props: Props & RouteComponentProps): JSX.Element {
             },
             sorter: sorter('stage.stage'),
             filters: [
-                { text: `${ZH_CN_TEXT.stage[annotation]}`, value: 'annotation' },
-                { text: `${ZH_CN_TEXT.stage[validation]}`, value: 'validation' },
-                { text: `${ZH_CN_TEXT.stage[acceptance]}`, value: 'acceptance' },
+                { text: '⌨注释', value: 'annotation' },
+                { text: '👁验证', value: 'validation' },
+                { text: '✔接受', value: 'acceptance' },
             ],
             onFilter: (value: string | number | boolean, record: any) => record.stage.stage === value,
         },
