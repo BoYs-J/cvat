@@ -164,7 +164,7 @@ function HeaderContainer(props: Props): JSX.Element {
     } = props;
 
     const {
-        CHANGELOG_URL, ZERO_URL, GITTER_URL, GUIDE_URL, DISCORD_URL,
+        CHANGELOG_URL, ZERO_URL, GITTER_URL, GUIDE_URL, CVAT_AI_URL,
     } = consts;
 
     const history = useHistory();
@@ -172,10 +172,10 @@ function HeaderContainer(props: Props): JSX.Element {
 
     const showAboutModal = useCallback((): void => {
         Modal.info({
-            title: `${tool.name}`,
+            title: `计算机视觉注释工具`,
             content: (
                 <div>
-                    <p>{`${tool.description}`}</p>
+                    <p>CVAT 是来自加利福尼亚州尔湾市团队开发的图片、视频、3D注释工具，是完全重新设计和重新实现的版本。它是用于计算机视觉的免费、在线、交互式注释工具。我们的团队正在使用它来注释数百万个具有不同属性的对象，许多UI和UX决策都是基于专业数据注释团队的反馈。</p>
                     <p>
                         <Text strong>服务器版本：</Text>
                         <Text type='secondary'>{` ${tool.server.version}`}</Text>
@@ -209,8 +209,8 @@ function HeaderContainer(props: Props): JSX.Element {
                             </a>
                         </Col>
                         <Col>
-                            <a href={DISCORD_URL} target='_blank' rel='noopener noreferrer'>
-                                关于开发者
+                            <a href={CVAT_AI_URL} target='_blank' rel='noopener noreferrer'>
+                                CVAT官网
                             </a>
                         </Col>
                     </Row>

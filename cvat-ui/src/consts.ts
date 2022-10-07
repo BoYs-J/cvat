@@ -10,6 +10,7 @@ const LICENSE_URL = 'https://github.com/opencv/cvat/blob/develop/LICENSE';
 const GITTER_URL = 'https://gitter.im/opencv-cvat';
 const DISCORD_URL = 'https://discord.gg/fNR3eXfk6C';
 const GITHUB_URL = 'https://github.com/opencv/cvat';
+const CVAT_AI_URL = 'https://www.cvat.ai/'
 const ZERO_URL = 'https://www.cdzero.cn';
 const ZERO_EMAIL_URL = 'mailto:cvat@cdzero.cn';
 const ADMIN_DING_URL = 'dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=1gj-c35iwn4hxp';
@@ -21,7 +22,7 @@ const GUIDE_URL = 'https://opencv.github.io/cvat/docs';
 const SHARE_MOUNT_GUIDE_URL =
     'https://opencv.github.io/cvat/docs/administration/basics/installation/#share-path';
 const NUCLIO_GUIDE =
-    'https://opencv.github.io/cvat//docs/administration/advanced/installation_automatic_annotation/';
+    'https://opencv.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/';
 const DATASET_MANIFEST_GUIDE_URL = 'https://opencv.github.io/cvat/docs/manual/advanced/dataset_manifest/';
 const CANVAS_BACKGROUND_COLORS = ['#ffffff', '#f1f1f1', '#e5e5e5', '#d8d8d8', '#CCCCCC', '#B3B3B3', '#999999'];
 const NEW_LABEL_COLOR = '#b3b3b3';
@@ -168,6 +169,7 @@ export default {
     GITHUB_URL,
     GITHUB_IMAGE_URL,
     GUIDE_URL,
+    CVAT_AI_URL,
     ZERO_URL,
     ZERO_EMAIL_URL,
     ADMIN_DING_URL,
