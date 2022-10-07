@@ -24,9 +24,10 @@ jobs:
           UI_IMAGE_REPO: 'ui'
           TAG_NAME: 'v2.2.0'
         run: |
-          docker tag "cvat/${SERVER_IMAGE_REPO}:latest" "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:${TAG_NAME}"
+          docker tag "cvat/${SERVER_IMAGE_REPO}:${TAG_NAME}" "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:${TAG_NAME}"
           docker push "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:${TAG_NAME}"
-          docker push "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:latest"
+
+        #  docker push "${DOCKERHUB_WORKSPACE}/${SERVER_IMAGE_REPO}:latest"
 
         #  docker tag "${DOCKERHUB_WORKSPACE}/${UI_IMAGE_REPO}:latest" "${DOCKERHUB_WORKSPACE}/${UI_IMAGE_REPO}:${TAG_NAME}"
         #  docker push "${DOCKERHUB_WORKSPACE}/${UI_IMAGE_REPO}:${TAG_NAME}"
