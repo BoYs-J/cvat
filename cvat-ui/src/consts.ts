@@ -11,7 +11,7 @@ const GITTER_URL = 'https://gitter.im/opencv-cvat';
 const DISCORD_URL = 'https://discord.gg/fNR3eXfk6C';
 const GITHUB_URL = 'https://github.com/opencv/cvat';
 const CVAT_AI_URL = 'https://www.cvat.ai/'
-const ZERO_URL = 'https://www.cdzero.cn';
+const ZERO_URL = 'https://www. cdzero.cn';
 const ZERO_EMAIL_URL = 'mailto:cvat@cdzero.cn';
 const ADMIN_DING_URL = 'dingtalk://dingtalkclient/action/sendmsg?dingtalk_id=1gj-c35iwn4hxp';
 const ADMIN_QQ_URL = 'http://api.xtaoa.com/api/qqtalk.php?qq=2664993852';
