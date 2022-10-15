@@ -255,10 +255,30 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # https://github.com/pennersr/django-allauth
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # set UI url to redirect after a successful e-mail confirmation
 #changed from '/auth/login' to '/auth/email-confirmation' for email confirmation message
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/auth/email-confirmation'
+
+# 发送 QQ 邮件配置项
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ' ' #邮箱
+EMAIL_HOST_PASSWORD = ' ' #密码
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_SSL_CERTFILE = None
+EMAIL_SSL_KEYFILE = None
+EMAIL_TIMEOUT = None
+DEFAULT_FROM_EMAIL = ' ' #名称
+
+# The number of days a password reset link is valid for
+PASSWORD_RESET_TIMEOUT_DAYS = 0.021
+
+# The number of seconds a password reset link is valid for (default: 3 days).
+PASSWORD_RESET_TIMEOUT = 60 * 30
+
 
 OLD_PASSWORD_FIELD_ENABLED = True
 
