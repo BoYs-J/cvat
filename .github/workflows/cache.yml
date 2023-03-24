@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - 'develop'
-      - 'release-2.2.0'
+      - 'Jiang-2.2.0'
 
 jobs:
   Caching_CVAT:

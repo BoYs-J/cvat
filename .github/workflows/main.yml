@@ -5,7 +5,7 @@ on:
     branches:
       - 'master'
       - 'develop'
-      - 'release-2.2.0'
+      - 'Jiang-2.2.0'
   pull_request:
     types: [edited, ready_for_review, opened, synchronize, reopened]
     paths-ignore:
