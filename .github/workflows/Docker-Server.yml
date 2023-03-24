@@ -52,17 +52,17 @@ jobs:
           tags: cvat/server
           outputs: type=docker,dest=/tmp/cvat_server/image.tar
 
-      - name: 上传CVAT Server（Upload CVAT server artifact）
-        uses: actions/upload-artifact@v3
-        with:
-          name: cvat_server
-          path: /tmp/cvat_server/image.tar
+      # - name: 上传CVAT Server（Upload CVAT server artifact）
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: cvat_server
+      #     path: /tmp/cvat_server/image.tar
 
-      - name: 下载CVAT Server镜像（Download CVAT server images）
-        uses: actions/download-artifact@v3
-        with:
-          name: cvat_server
-          path: /tmp/cvat_server/
+      # - name: 下载CVAT Server镜像（Download CVAT server images）
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: cvat_server
+      #     path: /tmp/cvat_server/
 
       - name: 加载Docker镜像（Load Docker images）
         run: |
