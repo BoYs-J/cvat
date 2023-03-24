@@ -1,4 +1,4 @@
-name: 搜索缓存
+name: Search Cache
 on:
   workflow_call:
     outputs:
@@ -19,7 +19,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
     steps:
-      - name: 从默认分支获取带缓存的SHA（Getting SHA with cache from the default branch）
+      - name: Getting SHA with cache from the default branch
         id: get-sha
         run: |
           DEFAULT_BRANCH=$(gh api /repos/$REPO | jq -r '.default_branch')
