@@ -225,7 +225,7 @@ export default class LabelsEditor extends React.PureComponent<LabelsEditorProps,
                     tab={(
                         <span>
                             <EditOutlined />
-                            <Text>原始函数</Text>
+                            <Text>原始标签</Text>
                         </span>
                     )}
                     key='1'
@@ -237,7 +237,7 @@ export default class LabelsEditor extends React.PureComponent<LabelsEditorProps,
                     tab={(
                         <span>
                             <BuildOutlined />
-                            <Text>构建标签/函数</Text>
+                            <Text>构建标签</Text>
                         </span>
                     )}
                     key='2'
