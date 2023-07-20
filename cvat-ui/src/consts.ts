@@ -2,7 +2,6 @@
 // Copyright (C) 2022 CVAT.ai Corp
 //
 // SPDX-License-Identifier: MIT
-import cvat_outside129_300 from './assets/cvat_outside129_300.png';
 
 const UNDEFINED_ATTRIBUTE_VALUE = '__undefined__';
 const NO_BREAK_SPACE = '\u00a0';
@@ -35,7 +34,7 @@ const DEFAULT_PROJECT_SUBSETS = ['训练', '测试', '验证'];
 // const OUTSIDE_PIC_URL = 'https://boys-j.github.io/cvat/images/cvat_outside100_232.png'; //中文提示图片
 // const OUTSIDE_PIC_URL = 'https://www.cdzero.cn/download/cvat/images/cvat_outside129_300.png'; //中文提示图片
 // const OUTSIDE_PIC_URL = 'https://cdzero.gitee.io/zero/cvat/images/cvat_outside129_300.png'; //中文提示图片
-const OUTSIDE_PIC_URL = cvat_outside129_300; //中文提示图片
+const OUTSIDE_PIC_URL = '/img/cvat_outside129_300.png'; //中文提示图片
 const INTEL_TERMS_OF_USE_URL = 'https://www.intel.com/content/www/cn/zh/legal/terms-of-use.html';
 const INTEL_COOKIES_URL = 'https://www.intel.com/content/www/cn/zh/privacy/intel-cookie-notice.html';
 const INTEL_PRIVACY_URL = 'https://www.intel.com/content/www/cn/zh/privacy/intel-privacy-notice.html';
