@@ -3,8 +3,6 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'master'
-      - 'develop'
       - 'Jiang-2.2.0'
   pull_request:
     types: [edited, ready_for_review, opened, synchronize, reopened]
