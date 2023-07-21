@@ -1,10 +1,8 @@
-name: 推送Docker-Ui
+name: Docker-Ui
 on:
   workflow_dispatch:
   push:
     branches:
-      - 'master'
-      - 'develop'
       - 'Jiang-2.4.0'
   pull_request:
     types: [edited, ready_for_review, opened, synchronize, reopened]
