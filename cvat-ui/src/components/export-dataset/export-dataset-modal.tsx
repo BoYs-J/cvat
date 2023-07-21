@@ -88,7 +88,7 @@ function ExportDatasetModal(): JSX.Element {
 
     return (
         <Modal
-            title={`将 ${instanceType} 导出`}
+            title={`导出 ${instanceType}`}
             visible={modalVisible}
             onCancel={closeModal}
             onOk={() => form.submit()}
