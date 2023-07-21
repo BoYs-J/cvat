@@ -344,7 +344,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
         const { activeFileManagerTab } = this.state;
         return (
             <Col span={24}>
-                <Collapse>
+                <Collapse className='cvat-advanced-configuration-wrapper'>
                     <Collapse.Panel key='1' header={<Text className='cvat-title'>高级配置</Text>}>
                         <AdvancedConfigurationForm
                             dumpers={dumpers}

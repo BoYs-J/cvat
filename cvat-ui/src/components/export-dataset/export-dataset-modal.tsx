@@ -40,11 +40,11 @@ function ExportDatasetModal(): JSX.Element {
 
     const initActivities = (): void => {
         if (instance instanceof core.classes.Project) {
-            setInstanceType(`project #${instance.id}`);
+            setInstanceType(`项目 #${instance.id}`);
             setActivities(projectExportActivities[instance.id] || []);
         } else if (instance) {
             const taskID = instance instanceof core.classes.Task ? instance.id : instance.taskId;
-            setInstanceType(`task #${taskID}`);
+            setInstanceType(`任务 #${taskID}`);
             setActivities(taskExportActivities[taskID] || []);
             if (instance.mode === 'interpolation' && instance.dimension === '2d') {
                 form.setFieldsValue({ selectedFormat: 'CVAT for video 1.1' });
@@ -76,10 +76,10 @@ function ExportDatasetModal(): JSX.Element {
             );
             closeModal();
             Notification.info({
-                message: 'Dataset export started',
+                message: '数据集导出已启动',
                 description:
-                    `Dataset export was started for ${instanceType}. ` +
-                    'Download will start automatically as soon as the dataset is ready.',
+                    `已为 ${instanceType} 启动数据集导出，` +
+                    '一旦数据集准备就绪，下载就会自动开始。',
                 className: `cvat-notification-notice-export-${instanceType.split(' ')[0]}-start`,
             });
         },
@@ -88,7 +88,7 @@ function ExportDatasetModal(): JSX.Element {
 
     return (
         <Modal
-            title={`Export ${instanceType} as a dataset`}
+            title={`将 ${instanceType} 导出`}
             visible={modalVisible}
             onCancel={closeModal}
             onOk={() => form.submit()}
@@ -111,10 +111,10 @@ function ExportDatasetModal(): JSX.Element {
             >
                 <Form.Item
                     name='selectedFormat'
-                    label='Export format'
-                    rules={[{ required: true, message: 'Format must be selected' }]}
+                    label='导出格式'
+                    rules={[{ required: true, message: '必须选择格式' }]}
                 >
-                    <Select virtual={false} placeholder='Select dataset format' className='cvat-modal-export-select'>
+                    <Select virtual={false} placeholder='选择数据格式' className='cvat-modal-export-select'>
                         {dumpers
                             .sort((a: any, b: any) => a.name.localeCompare(b.name))
                             .filter((dumper: any): boolean => dumper.dimension === instance?.dimension)
@@ -139,11 +139,11 @@ function ExportDatasetModal(): JSX.Element {
                     </Select>
                 </Form.Item>
                 <Form.Item name='saveImages' valuePropName='checked' wrapperCol={{ offset: 8, span: 16 }}>
-                    <Checkbox>Save images</Checkbox>
+                    <Checkbox>保存图像</Checkbox>
                 </Form.Item>
-                <Form.Item label='Custom name' name='customName'>
+                <Form.Item label='自定义名称' name='customName'>
                     <Input
-                        placeholder='Custom name for a dataset'
+                        placeholder='自定义导出名称'
                         suffix='.zip'
                         className='cvat-modal-export-filename-input'
                     />
