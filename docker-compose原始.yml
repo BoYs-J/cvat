@@ -25,7 +25,7 @@ services:
 
   cvat_server:
     container_name: cvat_server
-    image: jiang103/server:${CVAT_VERSION:-v2.5.0}
+    image: cvat/server:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_redis
@@ -50,20 +50,13 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.services.cvat.loadbalancer.server.port=8080
-      - traefik.http.routers.cvat.rule=Host(`${CVAT_HOST:-10.10.0.150}`) &&
+      - traefik.http.routers.cvat.rule=Host(`${CVAT_HOST:-localhost}`) &&
         PathPrefix(`/api/`, `/git/`, `/opencv/`, `/static/`, `/admin`, `/documentation/`, `/django-rq`)
       - traefik.http.routers.cvat.entrypoints=web
-    # 启用https
-      - traefik.http.routers.cvats.entrypoints=webs
-      - traefik.http.routers.cvats.entrypoints=websecure
-      - traefik.http.routers.cvats.rule=Host(`${CVAT_HOST:-cvat.cdzero.cn}`) &&
-        PathPrefix(`/api/`, `/git/`, `/opencv/`, `/static/`, `/admin`, `/documentation/`, `/django-rq`)
-      - traefik.http.routers.cvats.tls.certresolver=lets-encrypt
     volumes:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
     networks:
       cvat:
         aliases:
@@ -71,7 +64,7 @@ services:
 
   cvat_utils:
     container_name: cvat_utils
-    image: jiang103/server:${CVAT_VERSION:-v2.5.0}
+    image: cvat/server:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_redis
@@ -96,7 +89,7 @@ services:
 
   cvat_worker_import:
     container_name: cvat_worker_import
-    image: jiang103/server:${CVAT_VERSION:-v2.5.0}
+    image: cvat/server:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_redis
@@ -114,13 +107,12 @@ services:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
     networks:
       - cvat
 
   cvat_worker_export:
     container_name: cvat_worker_export
-    image: jiang103/server:${CVAT_VERSION:-v2.5.0}
+    image: cvat/server:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_redis
@@ -143,7 +135,7 @@ services:
 
   cvat_worker_annotation:
     container_name: cvat_worker_annotation
-    image: jiang103/server:${CVAT_VERSION:-v2.5.0}
+    image: cvat/server:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_redis
@@ -161,13 +153,12 @@ services:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
     networks:
       - cvat
 
   cvat_worker_webhooks:
     container_name: cvat_worker_webhooks
-    image: jiang103/server:${CVAT_VERSION:-v2.5.0}
+    image: cvat/server:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_redis
@@ -186,13 +177,12 @@ services:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
     networks:
       - cvat
 
   cvat_worker_quality_reports:
     container_name: cvat_worker_quality_reports
-    image: jiang103/server:${CVAT_VERSION:-v2.5.0}
+    image: cvat/server:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_redis
@@ -214,20 +204,15 @@ services:
 
   cvat_ui:
     container_name: cvat_ui
-    image: jiang103/ui:${CVAT_VERSION:-v2.5.0}
+    image: cvat/ui:${CVAT_VERSION:-v2.5.0}
     restart: always
     depends_on:
       - cvat_server
     labels:
       - traefik.enable=true
       - traefik.http.services.cvat-ui.loadbalancer.server.port=80
-      - traefik.http.routers.cvat-ui.rule=Host(`${CVAT_HOST:-10.10.0.150}`)
+      - traefik.http.routers.cvat-ui.rule=Host(`${CVAT_HOST:-localhost}`)
       - traefik.http.routers.cvat-ui.entrypoints=web
-    # 启用https
-      - traefik.http.routers.cvat-uis.entrypoints=webs
-      - traefik.http.routers.cvat-uis.entrypoints=websecure
-      - traefik.http.routers.cvat-uis.rule=Host(`${CVAT_HOST:-cvat.cdzero.cn}`)
-      - traefik.http.routers.cvat-uis.tls.certresolver=lets-encrypt
     networks:
       - cvat
 
@@ -240,36 +225,24 @@ services:
       - '--providers.docker.network=cvat'
       - '--entryPoints.web.address=:8080'
       - '--providers.file.directory=/etc/traefik/rules'
-    # 启用https
-      - "--entryPoints.webs.address=:80"
-      - "--entryPoints.webs.http.redirections.entryPoint.to=websecure"
-      - "--entryPoints.webs.http.redirections.entryPoint.scheme=https"
-      - "--entryPoints.websecure.address=:443"
-      - "--certificatesResolvers.lets-encrypt.acme.email=${ACME_EMAIL:-2664993852@qq.com}"
-      - "--certificatesResolvers.lets-encrypt.acme.tlsChallenge=true"
-      - "--certificatesResolvers.lets-encrypt.acme.storage=/letsencrypt/acme.json"
     # Uncomment to get Traefik dashboard
-      - "--entryPoints.dashboard.address=:8090"
-      - "--api.dashboard=true"
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.dashboard.entrypoints=dashboard
-      - traefik.http.routers.dashboard.service=api@internal
-      - traefik.http.routers.dashboard.rule=Host(`${CVAT_HOST:-10.10.0.150}`)
+    #   - "--entryPoints.dashboard.address=:8090"
+    #   - "--api.dashboard=true"
+    # labels:
+    #   - traefik.enable=true
+    #   - traefik.http.routers.dashboard.entrypoints=dashboard
+    #   - traefik.http.routers.dashboard.service=api@internal
+    #   - traefik.http.routers.dashboard.rule=Host(`${CVAT_HOST:-localhost}`)
     ports:
       - 8080:8080
-      - 80:80
-      - 443:443
       - 8090:8090
     environment:
-      CVAT_HOST: ${CVAT_HOST:-10.10.0.150}
+      CVAT_HOST: ${CVAT_HOST:-localhost}
       DJANGO_LOG_VIEWER_HOST: grafana
       DJANGO_LOG_VIEWER_PORT: 3000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./components/analytics/grafana_conf.yml:/etc/traefik/rules/grafana_conf.yml:ro
-    # 启用https
-      - cvat_letsencrypt:/letsencrypt
     networks:
       - cvat
 
@@ -379,20 +352,11 @@ services:
           - grafana
 
 volumes:
-# 启用https
-  cvat_letsencrypt:
-
   cvat_db:
   cvat_data:
   cvat_keys:
   cvat_logs:
   cvat_events_db:
-#共享路径
-  # cvat_share:
-  #   driver_opts:
-  #     type: none
-  #     device: /home/cvat/CVAT-DATA
-  #     o: bind
 
 networks:
   cvat:

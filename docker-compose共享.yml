@@ -63,7 +63,7 @@ services:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
+      - cvat_share:/home/django/share:ro #共享路径
     networks:
       cvat:
         aliases:
@@ -114,7 +114,7 @@ services:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
+      - cvat_share:/home/django/share:ro #共享路径
     networks:
       - cvat
 
@@ -161,7 +161,7 @@ services:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
+      - cvat_share:/home/django/share:ro #共享路径
     networks:
       - cvat
 
@@ -186,7 +186,7 @@ services:
       - cvat_data:/home/django/data
       - cvat_keys:/home/django/keys
       - cvat_logs:/home/django/logs
-      # - cvat_share:/home/django/share:ro #共享路径
+      - cvat_share:/home/django/share:ro #共享路径
     networks:
       - cvat
 
@@ -388,11 +388,11 @@ volumes:
   cvat_logs:
   cvat_events_db:
 #共享路径
-  # cvat_share:
-  #   driver_opts:
-  #     type: none
-  #     device: /home/cvat/CVAT-DATA
-  #     o: bind
+  cvat_share:
+    driver_opts:
+      type: none
+      device: /home/cvat/CVAT-DATA
+      o: bind
 
 networks:
   cvat:

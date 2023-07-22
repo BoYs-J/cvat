@@ -1,9 +1,9 @@
 name: CVAT Docker Server
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'Jiang-2.5.0'
+  # push:
+  #   branches:
+  #     - 'Jiang-2.5.0'
   pull_request:
     types: [ready_for_review, opened, synchronize, reopened]
     paths-ignore:
