@@ -2,7 +2,7 @@ name: Cache
 on:
   push:
     branches:
-      - 'Jiang-2.7.6'
+      - 'develop'
 
 jobs:
   get-sha:
