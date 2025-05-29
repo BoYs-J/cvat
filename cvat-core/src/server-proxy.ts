@@ -1394,7 +1394,8 @@ function getPreview(instance: 'projects' | 'tasks' | 'jobs' | 'cloudstorages' | 
 
         let response = null;
         try {
-            const url = `${backendAPI}/${instance}/${id}/preview`;
+            // const url = `${backendAPI}/${instance}/${id}/preview`;
+            const url = "/imgNone.png"; //不想加载预览图
             response = await Axios.get(url, {
                 responseType: 'blob',
             });
