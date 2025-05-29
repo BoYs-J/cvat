@@ -10,6 +10,7 @@ import { LeftOutlined, MoreOutlined } from '@ant-design/icons';
 import Button from 'antd/lib/button';
 import Dropdown from 'antd/lib/dropdown';
 import Text from 'antd/lib/typography/Text';
+import AnnotationInfo from '../../annotation-info';
 
 import ActionsMenuContainer from 'containers/actions-menu/actions-menu';
 
@@ -51,7 +52,8 @@ export default function DetailsComponent(props: DetailsComponentProps): JSX.Elem
                     </Button>
                 )}
             </Col>
-            <Col>
+            <Col style={{ display: "flex", gap: "20px" }}>
+                <AnnotationInfo dataInfo={taskInstance} info="task" />
                 <Dropdown
                     trigger={['click']}
                     destroyPopupOnHide

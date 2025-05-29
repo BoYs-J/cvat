@@ -28,6 +28,7 @@ import { useIsMounted } from 'utils/hooks';
 import UserSelector from 'components/task-page/user-selector';
 import CVATTooltip from 'components/common/cvat-tooltip';
 import JobActionsMenu from './job-actions-menu';
+import AnnotationInfo from 'annotation-info';
 
 interface Props {
     job: Job;
@@ -118,7 +119,7 @@ function JobItem(props: Props): JSX.Element {
             <Card className='cvat-job-item' style={{ ...style }} data-row-id={job.id}>
                 <Row align='middle'>
                     <Col span={7}>
-                        <Row>
+                        <Row align="middle">
                             <Col>
                                 <Link to={`/tasks/${job.taskId}/jobs/${job.id}`}>{`Job #${job.id}`}</Link>
                             </Col>
@@ -135,6 +136,7 @@ function JobItem(props: Props): JSX.Element {
                                     </Col>
                                 )
                             }
+                            <AnnotationInfo dataInfo={job} info="job" style={{ marginLeft: 10 }} />
                         </Row>
                         <Row className='cvat-job-item-dates-info'>
                             <Col>

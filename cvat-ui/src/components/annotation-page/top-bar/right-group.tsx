@@ -5,7 +5,7 @@
 
 import React, { useEffect, useCallback } from 'react';
 import { Col } from 'antd/lib/grid';
-import Icon, { InfoCircleOutlined } from '@ant-design/icons';
+import Icon, { InfoCircleOutlined, PieChartOutlined } from '@ant-design/icons';
 import Select from 'antd/lib/select';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
@@ -19,6 +19,7 @@ import {
 import { Workspace } from 'reducers';
 
 import MDEditor from '@uiw/react-md-editor';
+import AnnotationInfo from 'annotation-info';
 
 interface Props {
     showStatistics(): void;
@@ -104,7 +105,7 @@ function RightGroup(props: Props): JSX.Element {
     }, []);
 
     return (
-        <Col className='cvat-annotation-header-right-group'>
+        <Col className='cvat-annotation-header-right-group' style={{ alignItems: 'center' }}>
             <Button
                 type='link'
                 className='cvat-annotation-header-fullscreen-button cvat-annotation-header-button'
@@ -119,35 +120,44 @@ function RightGroup(props: Props): JSX.Element {
                 }}
             >
                 <Icon component={FullscreenIcon} />
-                Fullscreen
+                全屏
             </Button>
-            { jobInstance.guideId !== null && (
+            {jobInstance.guideId !== null && (
                 <Button
                     type='link'
                     className='cvat-annotation-header-guide-button cvat-annotation-header-button'
                     onClick={openGuide}
                 >
                     <Icon component={GuideIcon} />
-                    Guide
+                    指南
                 </Button>
             )}
+            <AnnotationInfo dataInfo={jobInstance} info='job' >
+                <Button
+                    type='link'
+                    className='cvat-annotation-header-fullscreen-button cvat-annotation-header-button'
+                >
+                    <PieChartOutlined />
+                    统计
+                </Button>
+            </AnnotationInfo>
             <Button
                 type='link'
                 className='cvat-annotation-header-info-button cvat-annotation-header-button'
                 onClick={showStatistics}
             >
                 <InfoCircleOutlined />
-                Info
+                信息
             </Button>
             <Button
                 type='link'
                 className={`cvat-annotation-header-filters-button cvat-annotation-header-button ${filters ?
                     'filters-armed' : ''
-                }`}
+                    }`}
                 onClick={showFilters}
             >
                 <Icon component={FilterIcon} />
-                Filters
+                筛选
             </Button>
             <div>
                 <Select

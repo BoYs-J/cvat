@@ -208,9 +208,9 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                     className: 'cvat-modal-cannot-connect-server',
                     closable: false,
                     content:
-    <Text>
-        {SERVER_UNAVAILABLE_COMPONENT}
-    </Text>,
+                        <Text>
+                            {SERVER_UNAVAILABLE_COMPONENT}
+                        </Text>,
                 });
             });
 
@@ -538,7 +538,7 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                                         <Route exact path='/invitations' component={InvitationsPage} />
                                         <Route exact path='/organization' component={OrganizationPage} />
                                         <Route exact path='/requests' component={RequestsPage} />
-                                        { routesToRender }
+                                        {routesToRender}
                                         {isModelPluginActive && (
                                             <Route
                                                 path='/models'
@@ -562,7 +562,7 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                                     <ImportBackupModal />
                                     <InvitationWatcher />
                                     <UploadFileStatusModal />
-                                    { loggedInModals.map((Component, idx) => (
+                                    {loggedInModals.map((Component, idx) => (
                                         <Component key={idx} targetProps={this.props} targetState={this.state} />
                                     ))}
                                     {/* eslint-disable-next-line */}
@@ -596,7 +596,7 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                             )}
 
                             <Route exact path='/auth/email-confirmation' component={EmailConfirmationPage} />
-                            { routesToRender }
+                            {routesToRender}
                             <Redirect
                                 to={location.pathname.length > 1 ? `/auth/login?next=${location.pathname}` : '/auth/login'}
                             />
@@ -617,7 +617,8 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
         }
 
         return (
-            <Spin size='large' fullscreen className='cvat-spinner' tip='Connecting...' />
+            <Spin size='large' className='cvat-spinner' />
+            // <Spin size='large' fullscreen style={{backgroundColor: "#ffffff"}} className='cvat-spinner' tip='加载中' />
         );
     }
 }
